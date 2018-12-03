@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_111936) do
+ActiveRecord::Schema.define(version: 2018_12_03_135711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "registration_number"
+    t.integer "estimated_kilometers"
+    t.text "why_selling"
+    t.string "picture"
+    t.integer "exact_kilometer"
+    t.string "location"
+    t.string "car_brand"
+    t.date "year_of_production"
+    t.text "car_registration_document"
+    t.date "first_registration_date"
+    t.string "fuel_type"
+    t.string "gearbox"
+    t.string "model_type"
+    t.string "model_version"
+    t.string "model_variant"
+    t.text "announce_description"
+    t.integer "maximum_net_power"
+    t.string "commercial_name"
+    t.integer "CNIT_code"
+    t.integer "VIN_code"
+    t.string "cylinder"
+    t.integer "fiscal_horsepower"
+    t.integer "seating_place_number"
+    t.integer "door_number"
+    t.integer "CO2_emission"
+    t.string "environmental_class"
+    t.date "next_technical_control_date"
+    t.integer "given_price"
+    t.integer "estimated_price"
+    t.text "maintenance_record"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +60,13 @@ ActiveRecord::Schema.define(version: 2018_12_03_111936) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.date "birth_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "users"
 end
