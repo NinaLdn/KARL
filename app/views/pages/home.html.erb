@@ -2,7 +2,8 @@
 <p>Estimez le vrai prix de votre voiture</p>
 
 <%= simple_form_for @car do |f| %>
-  <%= f.input :registration_number, as: :integer %>
+  <%= f.input :registration_number, as: :string %>
   <%= f.input :estimated_kilometers, as: :range %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
+

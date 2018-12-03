@@ -1,0 +1,6 @@
+<h1>EDIT PAGE</h1>
+<p>Votre kilométrage exacte:</p>
+<%= simple_form_for @car do |f| %>
+  <%= f.input :exact_kilometer, as: :integer %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
