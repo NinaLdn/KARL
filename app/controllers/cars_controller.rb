@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :first_estimation, :start]
+  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation]
   def index
     # FOR ALL CARS OF 1 USER
     @cars = Booking.all
@@ -29,11 +29,17 @@ class CarsController < ApplicationController
   def edit
     # USER STORY 4 et 5: Edit info complementaires
     # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
+    # @car = Car.find(params[:id])
   end
 
   def update
     # USER STORY 4 et 5: Edit info complementaires
     # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
+    if @car.update(car_params)
+      redirect_to car_path(@car)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -47,10 +53,14 @@ class CarsController < ApplicationController
   end
 
   def start
-    # USER STORY 3
+    # USER STORY 3 : EDIT
     # @car = Car.find(params[:id])
   end
 
+  def final_validation
+    # USER STORY 3 : EDIT
+    # @car = Car.find(params[:id])
+  end
   def final_message
     # USER STORY 6: MESSAGE DE VALIDATION QUE L'ANNONCE EST BIEN POSTEE
   end
