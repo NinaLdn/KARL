@@ -2,5 +2,17 @@
 <p>Votre kilométrage exacte:</p>
 <%= simple_form_for @car do |f| %>
   <%= f.input :exact_kilometer, as: :integer %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= f.submit "Next", class: "btn btn-primary" %>
 <% end %>
+
+<p>Vos photos:</p>
+
+<p>Why do you sell your car?:</p>
+<%= simple_form_for @car do |f| %>
+  <%= f.input :why_selling, as: :text %>
+  <%= f.submit "Next", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to final_validation_car_path(@car) do %>
+  <button class="btn btn_primary">Done</button>
+<%end%>
