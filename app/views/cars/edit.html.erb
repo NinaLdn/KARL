@@ -7,6 +7,21 @@
 
 <p>Vos photos:</p>
 
+<%= simple_form_for(@car) do |f| %>
+  <div class="photo-edit">
+    <h3>Ajouter des photos de votre voiture</h3>
+    <div class="photo-upload-features">
+      <%= f.input :photo_1, class: "photo-upload" %>
+      <%= f.input :photo_1_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.input :photo_2, class: "photo-upload"  %>
+      <%= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.input :photo_3, class: "photo-upload" %>
+      <%= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
+    </div>
+  </div>
+  <%end%>
+
+
 <p>Why do you sell your car?:</p>
 <%= simple_form_for @car do |f| %>
   <%= f.input :why_selling, as: :text %>
@@ -15,4 +30,4 @@
 
 <%= link_to final_validation_car_path(@car) do %>
   <button class="btn btn_primary">Done</button>
-<%end%>
+<% end %>
