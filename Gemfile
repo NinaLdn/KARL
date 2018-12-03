@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.5'
 
-
+# nos Gem
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 gem 'bootsnap', require: false
