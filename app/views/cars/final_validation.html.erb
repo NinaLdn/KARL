@@ -2,6 +2,21 @@
 <p>Votre annonce:</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid corporis nam dicta quidem et necessitatibus veniam ea, quis est, mollitia dignissimos voluptatibus quos eligendi labore? Natus, aliquid incidunt pariatur quis?</p>
 <p>Price: 7000 euros</p>
+
+<p><%= @car.registration_number %></p>
+<p><%= @car.estimated_kilometers %></p>
+<p><%= @car.exact_kilometer %></p>
+<p><%= @car.why_selling %></p>
+
+<p></p>
+
+<!-- les photos -->
+<%= cl_image_tag @car.photo_1, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @car.photo_2, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @car.photo_3, height: 300, width: 400, crop: :fill %>
+
+<p></p>
+<!-- le lien pour l'étape suivante-->
 <%= link_to final_message_car_path(@car) do %>
   <button class="btn btn_primary">Validate</button>
 <%end%>

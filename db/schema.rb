@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_152427) do
+ActiveRecord::Schema.define(version: 2018_12_03_202918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2018_12_03_152427) do
     t.string "registration_number"
     t.integer "estimated_kilometers"
     t.text "why_selling"
-    t.string "picture"
     t.integer "exact_kilometer"
     t.string "location"
     t.string "car_brand"
@@ -49,6 +48,9 @@ ActiveRecord::Schema.define(version: 2018_12_03_152427) do
     t.text "maintenance_record"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_1"
+    t.string "photo_2"
+    t.string "photo_3"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

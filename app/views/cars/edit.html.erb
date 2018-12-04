@@ -1,18 +1,28 @@
 <h1>EDIT PAGE</h1>
-<p>Votre kilométrage exacte:</p>
-<%= simple_form_for @car do |f| %>
-  <%= f.input :exact_kilometer, as: :integer %>
-  <%= f.submit "Next", class: "btn btn-primary" %>
-<% end %>
 
-<p>Vos photos:</p>
-
-<p>Why do you sell your car?:</p>
-<%= simple_form_for @car do |f| %>
-  <%= f.input :why_selling, as: :text %>
-  <%= f.submit "Next", class: "btn btn-primary" %>
-<% end %>
+<%= simple_form_for(@car) do |f| %>
+  <div class="kilometers-edit">
+    <p>Votre kilométrage exacte:</p>
+    <%= f.input :exact_kilometer, as: :integer %>
+  </div>
+  <div class="photo-edit">
+    <h3>Ajouter des photos de votre voiture</h3>
+    <div class="photo-upload-features">
+      <%= f.input :photo_1, class: "photo-upload" %>
+      <%= f.input :photo_1_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.input :photo_2, class: "photo-upload"  %>
+      <%= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.input :photo_3, class: "photo-upload" %>
+      <%= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
+    </div>
+  </div>
+  <div class="description-edit">
+    <p>Why do you sell your car?:</p>
+    <%= f.input :why_selling, as: :text %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%end%>
 
 <%= link_to final_validation_car_path(@car) do %>
   <button class="btn btn_primary">Done</button>
-<%end%>
+<% end %>
