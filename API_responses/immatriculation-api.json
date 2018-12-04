@@ -1,0 +1,67 @@
+{
+  "ABICode": "",
+  "Description": "RENAULT MODUS",
+  "RegistrationYear": "2009",
+  "CarMake": {
+    "CurrentTextValue": "RENAULT"
+  },
+  "CarModel": {
+    "CurrentTextValue": "MODUS"
+  },
+  "EngineSize": {
+    "CurrentTextValue": "6"
+  },
+  "FuelType": {
+    "CurrentTextValue": "Essence"
+  },
+  "MakeDescription": {
+    "CurrentTextValue": "RENAULT"
+  },
+  "ModelDescription": {
+    "CurrentTextValue": "MODUS"
+  },
+  "Immobiliser": {
+    "CurrentTextValue": ""
+  },
+  "IndicativeValue": {
+    "CurrentTextValue": ""
+  },
+  "DriverSide": {
+    "CurrentTextValue": ""
+  },
+  "BodyStyle": {
+    "CurrentTextValue": "Berline 5 portes"
+  },
+  "RegistrationDate": "15042009",
+  "ImageUrl":
+"http:\/\/immatriculationapi.com\/image.aspx\/@UkVOQVVMVCBNT0RVUw==",
+  "ExtendedData": {
+    "anneeSortie": "2009",
+    "boiteDeVitesse": "M",
+    "carburantVersion": "E",
+    "carrosserieVersion": "21",
+    "classeSra": "I",
+    "libVersion": "TCE 100 EXCEPTION",
+    "libelleModele": "MODUS",
+    "marque": "RE",
+    "modele": "70",
+    "produit": "A1",
+    "puissance": "6",
+    "version": "204",
+    "cleCarrosserie": "2199BE5",
+    "groupeSra": "30",
+    "nbPlace": "5",
+    "datePremiereMiseCirculation": "15042009",
+    "questionBatterie": "N",
+    "electrique": "N",
+    "genre": null,
+    "typeVehicule": "99",
+    "numSerieMoteur": "VF1JP0W0541168026",
+    "valeurANeufSRA": "",
+    "niveauRisqueVol": "0",
+    "protectionConstructeur": "S7",
+    "puissanceDyn": "100",
+    "segmentVeh": "B"
+  }
+}
+
