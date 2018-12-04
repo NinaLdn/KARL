@@ -45,6 +45,30 @@
       <p><%= @car.estimated_price %></p>
   </div>
 
+<p></p>
+<h2>Votre voiture a elle des dommages ? (rayures, probleme d'embraillage, Courroie de distribution à changer..)</h2>
+<%= link_to new_car_damage_path(@car) do %>
+  <button class="btn btn_primary">Ajouter un dommage</button>
+<% end %>
+<p></p>
+<div class="damages">
+  <% @car.damages.each do |damage| %>
+    <h2><%= damage.title %></h2>
+    <p><%= damage.description %></p>
+    <%= cl_image_tag damage.picture_1, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag damage.picture_2, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag damage.picture_3, height: 300, width: 400, crop: :fill %>
+    <%= link_to edit_car_damage_path(@car, damage) do %>
+      <button class="btn btn_primary">Edit</button>
+    <% end %>
+    <%= link_to 'Delete',
+             car_damage_path(@car, damage),
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
+
+<p></p>
 
 <!-- le lien pour l'étape suivante-->
 <%= link_to final_message_car_path(@car) do %>
