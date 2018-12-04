@@ -1,9 +1,22 @@
-<h1>Marre de vous faire avoir?</h1>
-<p>Estimez le vrai prix de votre voiture</p>
+<div class="main-container">
+  <div class="body-row">
 
-<%= simple_form_for @car do |f| %>
-  <%= f.input :registration_number, as: :string %>
-  <%= f.input :estimated_kilometers, as: :range %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+    <div class="main-title">
+      <h1>Marre de vous faire avoir?</h1>
+    </div>
+    <div class="comment-title">
+      <p>Estimez le vrai prix de votre voiture.</p>
+    </div>
+    <div class="first-form">
+      <%= simple_form_for @car do |f| %>
+        <%= f.input :registration_number, as: :string %>
+        <%= f.input :estimated_kilometers, as: :range %>
+        <%= f.submit "Submit", class: "btn btn-submit" %>
+      <% end %>
+    </div>
+
+
+
+  </div>
+</div>
 
