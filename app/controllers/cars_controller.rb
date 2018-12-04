@@ -29,13 +29,13 @@ class CarsController < ApplicationController
   def edit
     # USER STORY 4 et 5: Edit info complementaires
     # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
-    @car = Car.find(params[:id])
   end
 
   def update
     # USER STORY 4 et 5: Edit info complementaires
     # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
     # if
+    @car = Car.find(params[:id])
     @car.update(car_params)
     redirect_to final_validation_car_path(@car)
     # else

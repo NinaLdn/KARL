@@ -20,6 +20,7 @@
     <p>Why do you sell your car?:</p>
     <%= f.input :why_selling, as: :text %>
   </div>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
   <%end%>
 
 <%= link_to final_validation_car_path(@car) do %>
