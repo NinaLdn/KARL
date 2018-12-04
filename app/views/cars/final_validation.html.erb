@@ -1,21 +1,50 @@
-<h1>LAST EDIT PAGE</h1>
-<p>Votre annonce:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid corporis nam dicta quidem et necessitatibus veniam ea, quis est, mollitia dignissimos voluptatibus quos eligendi labore? Natus, aliquid incidunt pariatur quis?</p>
-<p>Price: 7000 euros</p>
+<div class="karl-container">
 
-<p><%= @car.registration_number %></p>
-<p><%= @car.estimated_kilometers %></p>
-<p><%= @car.exact_kilometer %></p>
-<p><%= @car.why_selling %></p>
+<h1>Validez votre annonce</h1>
 
-<p></p>
+  <!-- les photos -->
+  <div class="add-picture-wrapper">
 
-<!-- les photos -->
-<%= cl_image_tag @car.photo_1, height: 300, width: 400, crop: :fill %>
-<%= cl_image_tag @car.photo_2, height: 300, width: 400, crop: :fill %>
-<%= cl_image_tag @car.photo_3, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @car.photo_3, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @car.photo_2, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @car.photo_1, height: 300, width: 400, crop: :fill %>
 
-<!-- les eventuels dommages -->
+  </div>
+
+  <div class="add-info-wrapper">
+
+    <div>
+      <p><%= @car.model_type %> <%= @car.model_version %></p>
+      <p><%= @car.first_registration_date %></p>
+    </div>
+
+    <div>
+      <p><%= @car.fiscal_horsepower %></p>
+      <p><%= @car.fuel_type %></p>
+    </div>
+
+    <div>
+      <p><%= @car.gearbox %></p>
+      <p><%= @car.door_number %></p>
+    </div>
+
+    <div>
+      <p><%= @car.exact_kilometer %></p>
+    </div>
+  </div>
+
+  <div class="add-description-wrapper">
+
+    <p>Votre annonce:</p>
+    <p>"Bonjour, je vend ma <%= @car.car_brand %> <%= @car.model_type %> sur <%= car.location %>. Je dois m'en séparer car je <%= @car.why_selling? %>."</p>
+
+
+  </div>
+
+  <div class="add-final-price">
+      <p><%= @car.estimated_price %></p>
+  </div>
+
 <p></p>
 <h2>Votre voiture a elle des dommages ? (rayures, probleme d'embraillage, Courroie de distribution à changer..)</h2>
 <%= link_to new_car_damage_path(@car) do %>
@@ -40,7 +69,10 @@
 </div>
 
 <p></p>
+
 <!-- le lien pour l'étape suivante-->
 <%= link_to final_message_car_path(@car) do %>
   <button class="btn btn_primary">Validate</button>
 <%end%>
+
+</div>
