@@ -1,0 +1,90 @@
+{ \
+            "accident": false, \
+            "alloyWheelSize": 18
+            "availability": \
+            {\
+              "availabilityType": 3, \
+              "deliveryDays": 7 \
+            }, \
+            "bodyColor": 2, \
+            "bodyColorName": "metallic blue", \
+            "cabOrRental": false, \
+            "countryVersion": "AT", \
+            "cylinderCapacity": 1400, \
+            "cylinders": 4, \
+            "description": "This is the description field for 4000 characters!", \
+            "doors": 5, \
+            "driveType": "R", \
+            "emission": \
+            { \
+              "co2": 23, \
+              "efficiencyClass": 2, \
+              "emissionsSticker": 1, \
+              "particleFilter": true, \
+              "pollutionClass": 1, \
+              "fuel": \
+              { \
+                "primaryFuelType": 1, \
+                "additionalSupportedFuelTypes": [2, 3], \
+                "consumption": \
+                { \
+                    "electricConsumptionCombined": 6.6, \
+                    "fuelConsumptionUrban": 4.7, \
+                    "fuelConsumptionHighway": 5.2, \
+                    "fuelConsumptionCombined": 6.1 \
+                } \
+              } \
+            }, \
+            "emptyWeight": 1200, \
+            "equipment": [1, 2, 4, 15], \
+            "firstRegistration": "2011-11", \
+            "fuelCategory": "B", \
+            "gears": 6, \
+            "hsn": "1240", \
+            "identifier": \
+            { \
+              "crossReference": "DATX_002", \
+              "offerReference": "A12453" \
+            }, \
+            "interiorColor": 1, \
+            "includedServices": [1, 2], \
+            "licencePlateNumber": "D13-MM45", \
+            "maintenance": \
+            { \
+               "fullServiceHistory": true, \
+               "lastCamBeltService": "2013-12", \
+               "lastTechnicalService": "2013-02", \
+               "nextInspection": "2020-11" \
+            }, \
+            "make": 13, \
+            "metallic": true, \
+            "mileage": 20000, \
+            "model": 20223, \
+            "modelVersion": "Avant", \
+            "nonSmoking": true, \
+            "powerKw": 65, \
+            "previousOwners": 1, \
+            "prices": [ \
+            { \
+              "priceType": "Public", \
+              "negotiable": true, \
+              "price": 9000, \
+              "taxDeductible": true, \
+              "currency": "EUR" \
+            }, \
+            { \
+               "priceType": "Dealer", \
+               "price": 8500, \
+               "currency": "EUR" \
+            }], \
+            "seals": [102], \
+            "seats": 5, \
+            "transmission": "M", \
+            "tsn": "936", \
+            "upholstery": "AL", \
+            "vehicleBody": 1, \
+            "vehicleOfferType": "U", \
+            "vehicleType": "C", \
+            "vin": "AB023475861123745", \
+            "warrantyMonths": 30 \
+          }'
