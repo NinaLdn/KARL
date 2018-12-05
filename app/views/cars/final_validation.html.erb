@@ -5,9 +5,31 @@
   <!-- les photos -->
   <div class="add-picture-wrapper">
 
-  <%= cl_image_tag @car.photo_3, height: 300, width: 400, crop: :fill %>
-  <%= cl_image_tag @car.photo_2, height: 300, width: 400, crop: :fill %>
-  <%= cl_image_tag @car.photo_1, height: 300, width: 400, crop: :fill %>
+    <div class="final-validation-caroussel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+        <div class="car-caroussel-indicators">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+        </div>
+
+        <div class="carousel-inner" role="listbox" >
+          <div class="item active">
+            <img class="d-block w-100" src="<%= @car.photo_1%>" alt="First slide">
+          </div>
+          <div class="item">
+            <img class="d-block w-100" src="<%= @car.photo_2%>" alt="Second slide">
+          </div>
+          <div class="item">
+            <img class="d-block w-100" src="<%= @car.photo_3%>" alt="Third slide">
+          </div>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 
@@ -56,9 +78,33 @@
   <% @car.damages.each do |damage| %>
     <h2><%= damage.title %></h2>
     <p><%= damage.description %></p>
-    <%= cl_image_tag damage.picture_1, height: 300, width: 400, crop: :fill %>
-    <%= cl_image_tag damage.picture_2, height: 300, width: 400, crop: :fill %>
-    <%= cl_image_tag damage.picture_3, height: 300, width: 400, crop: :fill %>
+
+    <div class="second-final-validation-caroussel">
+      <div id="secondCarouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+        <div class="car-caroussel-indicators">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+        </div>
+
+        <div class="carousel-inner" role="listbox" >
+          <div class="item active">
+            <img class="d-block w-100" src="<%= damage.picture_1%>" alt="First slide">
+          </div>
+          <div class="item">
+            <img class="d-block w-100" src="<%= damage.picture_2%>" alt="Second slide">
+          </div>
+          <div class="item">
+            <img class="d-block w-100" src="<%= damage.picture_3%>" alt="Third slide">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <%= link_to edit_car_damage_path(@car, damage) do %>
       <button class="btn btn_primary">Edit</button>
     <% end %>
@@ -66,7 +112,7 @@
              car_damage_path(@car, damage),
                          method: :delete,
                          data: { confirm: 'Are you sure?' } %>
-  <% end %>
+    <% end %>
 </div>
 
 <p></p>
