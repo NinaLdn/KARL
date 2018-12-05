@@ -21,13 +21,11 @@
     </div>
     <div class="col-xs-12 first-form ">
       <%= simple_form_for @car do |f| %>
-
         <label for="reg-number">Numéro de plaque d'immatriculation : </label>
-        <%= f.input :registration_number, as: :string, id:"reg-number", placeholder:"EG258MA"%>
-
-        <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider', min: '0', max: '1000000'}%>
+        <%= f.input :registration_number, as: :string, id:"reg-number", placeholder:"EG258MA", label:"Numéro de plaque d'immatriculation"%>
+        <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider', min: '0', max: '800000'}%>
         <!-- <input type="range" value="45" data-tooltip="true" id='slider'> -->
-        <label for="ex11">Kilométrage estimé : </label>
+        <label for="ex11">Kilométrage estimé</label>
         <input id="ex11" type="text"/>
         <%= f.submit "Prix", class: "btn btn-submit" %>
       <% end %>
