@@ -1,0 +1,31 @@
+.add-picture-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#carouselExampleIndicators {
+  display: flex;
+  justify-content: center;
+}
+
+.final-validation-caroussel {
+  height: 300px;
+}
+
+.carousel-inner {
+  height: 300px;
+}
+
+.item {
+  height: 300px;
+  width: 100%;
+  img {
+    height: 300px !important;
+  }
+}
+
+.second-final-validation-caroussel {
+  display: flex;
+  justify-content: center;
+}
+

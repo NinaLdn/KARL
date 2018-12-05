@@ -1,0 +1,146 @@
+// GET - Response-Body
+{
+    "recognition": {
+        "brand": "Ford",
+        "model": "s-max",
+        "generation": "II",
+        "phase": 1,
+        "id_carBody": 14,
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "carBody": "Minivan",
+        "doors": 5,
+        "finition": "titanium",
+        "displacement": "2.0",
+        "power": 150,
+        "version": "TDCI 150 STOP&START TITANIUM POWERSHIFT",
+        "km": 80000,
+        "dt_entry_service": "2015-08-25T00:00:00.000Z",
+        "dt_valuation": null,
+        "scoreRecognition": 0.7905694150420949,
+        "scoreValuation": 0.4877896114031211
+    },
+    "warnings": [],
+    "value": {
+        "c": 17470,
+        "b": 20020
+    },
+    "transaction": {
+        "c": 17470,
+        "b": 20020,
+        "nego": 0,
+        "rotation": 60,
+        "deval": {
+            "250": -0.1070406410990269,
+            "500": -0.12020606754436176,
+            "750": -0.1327990841442473,
+            "1000": -0.1453921007441328,
+            "1250": -0.15741270749856898,
+            "1500": -0.16943331425300515,
+            "1750": -0.18145392100744132,
+            "2000": -0.19290211791642817,
+            "fixe": -0.09387521465369204
+        },
+        "forecast": [
+            {
+                "days": 30,
+                "value": 19960,
+                "delta": -60
+            },
+            {
+                "days": 60,
+                "value": 19910,
+                "delta": -110
+            },
+            {
+                "days": 90,
+                "value": 19850,
+                "delta": -170
+            }
+        ]
+    },
+    "market": {
+        "price": {
+            "0.01": 17492,
+            "0.05": 18500,
+            "0.25": 21500,
+            "0.5": 24854,
+            "0.75": 27900,
+            "0.95": 31990,
+            "0.99": 34423
+        },
+        "km": {
+            "0.01": 7164,
+            "0.05": 11827,
+            "0.25": 19332,
+            "0.5": 35236,
+            "0.75": 56554,
+            "0.95": 76692,
+            "0.99": 122684
+        },
+        "age": {
+            "0.01": 197,
+            "0.05": 328,
+            "0.25": 561,
+            "0.5": 698,
+            "0.75": 926,
+            "0.95": 1043,
+            "0.99": 1292
+        }
+    },
+    "urlAutovisual": "https://www.autovisual.com/fr/url?u=/cote/Ford%2FS_Max%2FS-Max--II--Monospace--1%2F2015-08%2F80000km%2F1%2F1%2FTitanium%2F5%2F2.0L-150ch%2FTDCI_150_STOP%26START_TITANIUM_POWERSHIFT%2F-%2F-%2F-%2Ffr&cypher=SmTYWEiSwIhwhyFKwl+WhJlGqs0DY0Cs4BhWhzHCk",
+    "possibilities": [
+        {
+            "generation": "II",
+            "phase": 1,
+            "fuel": "Diesel",
+            "transmission": "Manual",
+            "carBody": "Minivan",
+            "doors": 5,
+            "finition": "titanium",
+            "version": "TDCI 150 STOP&START TITANIUM",
+            "displacement": "2.0",
+            "power": 150,
+            "startDate": "2015-05-24T22:00:00.000Z",
+            "endDate": "2017-03-19T23:00:00.000Z",
+            "score": 0.7905694150420949
+        },
+        {
+            "generation": "II",
+            "phase": 1,
+            "fuel": "Diesel",
+            "transmission": "Manual",
+            "carBody": "Minivan",
+            "doors": 5,
+            "finition": "titanium",
+            "version": "TDCI 150 STOP&START TITANIUM I-AWD",
+            "displacement": "2.0",
+            "power": 150,
+            "startDate": "2015-05-24T22:00:00.000Z",
+            "endDate": "2016-01-17T23:00:00.000Z",
+            "score": 0.7513428837969107
+        },
+        {
+            "generation": "II",
+            "phase": 1,
+            "fuel": "Diesel",
+            "transmission": "Automatic",
+            "carBody": "Minivan",
+            "doors": 5,
+            "finition": "titanium",
+            "version": "TDCI 150 STOP&START TITANIUM POWERSHIFT",
+            "displacement": "2.0",
+            "power": 150,
+            "startDate": "2015-05-24T22:00:00.000Z",
+            "endDate": "2017-03-19T23:00:00.000Z",
+            "score": 0.7905694150420949
+        }
+    ],
+    "status": {
+        "ip": "92.154.83.106",
+        "id_api": "demo",
+        "apiType": "exemple",
+        "time": "93ms"
+    }
+}
+

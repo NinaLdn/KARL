@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_202918) do
+ActiveRecord::Schema.define(version: 2018_12_05_144639) do
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +29,6 @@ ActiveRecord::Schema.define(version: 2018_12_03_202918) do
     t.string "car_brand"
     t.date "year_of_production"
     t.text "car_registration_document"
-    t.date "first_registration_date"
     t.string "fuel_type"
     t.string "gearbox"
     t.string "model_type"
@@ -51,7 +54,22 @@ ActiveRecord::Schema.define(version: 2018_12_03_202918) do
     t.string "photo_1"
     t.string "photo_2"
     t.string "photo_3"
+    t.string "body"
+    t.integer "dealership_price"
+    t.integer "first_registration_date"
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "damages", force: :cascade do |t|
+    t.bigint "car_id"
+    t.string "title"
+    t.text "description"
+    t.string "picture_1"
+    t.string "picture_2"
+    t.string "picture_3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_damages_on_car_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,4 +89,5 @@ ActiveRecord::Schema.define(version: 2018_12_03_202918) do
   end
 
   add_foreign_key "cars", "users"
+  add_foreign_key "damages", "cars"
 end

@@ -1,9 +1,30 @@
-<h1>Marre de vous faire avoir?</h1>
-<p>Estimez le vrai prix de votre voiture</p>
+<div class="main-container">
 
-<%= simple_form_for @car do |f| %>
-  <%= f.input :registration_number, as: :string %>
-  <%= f.input :estimated_kilometers, as: :range %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+  <div class="row body-row" id="header-row">
 
+    <div class="col-xs-12 home-title header__bg text-left">
+      <div class="main-title " id="main-title">
+        <h1>Arrêtez de vous faire rouler</h1>
+      </div>
+    </div>
+  </div>
+
+ <div class="row body-row">
+    <div class="comment-title" id="comment-title">
+      <p>Estimez le vrai prix de votre voiture</p>
+    </div>
+    <div class="col-xs-12 first-form ">
+      <%= simple_form_for @car do |f| %>
+
+        <label for="reg-number">Numéro de plaque d'immatriculation : </label>
+        <%= f.input :registration_number, as: :string, id:"reg-number"%>
+        <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider', min: '0', max: '1000000'}%>
+        <!-- <input type="range" value="45" data-tooltip="true" id='slider'> -->
+        <label for="ex11">Kilométrage estimé : </label>
+        <input id="ex11" type="text"/>
+        <%= f.submit "Prix", class: "btn btn-submit" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

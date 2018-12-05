@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     # get 'start'
   end
   resources :cars do
+    resources :damages, only: [:new, :create, :edit, :update, :destroy]
     member do
       get 'first_estimation', to: "cars#first_estimation"                      # collection => no restaurant id in URL
       get 'start', to: "cars#start"  # RestaurantsController#top
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
       get 'final_validation', to: "cars#final_validation"
       get 'final_message', to: "cars#final_message"
       get 'dashboard', to: 'cars#dashboard'
+
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
