@@ -1,6 +1,6 @@
 <h1>First estimation</h1>
-<p>Notre Estimation: 7000 euros</p>
-<p>Prix concessionnaire: 5000 euros</p>
+<p>Notre Estimation: <%= @car.estimated_price %></p>
+<p>Prix concessionnaire: <%= @car.exstimated_price * 1.5 %> euros</p>
 <%= link_to start_car_path(@car) do %>
   <button class="btn btn_primary">Go to start</button>
 <%end%>
