@@ -1,25 +1,8 @@
-import "bootstrap";
-import Slider from 'bootstrap-slider';
-import 'bootstrap-slider/dist/css/bootstrap-slider';
+// import slider from 'shared/slider'
+import getValueForSlider from 'shared/slider'
+import initChart from 'shared/price_chart'
 
-
-
-var slider = new Slider("#ex11", {
-  step: 20000,
-  min: 0,
-  max: 1000000
-});
-
-
-function getValueForSlider() {
-  const handle = slider.handle1
-  slider.on('slideStop', (event) => {
-    const trueSlider = document.getElementById('trueSlider')
-    console.log(trueSlider)
-    trueSlider.value = event;
-  })
-}
-
-getValueForSlider()
+getValueForSlider();
+initChart()
 
 // slider.addEventListener('click', event => console.log(event))
