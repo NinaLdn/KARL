@@ -2,6 +2,8 @@ require "json"
 require "rest-client"
 require 'nokogiri'
 require 'open-uri'
+require 'net/http'
+require 'date'
 
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation]
@@ -30,31 +32,32 @@ class CarsController < ApplicationController
 
     url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=vincentbrass"
     immatriculation_xml_data = Nokogiri::XML(open(url_immatriculation).read)
-    vehicule_json = immatriculation_xml_data.text.strip
-    raise
+    vehicule_json = immatriculation_xml_data.at_css("vehicleJson").text
+    # vehicule_json = immatriculation_xml_data.xpath("//vehicleJson")
+    # vehicule_json = immatriculation_xml_data.text.strip
     # immatriculation_xml_data.root.xpath('Vehicle').each do |vehicle|
-    #   vehicle_json = vehicle.xpath('vehicleJson')
+    #   name = vehicle.xpath('vehicleJson').text
     # end
     # immatriculation_response = RestClient.get(url_immatriculation)
     # immatriculation_data = JSON.parse(immatriculation_response, {symbolize_names: true})
     immatriculation_data = JSON.parse(vehicule_json, {symbolize_names: true})
-    car_attributes = {
-      car_brand: immatriculation_data.dig(:MakeDescription),
-      model_type: immatriculation_data.dig(:ModelDescription),
-      model_variant: immatriculation_data.dig(:modele),
-      gearbox: immatriculation_data.dig(:boiteDeVitesse),
-      fuel_type: immatriculation_data.dig(:FuelType),
-      seating_place_number: immatriculation_data.dig(:nbPlace),
-      first_registration_date: immatriculation_data.dig(:RegistrationDate),
-      fiscal_horsepower: immatriculation_data.dig(:EngineSize),
-      maximum_net_power: immatriculation_data.dig(:puissanceDyn),
-      body: immatriculation_data.dig(:BodyStyle),
+    @car.update_attributes(
+      car_brand: immatriculation_data.dig(:MakeDescription)[:CurrentTextValue],
+      model_type: immatriculation_data.dig(:ModelDescription)[:CurrentTextValue],
+      model_variant: immatriculation_data.dig(:ExtendedData, :modele),
+      gearbox: immatriculation_data.dig(:ExtendedData, :boiteDeVitesse),
+      # fuel_type: immatriculation_data.dig(:FuelType)[:CurrentTextValue],
+      fuel_type: 'gasoline',
+      seating_place_number: immatriculation_data.dig(:ExtendedData, :nbPlace),
+      first_registration_date: immatriculation_data[:RegistrationDate],
+      fiscal_horsepower: immatriculation_data.dig(:EngineSize)[:CurrentTextValue],
+      maximum_net_power: immatriculation_data.dig(:ExtendedData, :puissanceDyn),
+      body: immatriculation_data.dig(:BodyStyle)[:CurrentTextValue],
       estimated_kilometers: 120002
-    }
-    raise
+    )
     # create or upate car?
-
-    @car = Car.save!(car_attributes)
+    @car.save
+    # @car = Car.save!(car_attributes)
 
     # call second api
 
@@ -64,17 +67,19 @@ class CarsController < ApplicationController
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-    request = Net::HTTP::Post.new(url)
+    request = Net::HTTP::Post.new(url_autovisual)
+    date_string = @car.first_registration_date.to_s
+    date_autovisual = Date.parse("#{date_string.last(4)}-#{date_string[2..3]}-#{date_string.first(2)}")
     request["content-type"] = 'application/json'
-    request.body = "{\"key\":\"18Tzw994VXvkZ6GrrfVY796hLtcCYdv6nLwnk1V8KcsT\",\"txt\":\"#{@car.brand} #{@car.type} #{@car.model_type} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{@car.first_registration_date}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
-    autovisual_response = http.request(request)
+    request.body = "{\"key\":\"18Tzw994VXvkZ6GrrfVY796hLtcCYdv6nLwnk1V8KcsT\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{date_autovisual}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
+    autovisual_response = http.request(request).read_body
     market_data = JSON.parse(autovisual_response, {symbolize_names: true})
 
-    car_new_attributes = {
-      estimated_price: autovisual_data.dig(:value, :c)
-    }
+    @car.update_attributes(
+      estimated_price: market_data.dig(:value, :c)
+    )
 
-    @car = Car.update(car_new_attributes)
+    @car.save
 
     if @car.save
       redirect_to first_estimation_car_path(@car)
