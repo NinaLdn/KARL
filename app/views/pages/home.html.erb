@@ -1,18 +1,19 @@
 <div class="main-container">
 
-  <div class="row body-row header-row">
-    <div class="home-title ">
-      <div class="main-title header__bg">
+  <div class="row body-row" id="header-row">
+
+    <div class="col-xs-12 home-title header__bg text-left">
+      <div class="main-title " id="main-title">
         <h1>Marre de vous faire avoir?</h1>
       </div>
-      <div class="comment-title">
+      <div class="comment-title" id="comment-title">
         <p>Estimez le vrai prix de votre voiture.</p>
       </div>
     </div>
   </div>
 
  <div class="row body-row">
-    <div class="first-form Section Content">
+    <div class="col-xs-12 first-form ">
       <%= simple_form_for @car do |f| %>
         <%= f.input :registration_number, as: :string %>
         <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider', min: '0', max: '1000000'}%>
