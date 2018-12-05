@@ -1,7 +1,7 @@
 <h1>First estimation</h1>
-<p>Your car x (car.car_brand), produced x (car.year_of_production ) with approximately x km (car.estimated_kilometers</p>
-<p>Notre Estimation: 7000 euros (KARL calculation)</p>
-<p>Prix concessionnaire: 5000 euros (API)</p>
+<p>Que pouvez vous obtenir pour votre <%= @car.brand %> <%= @car.model %></p>
+<p>Notre Estimation: <%= @car.estimated_price %> euros </p>
+<p>Prix concessionnaire: <%= @car.estimated_price / 1.4 %> euros</p>
 <%= link_to start_car_path(@car) do %>
   <button class="btn btn_primary">Let's go</button>
 <%end%>
