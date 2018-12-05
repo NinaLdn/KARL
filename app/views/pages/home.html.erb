@@ -15,7 +15,7 @@
  <div class="row body-row">
     <div class="col-xs-12 first-form ">
       <%= simple_form_for @car do |f| %>
-        <%= f.input :registration_number, as: :string %>
+        <%= f.input :registration_number, as: :string%>
         <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider', min: '0', max: '1000000'}%>
         <!-- <input type="range" value="45" data-tooltip="true" id='slider'> -->
         <input id="ex11" type="text" data-slider-handle="custom"/>
