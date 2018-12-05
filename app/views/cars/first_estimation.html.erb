@@ -1,8 +1,14 @@
 <h1>First estimation</h1>
+<<<<<<< HEAD
+<p>Que pouvez vous obtenir pour votre <%= @car.brand %> <%= @car.model %></p>
+<p>Notre Estimation: <%= @car.estimated_price %> euros </p>
+<p>Prix concessionnaire: <%= @car.estimated_price / 1.4 %> euros</p>
+=======
 
 <p>Notre Estimation: <%= @car.estimated_price %> €</p>
 <p>Prix concessionnaire: <%= @car.estimated_price * 1.5 %> €</p>
 
+>>>>>>> master
 <%= link_to start_car_path(@car) do %>
   <button class="btn btn_primary">Let's go</button>
 <%end%>
