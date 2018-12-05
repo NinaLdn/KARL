@@ -1,14 +1,18 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation]
+  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :dashboard]
+
   def index
     # FOR ALL CARS OF 1 USER
-    @cars = Booking.all
+    @cars = Car.all
   end
 
   def show
     # FOR THE TECHNICAL DATA SEEH OF 1 CAR
-    # @car = Car.find(params[:id])
   end
+
+  def dashboard
+  end
+
 
   def new
     # USER STORY 1: HOME PAGE
@@ -48,9 +52,9 @@ class CarsController < ApplicationController
 
   def first_estimation
     # USER STORY 2
-    # @car = Car.find(params[:id])
-    # pricing API Argus pour estimation du prix
-    # redirect_to start page
+    @car = Car.find(params[:id])
+    @karl_price = #Pricing Api
+    redirect_to start page
   end
 
   def start
@@ -62,6 +66,7 @@ class CarsController < ApplicationController
     # USER STORY 3 : EDIT
     # @car = Car.find(params[:id])
   end
+
   def final_message
     # USER STORY 6: MESSAGE DE VALIDATION QUE L'ANNONCE EST BIEN POSTEE
   end
@@ -75,5 +80,4 @@ private
   def car_params
     params.require(:car).permit(:registration_number, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3)
   end
-
 end
