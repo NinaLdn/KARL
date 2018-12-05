@@ -7,13 +7,9 @@ require 'date'
 
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation]
-  # def index
-  #   # FOR ALL CARS OF 1 USER
-  #   @cars = Car.all
-  # end
 
   def show
-    # FOR THE TECHNICAL DATA SEEH OF 1 CAR
+    # FOR THE TECHNICAL DATA SHEET OF 1 CAR = FINAL VALIDATION
     # @car = Car.find(params[:id])
   end
 
@@ -28,18 +24,9 @@ class CarsController < ApplicationController
     @car.user = current_user
     @car.registration_number = params[:car][:registration_number]
 
-    # call first API
-
     url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=vincentbrass"
     immatriculation_xml_data = Nokogiri::XML(open(url_immatriculation).read)
     vehicule_json = immatriculation_xml_data.at_css("vehicleJson").text
-    # vehicule_json = immatriculation_xml_data.xpath("//vehicleJson")
-    # vehicule_json = immatriculation_xml_data.text.strip
-    # immatriculation_xml_data.root.xpath('Vehicle').each do |vehicle|
-    #   name = vehicle.xpath('vehicleJson').text
-    # end
-    # immatriculation_response = RestClient.get(url_immatriculation)
-    # immatriculation_data = JSON.parse(immatriculation_response, {symbolize_names: true})
     immatriculation_data = JSON.parse(vehicule_json, {symbolize_names: true})
     @car.update_attributes(
       car_brand: immatriculation_data.dig(:MakeDescription)[:CurrentTextValue],
@@ -89,12 +76,12 @@ class CarsController < ApplicationController
   end
 
   def edit
-    # USER STORY 4 et 5: Edit info complementaires
+    # USER STORY 4: EDIT EXACT INFO
     # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
   end
 
   def update
-    # USER STORY 4 et 5: Edit info complementaires
+    # USER STORY 4: EDIT EXACT INFO
     # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
     # if
     @car = Car.find(params[:id])
@@ -106,26 +93,29 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    # USER STORY 7 : DELETE ANNOUNCE AND GOT BACK TO THE HOME PAGE
+    @car.destroy
+    redirect_to root_path
   end
 
   def first_estimation
-    # USER STORY 2
+    # USER STORY 2: SHOW DE LA FIRST ESTIMATION
     # @car = Car.find(params[:id])
     # pricing API Argus pour estimation du prix
     # redirect_to start page
   end
 
   def start
-    # USER STORY 3 : EDIT
+    # USER STORY 3 : CALL TO ACTION "START"
     # @car = Car.find(params[:id])
   end
 
   def final_validation
-    # USER STORY 3 : EDIT
+    # USER STORY 5 : SHOW DU FORM + EDIT
     # @car = Car.find(params[:id])
   end
   def final_message
-    # USER STORY 6: MESSAGE DE VALIDATION QUE L'ANNONCE EST BIEN POSTEE
+    # USER STORY 6: MESSAGE DE VALIDATION FINALE
   end
 
 private
