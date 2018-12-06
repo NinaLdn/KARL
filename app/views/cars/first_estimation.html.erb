@@ -1,13 +1,16 @@
-<h1>First estimation</h1>
+<div class ="main-container">
+  <h1>First estimation</h1>
 
-<p>Que pouvez vous obtenir pour votre <strong> <%= @car.car_brand %> <%= @car.model_type %> </strong></p>
-<p>l'estimation Karl: <%= @car.estimated_price %> euros </p>
-<p>Prix concessionnaire: <%= @car.estimated_price / 1.4 %> euros</p>
+  <p>Que pouvez vous obtenir pour votre <strong> <%= @car.car_brand %> <%= @car.model_type %> </strong></p>
+  <p>l'estimation Karl: <%= @car.estimated_price %> euros </p>
+  <p>Prix concessionnaire: <%= @car.estimated_price / 1.4 %> euros</p>
 
-<div id=chart>
-<canvas id="myChart" width="400" height="400"></canvas>
+  <div id=chart>
+  <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+
+  <%= link_to start_car_path(@car) do %>
+    <button class="btn btn_primary">Let's go</button>
+  <%end%>
+
 </div>
-
-<%= link_to start_car_path(@car) do %>
-  <button class="btn btn_primary">Let's go</button>
-<%end%>
