@@ -8,8 +8,11 @@ const slider = new Slider("#ex11", {
   max: 1000000
 });
 
-const getValueForSlider = () => {
+const kilometer = () => {
+  console.log('hello')
+
   const handle = slider.handle1
+  console.log(handle);
   slider.on('slideStop', (event) => {
     const trueSlider = document.getElementById('trueSlider')
     if (trueSlider){
@@ -18,4 +21,4 @@ const getValueForSlider = () => {
   });
 };
 
-export { getValueForSlider }
+export { kilometer }

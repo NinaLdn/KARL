@@ -1,5 +1,5 @@
 
-const initChart = () => {
+const priceChart = () => {
   const ctx = document.getElementById("myChart").getContext('2d');
   if(ctx){
     const myChart = new Chart(ctx, {
@@ -42,4 +42,4 @@ const initChart = () => {
 };
 // myChart.insertAdjacentHTML('afterend', "<div id='chart'></div>")
 
-export { initChart }
+export { priceChart }

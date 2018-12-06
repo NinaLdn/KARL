@@ -1,8 +1,7 @@
 // import slider from 'shared/slider'
-import getValueForSlider from 'shared/slider'
-import initChart from 'shared/price_chart'
+import {kilometer} from 'shared/kilometer';
+import {priceChart} from 'shared/price_chart';
 
-getValueForSlider();
-initChart()
+priceChart();
+kilometer();
 
-// slider.addEventListener('click', event => console.log(event))
