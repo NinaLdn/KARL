@@ -2,14 +2,16 @@
   <h3>Notre estimation</h3>
 
   <p>Que pouvez vous obtenir pour votre <strong> <%= @car.car_brand %> <%= @car.model_type %> </strong></p>
+
   <div class="info-row" >
     <div class="col-xs-6" style='display:inline-block'>
+      <div style="padding:10px; text-align: center"> <%= image_tag "Karl32.png" %> </div>
       <div style="padding:10px">  </div>
-      <p style="text-align: center"> <strong> <%= @car.estimated_price %> € </strong></p>
+      <p style="text-align: center"> <strong> <%= number_to_currency(@car.estimated_price, unit:"€", format: "%n %u") %></strong></p>
     </div>
     <div class="col-xs-6" style='display:inline-block; text-align: center'>
-      <div style="padding:10px"> <%= image_tag "004-dealer.png" %> </div>
-      <p><%= @car.estimated_price / 1.4 %> €</p>
+      <div style="padding:10px"> <%= image_tag "002-salesman.png" %> </div>
+      <p><%= number_to_currency((@car.estimated_price / 1.4), unit:"€", format: "%n %u") %></p>
     </div>
   </div>
   <div id=chart>
