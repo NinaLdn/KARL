@@ -40,16 +40,15 @@ class CarsController < ApplicationController
       # fuel_type: immatriculation_data.dig(:FuelType)[:CurrentTextValue],
       fuel_type: 'gasoline',
       seating_place_number: immatriculation_data.dig(:ExtendedData, :nbPlace),
-      first_registration_date: immatriculation_data[:RegistrationDate],
+      registration_date: Date.parse("#{immatriculation_data[:RegistrationDate].last(4)}-#{immatriculation_data[:RegistrationDate][2..3]}-#{immatriculation_data[:RegistrationDate].first(2)}"),
       fiscal_horsepower: immatriculation_data.dig(:EngineSize)[:CurrentTextValue],
       maximum_net_power: immatriculation_data.dig(:ExtendedData, :puissanceDyn),
       body: immatriculation_data.dig(:BodyStyle)[:CurrentTextValue],
-      estimated_kilometers: 120002
+      estimated_kilometers: @car.estimated_kilometers
     )
     # create or upate car?
     @car.save
     # @car = Car.save!(car_attributes)
-
     # call second api
 
     url_autovisual = URI("https://api.autovisual.com/v2/av")
@@ -59,15 +58,14 @@ class CarsController < ApplicationController
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Post.new(url_autovisual)
-    date_string = @car.first_registration_date.to_s
-    date_autovisual = Date.parse("#{date_string.last(4)}-#{date_string[2..3]}-#{date_string.first(2)}")
+    # date_string = @car.registration_date.to_s
+    # date_autovisual = Date.parse("#{date_string.last(4)}-#{date_string[2..3]}-#{date_string.first(2)}")
     request["content-type"] = 'application/json'
-    request.body = "{\"key\":\"18Tzw994VXvkZ6GrrfVY796hLtcCYdv6nLwnk1V8KcsT\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{date_autovisual}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
+    request.body = "{\"key\":\"18Tzw994VXvkZ6GrrfVY796hLtcCYdv6nLwnk1V8KcsT\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{@car.registration_date}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
     autovisual_response = http.request(request).read_body
     market_data = JSON.parse(autovisual_response, {symbolize_names: true})
     @car.update_attributes(
-      estimated_price: market_data.dig(:value, :c),
-      first_registration_date: date_autovisual
+      estimated_price: market_data.dig(:value, :c)
     )
 
     @car.save
@@ -107,7 +105,7 @@ class CarsController < ApplicationController
     # USER STORY 2: SHOW DE LA FIRST ESTIMATION
     # @car = Car.find(params[:id])
     # pricing API Argus pour estimation du prix
-    # redirect_to start page 
+    # redirect_to start page
   end
 
   def start
