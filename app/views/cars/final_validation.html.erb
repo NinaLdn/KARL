@@ -1,4 +1,4 @@
-<div class="karl-container">
+<div class="karl-container" style='padding:10px'>
 
 <h1>Validez votre annonce:</h1>
 
@@ -33,10 +33,11 @@
 
   </div>
 
+  <h4>Infos véhicules</h4>
   <div class="add-info-wrapper">
 
     <div>
-      <p><%= @car.model_type %> <%= @car.model_version %></p>
+      <p><%= @car.car_brand %> <%= @car.model_type %> <%= @car.model_version %></p>
       <p><%= @car.first_registration_date %></p>
     </div>
 
