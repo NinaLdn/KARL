@@ -4,9 +4,14 @@
     <h1>Rendez-vous près de votre voiture</h1>
   </div>
 
-  <div class="start-button">
+  <div class="icon-car">
+    <i class="fas fa-car fa-3x"></i>
+    <!-- <i class="fas fa-car-side"></i> -->
+  </div>
+
+  <div class="start-button-box">
     <%= link_to edit_car_path(@car) do %>
-      <button class="btn btn-submit">Start</button>
+      <button class="btn btn-submit start-button">Start</button>
     <%end%>
   </div>
 
