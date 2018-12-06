@@ -1,0 +1,27 @@
+.start-title {
+  text-align: center;
+  margin-top: 70px;
+}
+
+#start-title{
+  font-size: 35px;
+
+}
+.start-button-box{
+  margin-top: -30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.car-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  img {
+    max-block-size: 250px;
+  }
+
+
+}

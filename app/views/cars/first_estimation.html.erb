@@ -1,16 +1,24 @@
-<div class ="main-container">
-  <h1>First estimation</h1>
+<div class ="main-container" style="padding:15px">
+  <h3>Notre estimation</h3>
 
   <p>Que pouvez vous obtenir pour votre <strong> <%= @car.car_brand %> <%= @car.model_type %> </strong></p>
-  <p>l'estimation Karl: <%= @car.estimated_price %> euros </p>
-  <p>Prix concessionnaire: <%= @car.estimated_price / 1.4 %> euros</p>
-
+  <div class="info-row" >
+    <div class="col-xs-6" style='display:inline-block'>
+      <div style="padding:10px">  </div>
+      <p style="text-align: center"> <strong> <%= @car.estimated_price %> € </strong></p>
+    </div>
+    <div class="col-xs-6" style='display:inline-block; text-align: center'>
+      <div style="padding:10px"> <%= image_tag "004-dealer.png" %> </div>
+      <p><%= @car.estimated_price / 1.4 %> €</p>
+    </div>
+  </div>
   <div id=chart>
   <canvas id="myChart" width="400" height="400"></canvas>
   </div>
 
-  <%= link_to start_car_path(@car) do %>
-    <button class="btn btn_primary">Let's go</button>
-  <%end%>
-
+  <div style='text-align: center; padding:10px'>
+    <%= link_to start_car_path(@car) do %>
+      <button class="btn btn_primary">Let's go</button>
+    <%end%>
+  </div>
 </div>
