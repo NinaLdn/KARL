@@ -12,8 +12,8 @@
   <div class="photo-edit">
     <h3>Ajouter des photos du dommage</h3>
     <div class="photo-upload-features">
-      <%= f.input :picture_1, class: "photo-upload" %>
-      <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.input :picture_1, class: "photo-upload", capture: "camera"%>
+      <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload"%>
       <%= f.input :picture_2, class: "photo-upload"  %>
       <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
       <%= f.input :picture_3, class: "photo-upload" %>

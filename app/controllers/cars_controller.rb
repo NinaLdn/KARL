@@ -6,12 +6,16 @@ require 'net/http'
 require 'date'
 
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation]
+  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :dashboard]
 
   def show
     # FOR THE TECHNICAL DATA SHEET OF 1 CAR = FINAL VALIDATION
     # @car = Car.find(params[:id])
   end
+
+  def dashboard
+  end
+
 
   def new
     # USER STORY 1: HOME PAGE
@@ -99,10 +103,11 @@ class CarsController < ApplicationController
   end
 
   def first_estimation
+
     # USER STORY 2: SHOW DE LA FIRST ESTIMATION
     # @car = Car.find(params[:id])
     # pricing API Argus pour estimation du prix
-    # redirect_to start page
+    # redirect_to start page 
   end
 
   def start
@@ -114,6 +119,7 @@ class CarsController < ApplicationController
     # USER STORY 5 : SHOW DU FORM + EDIT
     # @car = Car.find(params[:id])
   end
+
   def final_message
     # USER STORY 6: MESSAGE DE VALIDATION FINALE
   end
@@ -127,5 +133,4 @@ private
   def car_params
     params.require(:car).permit(:registration_number, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :first_registration_date, :fiscal_horsepower, :maximum_net_power, :body )
   end
-
 end
