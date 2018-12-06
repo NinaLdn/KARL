@@ -1,0 +1,44 @@
+<div class="moy-box">
+  <div class="title-box">
+    <h1>Dashboard</h1>
+  </div>
+</div>
+
+
+<div class="votre-annonce">
+  <h2>Votre annonce</h2>
+</div>
+
+<div class="car-box">
+  <div class="car-infos">
+    <p><%= @car.model_type %> <%= @car.model_version %></p>
+    <p><%= @car.first_registration_date %></p>
+    <p><%= @car.fiscal_horsepower %></p>
+    <p><%= @car.fuel_type %></p>
+    <p><%= @car.gearbox %></p>
+    <p><%= @car.door_number %></p>
+    <p><%= @car.exact_kilometer %></p>
+  </div>
+
+   <div class="car-caroussel-indicators">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+        </div>
+
+        <div class="carousel-inner" role="listbox" >
+          <div class="item active">
+            <img class="d-block w-100" src="<%= @car.photo_1%>" alt="First slide">
+          </div>
+          <div class="item">
+            <img class="d-block w-100" src="<%= @car.photo_2%>" alt="Second slide">
+          </div>
+          <div class="item">
+            <img class="d-block w-100" src="<%= @car.photo_3%>" alt="Third slide">
+          </div>
+        </div>
+
+</div>
+
