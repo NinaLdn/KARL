@@ -107,7 +107,7 @@ class CarsController < ApplicationController
     # USER STORY 2: SHOW DE LA FIRST ESTIMATION
     # @car = Car.find(params[:id])
     # pricing API Argus pour estimation du prix
-    # redirect_to start page 
+    # redirect_to start page
   end
 
   def start
