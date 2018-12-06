@@ -61,9 +61,9 @@ class CarsController < ApplicationController
     request.body = "{\"key\":\"18Tzw994VXvkZ6GrrfVY796hLtcCYdv6nLwnk1V8KcsT\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{date_autovisual}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
     autovisual_response = http.request(request).read_body
     market_data = JSON.parse(autovisual_response, {symbolize_names: true})
-
     @car.update_attributes(
-      estimated_price: market_data.dig(:value, :c)
+      estimated_price: market_data.dig(:value, :c),
+      first_registration_date: date_autovisual
     )
 
     @car.save
