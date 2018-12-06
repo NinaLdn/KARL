@@ -1,4 +1,13 @@
-<h1>Rendez-vous près de votre voiture</h1>
-<%= link_to edit_car_path(@car) do %>
-  <button class="btn btn_primary">Start</button>
-<%end%>
+<div class="main-container">
+
+  <div class="start-title">
+    <h1>Rendez-vous près de votre voiture</h1>
+  </div>
+
+  <div class="start-button">
+    <%= link_to edit_car_path(@car) do %>
+      <button class="btn btn-submit">Start</button>
+    <%end%>
+  </div>
+
+</div>
