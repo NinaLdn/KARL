@@ -1,13 +1,15 @@
 <div class="karl-container" style='padding:10px'>
 
-<h1>Validez votre annonce:</h1>
+<h3 style="text-align:center">Validez votre annonce:</h3>
 
   <!-- les photos -->
   <div class="add-picture-wrapper">
 
     <div class="final-validation-caroussel">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
+      <% if @car.photo_1.file.nil?%>
+        <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%></div>
+      <% else %>
         <div class="car-caroussel-indicators">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -15,7 +17,7 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
         </div>
-
+      <% end %>
         <div class="carousel-inner" role="listbox" >
           <div class="item active">
             <img class="d-block w-100" src="<%= @car.photo_1%>" alt="First slide">
@@ -33,41 +35,56 @@
 
   </div>
 
-  <h4>Infos véhicules</h4>
-  <div class="add-info-wrapper">
+  <h4 style="text-align:center">Infos véhicules</h4>
+  <div class="ad-info-wrapper" style='text-align: center; padding:25px'>
 
-    <div>
+    <div class="info-row-1" >
       <p><%= @car.car_brand %> <%= @car.model_type %> <%= @car.model_version %></p>
-      <p><%= @car.first_registration_date %></p>
+      <p> du <%= @car.registration_date %></p>
     </div>
 
-    <div>
-      <p><%= @car.fiscal_horsepower %></p>
-      <p><%= @car.fuel_type %></p>
-    </div>
-
-    <div>
-      <p><%= @car.gearbox %></p>
-      <p><%= @car.door_number %></p>
-    </div>
-
-    <div>
-      <p><%= @car.exact_kilometer %></p>
+    <div class="info-row-2" style='text-align: center'>
+      <div class="col-xs-4" style='display:inline-block'>
+        <div style="padding:10px"> <%= image_tag "001-horse.png" %> </div>
+        <p><%= @car.fiscal_horsepower %> CH</p>
+      </div>
+      <div class="col-xs-4" style='display:inline-block'>
+        <div style="padding:10px"> <%= image_tag "001-fuel.png" %> </div>
+         <% if @car.fuel_type == "gasoline" %>
+         <p><%= "Essence" %></p>
+        <% else %>
+          <p><%= "Diesel" %></p>
+        <% end %>
+      </div>
+      <div class="col-xs-4" style='display:inline-block'>
+        <div style="padding:10px"> <%= image_tag "002-gearbox.png" %> </div>
+        <% if @car.gearbox == "M" %>
+         <p><%= "Manuel" %></p>
+        <% else %>
+          <p><%= "Automatique" %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 
-  <div class="add-description-wrapper">
-
-
-    <p>Votre annonce:</p>
-    <p>"Bonjour, je vend ma <%= @car.car_brand %> <%= @car.model_type %> sur <%= @car.location %>. Je dois m'en séparer car je <%= @car.why_selling? %>."</p>
-
-
+  <div class="ad-detail-wrapper">
+    <h5>Détails</h5>
+    <div>
+      <p>Nombres de places: <%= @car.seating_place_number %></p>
+      <p>Kilométrage: <%= @car.exact_kilometer %></p>
+    </div>
   </div>
 
-  <div class="add-final-price">
-      <p><%= @car.estimated_price %></p>
-  </div>
+  <div class="ad-form-wrapper">
+    <%= simple_form_for(@car) do |f| %>
+
+    <%= f.input :announce_description, label: "Annonce personalisée", input_html:{value: f.object.announce_description.presence || "Bonjour, je vend ma #{@car.car_brand} #{@car.model_type} sur #{@car.location}. Je dois m'en séparer car je #{@car.why_selling?}"}%>
+
+    <%= f.input :given_price, label: "Prix proposé", as: :integer, input_html:{value: f.object.given_price.presence || "#{@car.estimated_price}"}%>
+
+
+    <%= f.submit "Submit", label: "Poster votre annonce", class: "btn btn-primary" %>
+    <%end%>
 
 <p></p>
 <h2>Votre voiture a elle des dommages ? (rayures, probleme d'embraillage, Courroie de distribution à changer..)</h2>

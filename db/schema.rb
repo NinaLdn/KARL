@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_144639) do
+ActiveRecord::Schema.define(version: 2018_12_06_145222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_144639) do
     t.string "photo_3"
     t.string "body"
     t.integer "dealership_price"
-    t.integer "first_registration_date"
+    t.date "registration_date"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
