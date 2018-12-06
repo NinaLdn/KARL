@@ -4,19 +4,20 @@
 }
 
 .start-button-box{
-  margin-top: 85px;
+  margin-top: -30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.icon-car{
-  margin-top: 85px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+.car-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  img {
+    max-block-size: 250px;
+  }
 
-.fa-car-side{
 
 }

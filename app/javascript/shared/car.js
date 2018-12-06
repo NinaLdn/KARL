@@ -2,7 +2,8 @@
 // whem image reaches right side, repeat function
 
 const car = document.querySelector(".icon-car");
-window.onload = const moveCar = () => {
+// window.onload =
+const moveCar = () => {
   console.log(car);
 }
 
