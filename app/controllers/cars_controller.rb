@@ -25,7 +25,7 @@ class CarsController < ApplicationController
     @car.user = current_user
     @car.registration_number = params[:car][:registration_number]
 
-    url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=vincentbrass"
+    url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=decle75"
     immatriculation_xml_data = Nokogiri::XML(open(url_immatriculation).read)
     vehicule_json = immatriculation_xml_data.at_css("vehicleJson").text
     immatriculation_data = JSON.parse(vehicule_json, {symbolize_names: true})
@@ -58,7 +58,7 @@ class CarsController < ApplicationController
     # date_string = @car.registration_date.to_s
     # date_autovisual = Date.parse("#{date_string.last(4)}-#{date_string[2..3]}-#{date_string.first(2)}")
     request["content-type"] = 'application/json'
-    request.body = "{\"key\":\"18Tzw994VXvkZ6GrrfVY796hLtcCYdv6nLwnk1V8KcsT\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{@car.registration_date}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
+    request.body = "{\"key\":\"ATxfo4jsMy6RD4M6YtaoU572gRuSjzdQAqWWG3khcLua\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{@car.registration_date}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
     autovisual_response = http.request(request).read_body
     market_data = JSON.parse(autovisual_response, {symbolize_names: true})
     @car.update_attributes(
@@ -75,7 +75,7 @@ class CarsController < ApplicationController
       deval_2000: market_data.dig(:transaction, :deval, :'2000'),
       deval_fix: market_data.dig(:transaction, :deval, :fixe),
     )
-      forecasts = market_data.dig(:transaction, :forecast).each do |forecast|
+    forecasts = market_data.dig(:transaction, :forecast).each do |forecast|
         if forecast[:days] == 30
        @car.update_attributes(
           forecast_30_days: forecast[:days],
@@ -93,6 +93,8 @@ class CarsController < ApplicationController
           forecast_90_delta: forecast[:delta])
         end
       end
+
+    raise
     @car.save
 
     if @car.save
