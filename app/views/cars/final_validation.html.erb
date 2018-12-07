@@ -123,13 +123,13 @@
        </div>
       <div class="button-damage">
         <%= link_to edit_car_damage_path(@car, damage) do %>
-          <button class="btn btn-warning">Editer</button>
+          <button class="btn btn-custom-2">Modifier</button>
         <% end %>
         <%= link_to 'Supprimer',
                  car_damage_path(@car, damage),
                              method: :delete,
                              data: { confirm: 'Are you sure?' },
-                             class: "btn btn-danger" %>
+                             class: "btn btn-custom-1" %>
         <% end %>
       </div>
     </div>
@@ -139,7 +139,7 @@
     <%= simple_form_for(@car) do |f| %>
     <%= f.input :announce_description, label: "Personnalisez votre annonce:", input_html:{value: f.object.announce_description.presence || "Bonjour, je vend ma #{@car.car_brand} #{@car.model_type} sur #{@car.location}. Je dois m'en séparer car je #{@car.why_selling?}"}%>
     <%= f.input :given_price, label: "Prix proposé:", as: :integer, input_html:{value: f.object.given_price.presence || "#{@car.estimated_price}"}%>
-    <%= f.submit "Modifier", label: "Poster votre annonce", class: "btn btn-primary"%>
+    <%= f.submit "Modifier", label: "Poster votre annonce", class: "btn btn-custom-2"%>
     <%end%>
   </div>
 
