@@ -1,41 +1,75 @@
 
 .karl-container {
-  h1 {
-    font: 30px "Arial";
-  }
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .add-picture-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-#carouselExampleIndicators {
-  display: flex;
-  justify-content: center;
-}
-
-.final-validation-caroussel {
-  height: 300px;
-}
-
-.carousel-inner {
-  height: 300px;
-}
-
-.item {
-  height: 300px;
-  width: 100%;
-  img {
-    height: 300px !important;
+  .carousel {
+  border-radius: 4px;
   }
-}
-
-.second-final-validation-caroussel {
-  display: flex;
-  justify-content: center;
 }
 
 .back-up-image {
   width: 400px;
 }
+
+.final-validation-second-title {
+  border: 1px solid black;
+}
+
+.info-row-1 {
+  text-align: left;
+  padding: 15px;
+}
+
+.title-ad-detail-wrapper {
+  text-align: left;
+  padding: 5px;
+  h5 {
+    font-size: 20px;
+  }
+}
+
+.ad-detail-wrapper-details {
+  text-align: left;
+  padding: 15px;
+}
+
+.ad-form-wrapper {
+  margin-top: 30px;
+  label {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+}
+
+.damages {
+  h5 {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+}
+
+.damage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.final-step-button {
+  margin-top: 20px;
+
+}
+
+
