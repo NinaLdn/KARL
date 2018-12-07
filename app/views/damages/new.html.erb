@@ -1,32 +1,37 @@
 <div class="container-damages-edit">
 
-  <div class="title-damages-edit">
-    <h3>Votre dommage:</h3>
+
+<%= simple_form_for [@car, @damage] do |f| %>
+
+  <div class="form4">
+    <p>Avez-vous des dommages sur votre voiture ?</p>
+    <%= f.submit "Yes", class: "btn btn-primary", id: "submit-yes-damage"%>
+    <%= link_to "No", final_validation_car_path(@car), class: "btn btn-danger" %>
   </div>
 
-  <div class="simple-form-damages-edit">
-    <%= simple_form_for [@car, @damage] do |f| %>
-
-      <div class="title-damage-edit">
-        <%= f.input :title, label: "Titre:", as: :string %>
-      </div>
-
-      <div class="description-damage-edit">
-        <%= f.input :description, label: "Description:",as: :text %>
-      </div>
-
-      <div class="photo-edit">
-        <h5>Ajouter des photos:</h5>
-        <div class="photo-upload-features">
-          <%= f.input :picture_1, label: "Photo n°1:", class: "photo-upload", capture: "camera"%>
-          <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload"%>
-          <%= f.input :picture_2, label: "Photo n°2:",class: "photo-upload"  %>
-          <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
-          <%= f.input :picture_3, label: "Photo n°3:",class: "photo-upload" %>
-          <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
-        </div>
-      </div>
-      <%= f.submit "Submit", class: "btn btn-success" %>
-    <%end%>
+  <div class="form5 hidden">
+    <div class="title-description-damage-edit">
+      <p>Titre et description du dommage</p>
+      <%= f.input :title, as: :string %>
+      <%= f.input :description, as: :text %>
+      <%= f.submit "Next", class: "btn btn-primary", id: "submit-damage-title-description"%>
+    </div>
   </div>
-</div>
+
+  <div class="form6 hidden">
+    <div class="photo-edit">
+      <p>Ajouter des photos du dommage</p>
+      <div class="photo-upload-features">
+        <%= f.input :picture_1, class: "photo-upload" %>
+        <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
+        <%= f.input :picture_2, class: "photo-upload"  %>
+        <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
+        <%= f.input :picture_3, class: "photo-upload" %>
+        <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
+      </div>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary", id: "submit-damage-pic" %>
+  </div>
+
+<%end%>
+

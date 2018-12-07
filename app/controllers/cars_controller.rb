@@ -103,17 +103,15 @@ class CarsController < ApplicationController
   end
 
   def edit
-    # USER STORY 4: EDIT EXACT INFO
-    # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
+
   end
 
   def update
-    # USER STORY 4: EDIT EXACT INFO
-    # INFO COMPLEMENTAIRES SUR PLUSIEURS PAGES (TO SAVE A CHAQUE ETAPE DE L'EDIT): KILOMETRAGE EXACT / PICTURES / WHY_SELLING / VALIDATION DE L ANNONCE
-    # if
+
     @car = Car.find(params[:id])
     @car.update(car_params)
-    redirect_to final_validation_car_path(@car)
+    # redirect_to final_validation_car_path(@car)
+    redirect_to new_car_damage_path(@car)
     # else
     #   render :edit
     # end
