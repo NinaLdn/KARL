@@ -2,7 +2,6 @@ import Chart from 'chart.js'
 
 const priceChart = () => {
 
-
 Chart.defaults.global.legend.display = false;
 Chart.defaults.scale.gridLines.display = false;
 
@@ -13,7 +12,7 @@ const myChart = new Chart(ctx, {
         labels: ["", ""],
         datasets: [{
             label: 'Total Price Estimates',
-            data: [70000, 60000],
+            data: JSON.parse(document.getElementById("myChart").dataset.prices),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)'

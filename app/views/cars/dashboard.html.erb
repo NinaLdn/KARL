@@ -11,34 +11,39 @@
 
 <div class="car-box">
   <div class="car-infos">
-    <p><%= @car.model_type %> <%= @car.model_version %></p>
-    <p><%= @car.first_registration_date %></p>
-    <p><%= @car.fiscal_horsepower %></p>
-    <p><%= @car.fuel_type %></p>
-    <p><%= @car.gearbox %></p>
-    <p><%= @car.door_number %></p>
-    <p><%= @car.exact_kilometer %></p>
+    <!-- info matthieu -->
   </div>
 
-   <div class="car-caroussel-indicators">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-        </div>
+<div class="dashboard_price" style="display:flex">
+  <div class="info-row-price" >
+      <div >
+        <p> <strong>Votre estimation</strong></p>
+        <p><%= @car.estimated_price %> €</p>
+      </div>
+  </div>
+  <div class="info-row-depreciation" >
+    <p> <strong>Depreciation</strong></p>
+      <div >
+        <div class="row"> <p><%=  @car.forecast_30_days %> jours</p></div>
+        <div class="row"><p><%= @car.forecast_30_value %> €</p></div>
+      </div>
+      <div >
+        <div class="row"> <p><%=  @car.forecast_60_days %> jours</p></div>
+        <div class="row"><p><%= @car.forecast_60_value %> €</p></div>
+      </div>
+      <div >
+        <div class="row"><p> <%=  @car.forecast_90_days %> jours</p></div>
+        <div class="row"><p><%= @car.forecast_90_value %> €</p></div>
+      </div>
+  </div>
+</div>
 
-        <div class="carousel-inner" role="listbox" >
-          <div class="item active">
-            <img class="d-block w-100" src="<%= @car.photo_1%>" alt="First slide">
-          </div>
-          <div class="item">
-            <img class="d-block w-100" src="<%= @car.photo_2%>" alt="Second slide">
-          </div>
-          <div class="item">
-            <img class="d-block w-100" src="<%= @car.photo_3%>" alt="Third slide">
-          </div>
-        </div>
+<div class = "dashboard_container">
+  <h4>Evolution 24m la valeur de votre voiture</h4>
 
+  <div id=price_evolution>
+    <canvas id="my_price_evolution_chart" width="400" height="400" data-prices="<%= @car_price_evolution.to_json%>"></canvas>
+  </div>
+  </div>
 </div>
 
