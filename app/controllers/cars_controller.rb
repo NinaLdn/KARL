@@ -13,9 +13,6 @@ class CarsController < ApplicationController
     # @car = Car.find(params[:id])
   end
 
-  def dashboard
-  end
-
 
   def new
     # USER STORY 1: HOME PAGE
@@ -65,9 +62,37 @@ class CarsController < ApplicationController
     autovisual_response = http.request(request).read_body
     market_data = JSON.parse(autovisual_response, {symbolize_names: true})
     @car.update_attributes(
-      estimated_price: market_data.dig(:value, :c)
+      estimated_price: market_data.dig(:value, :b),
+      marge_nego: market_data.dig(:transaction, :nego),
+      rotation: market_data.dig(:transaction, :rotation),
+      deval_250: market_data.dig(:transaction, :deval, :'250'),
+      deval_500: market_data.dig(:transaction, :deval, :'500'),
+      deval_750: market_data.dig(:transaction, :deval, :'750'),
+      deval_1000: market_data.dig(:transaction, :deval, :'1000'),
+      deval_1250: market_data.dig(:transaction, :deval, :'1250'),
+      deval_1500: market_data.dig(:transaction, :deval, :'1500'),
+      deval_1750: market_data.dig(:transaction, :deval, :'1750'),
+      deval_2000: market_data.dig(:transaction, :deval, :'2000'),
+      deval_fix: market_data.dig(:transaction, :deval, :fixe),
     )
-
+      forecasts = market_data.dig(:transaction, :forecast).each do |forecast|
+        if forecast[:days] == 30
+       @car.update_attributes(
+          forecast_30_days: forecast[:days],
+          forecast_30_value: forecast[:value],
+          forecast_30_delta: forecast[:delta])
+        elsif forecast[:days] == 60
+          @car.update_attributes(
+          forecast_60_days: forecast[:days],
+          forecast_60_value: forecast[:value],
+          forecast_60_delta: forecast[:delta])
+        else
+          @car.update_attributes(
+          forecast_90_days: forecast[:days],
+          forecast_90_value: forecast[:value],
+          forecast_90_delta: forecast[:delta])
+        end
+      end
     @car.save
 
     if @car.save
@@ -99,7 +124,7 @@ class CarsController < ApplicationController
   end
 
   def first_estimation
-
+    @car_prices=[@car.estimated_price, @car.estimated_price*0.7]
     # USER STORY 2: SHOW DE LA FIRST ESTIMATION
     # @car = Car.find(params[:id])
     # pricing API Argus pour estimation du prix
@@ -118,6 +143,10 @@ class CarsController < ApplicationController
 
   def final_message
     # USER STORY 6: MESSAGE DE VALIDATION FINALE
+  end
+
+  def dashboard
+    @car_price_evolution=[@car.estimated_price, @car.estimated_price*(1-@car.deval_fix), @car.estimated_price*(1-@car.deval_fix)**2,@car.estimated_price*(1-@car.deval_fix)**3, @car.estimated_price*(1-@car.deval_fix)**4]
   end
 
 private

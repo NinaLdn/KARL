@@ -1,46 +1,52 @@
-<div class="karl-container" style='padding:10px'>
+<div class="karl-container">
 
-<h3 style="text-align:center">Validez votre annonce:</h3>
+  <div class="final-validation-title">
+    <h3 style="text-align:center">Validez votre annonce:</h3>
+  </div>
 
-  <!-- les photos -->
   <div class="add-picture-wrapper">
-
-    <div class="final-validation-caroussel">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="container-caroussel">
       <% if @car.photo_1.file.nil?%>
         <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%></div>
       <% else %>
-        <div class="car-caroussel-indicators">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-        </div>
-      <% end %>
-        <div class="carousel-inner" role="listbox" >
-          <div class="item active">
-            <img class="d-block w-100" src="<%= @car.photo_1%>" alt="First slide">
-          </div>
-          <div class="item">
-            <img class="d-block w-100" src="<%= @car.photo_2%>" alt="Second slide">
-          </div>
-          <div class="item">
-            <img class="d-block w-100" src="<%= @car.photo_3%>" alt="Third slide">
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+      <div class="carousel">
+        <input type="radio" id="carousel-1" name="carousel[]" checked>
+        <input type="radio" id="carousel-2" name="carousel[]">
+        <input type="radio" id="carousel-3" name="carousel[]">
+        <ul class="carousel__items">
+          <li class="carousel__item"><img src="<%= @car.photo_1%>" alt=""></li>
+          <li class="carousel__item"><img src="<%= @car.photo_2%>" alt=""></li>
+          <li class="carousel__item"><img src="<%= @car.photo_3%>" alt=""></li>
+        </ul>
+         <div class="carousel__prev">
+          <label for="carousel-1"></label>
+          <label for="carousel-2"></label>
+          <label for="carousel-3"></label>
+         </div>
+         <div class="carousel__next">
+           <label for="carousel-1"></label>
+           <label for="carousel-2"></label>
+           <label for="carousel-3"></label>
+         </div>
+         <div class="carousel__nav">
+           <label for="carousel-1"></label>
+           <label for="carousel-2"></label>
+           <label for="carousel-3"></label>
+         </div>
+       </div>
+       <% end %>
+     </div>
   </div>
 
-  <h4 style="text-align:center">Infos véhicules</h4>
-  <div class="ad-info-wrapper" style='text-align: center; padding:25px'>
+  <div class="final-validation-second-title">
+    <h4 style="text-align:center">Fiche technique:</h4>
+  </div>
 
+  <div class="ad-info-wrapper">
     <div class="info-row-1" >
-      <p><%= @car.car_brand %> <%= @car.model_type %> <%= @car.model_version %></p>
-      <p> du <%= @car.registration_date %></p>
+      <p>Marque: <%= @car.car_brand %></p>
+      <p>Version: <%= @car.model_type %> <%= @car.model_version %></p>
+      <p>Première immatriculation: <%= @car.registration_date %></p>
     </div>
 
     <div class="info-row-2" style='text-align: center'>
@@ -68,76 +74,92 @@
   </div>
 
   <div class="ad-detail-wrapper">
-    <h5>Détails</h5>
-    <div>
+    <div class="title-ad-detail-wrapper">
+      <h5>Détails supplémentaires:</h5>
+    </div>
+
+    <div class="ad-detail-wrapper-details">
       <p>Nombres de places: <%= @car.seating_place_number %></p>
       <p>Kilométrage: <%= @car.exact_kilometer %></p>
     </div>
   </div>
 
-  <div class="ad-form-wrapper">
-    <%= simple_form_for(@car) do |f| %>
-
-    <%= f.input :announce_description, label: "Annonce personalisée", input_html:{value: f.object.announce_description.presence || "Bonjour, je vend ma #{@car.car_brand} #{@car.model_type} sur #{@car.location}. Je dois m'en séparer car je #{@car.why_selling?}"}%>
-
-    <%= f.input :given_price, label: "Prix proposé", as: :integer, input_html:{value: f.object.given_price.presence || "#{@car.estimated_price}"}%>
-
-
-    <%= f.submit "Submit", label: "Poster votre annonce", class: "btn btn-primary" %>
-    <%end%>
-
-<p></p>
-<h2>Votre voiture a elle des dommages ? (rayures, probleme d'embraillage, Courroie de distribution à changer..)</h2>
-<%= link_to new_car_damage_path(@car) do %>
-  <button class="btn btn_primary">Ajouter un dommage</button>
-<% end %>
-<p></p>
-<div class="damages">
-  <% @car.damages.each do |damage| %>
-    <h2><%= damage.title %></h2>
-    <p><%= damage.description %></p>
-
-    <div class="second-final-validation-caroussel">
-      <div id="secondCarouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-        <div class="car-caroussel-indicators">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-        </div>
-
-        <div class="carousel-inner" role="listbox" >
-          <div class="item active">
-            <img class="d-block w-100" src="<%= damage.picture_1%>" alt="First slide">
-          </div>
-          <div class="item">
-            <img class="d-block w-100" src="<%= damage.picture_2%>" alt="Second slide">
-          </div>
-          <div class="item">
-            <img class="d-block w-100" src="<%= damage.picture_3%>" alt="Third slide">
-          </div>
-        </div>
-
+  <div class="damages">
+    <h5>Dommages éventuels:</h5>
+    <% @car.damages.each do |damage| %>
+    <div class="damage">
+      <h6><%= damage.title %></h6>
+      <p><%= damage.description %></p>
+      <div class="container-caroussel">
+        <% if @car.photo_1.file.nil?%>
+          <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%></div>
+        <% else %>
+        <div class="carousel">
+          <input type="radio" id="carousel-4" name="carousel[]" checked>
+          <input type="radio" id="carousel-5" name="carousel[]">
+          <input type="radio" id="carousel-6" name="carousel[]">
+          <ul class="carousel__items">
+            <li class="carousel__item"><img src="<%= damage.picture_1%>" alt=""></li>
+            <li class="carousel__item"><img src="<%= damage.picture_2%>" alt=""></li>
+            <li class="carousel__item"><img src="<%= damage.picture_3%>" alt=""></li>
+          </ul>
+           <div class="carousel__prev">
+            <label for="carousel-4"></label>
+            <label for="carousel-5"></label>
+            <label for="carousel-6"></label>
+           </div>
+           <div class="carousel__next">
+             <label for="carousel-4"></label>
+             <label for="carousel-5"></label>
+             <label for="carousel-6"></label>
+           </div>
+           <div class="carousel__nav">
+             <label for="carousel-4"></label>
+             <label for="carousel-5"></label>
+             <label for="carousel-6"></label>
+           </div>
+         </div>
+         <% end %>
+       </div>
+      <div class="button-damage">
+        <%= link_to edit_car_damage_path(@car, damage) do %>
+          <button class="btn btn-custom-2">Modifier</button>
+        <% end %>
+        <%= link_to 'Supprimer',
+                 car_damage_path(@car, damage),
+                             method: :delete,
+                             data: { confirm: 'Are you sure?' },
+                             class: "btn btn-custom-1" %>
+        <% end %>
       </div>
     </div>
+  </div>
 
-    <%= link_to edit_car_damage_path(@car, damage) do %>
-      <button class="btn btn_primary">Edit</button>
-    <% end %>
-    <%= link_to 'Delete',
-             car_damage_path(@car, damage),
-                         method: :delete,
-                         data: { confirm: 'Are you sure?' } %>
-    <% end %>
+  <div class="ad-form-wrapper">
+    <%= simple_form_for(@car) do |f| %>
+    <%= f.input :announce_description, label: "Personnalisez votre annonce:", input_html:{value: f.object.announce_description.presence || "Bonjour, je vend ma #{@car.car_brand} #{@car.model_type} sur #{@car.location}. Je dois m'en séparer car je #{@car.why_selling?}"}%>
+    <%= f.input :given_price, label: "Prix proposé:", as: :integer, input_html:{value: f.object.given_price.presence || "#{@car.estimated_price}"}%>
+    <%= f.submit "Modifier", label: "Poster votre annonce", class: "btn btn-custom-2"%>
+    <%end%>
+  </div>
+
+  <!-- le lien pour l'étape suivante-->
+
+
+<div class="final-step-button">
+  <%= link_to final_message_car_path(@car) do %>
+    <button class="btn btn-success btn-lg btn-block">Je valide !</button>
+  <%end%>
 </div>
 
-<p></p>
 
-<!-- le lien pour l'étape suivante-->
-<%= link_to final_message_car_path(@car) do %>
-  <button class="btn btn_primary">Validate</button>
-<%end%>
+
+
+
+  <div class="damage-question-button">
+    <%= link_to new_car_damage_path(@car) do %>
+      <button class="btn btn_primary">Ajouter un dommage</button>
+    <% end %>
+  </div>
 
 </div>

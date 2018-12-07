@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_145222) do
+ActiveRecord::Schema.define(version: 2018_12_07_104637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,26 @@ ActiveRecord::Schema.define(version: 2018_12_06_145222) do
     t.string "body"
     t.integer "dealership_price"
     t.date "registration_date"
+    t.integer "marge_nego"
+    t.integer "rotation"
+    t.float "deval_250"
+    t.float "deval_500"
+    t.float "deval_750"
+    t.float "deval_1000"
+    t.float "deval_1250"
+    t.float "deval_1500"
+    t.float "deval_1750"
+    t.float "deval_2000"
+    t.float "deval_fix"
+    t.integer "forecast_30_days"
+    t.integer "forecast_30_value"
+    t.integer "forecast_30_delta"
+    t.integer "forecast_60_days"
+    t.integer "forecast_60_value"
+    t.integer "forecast_60_delta"
+    t.integer "forecast_90_days"
+    t.integer "forecast_90_value"
+    t.integer "forecast_90_delta"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
