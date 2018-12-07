@@ -1,0 +1,41 @@
+.container-damages-edit {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.title-damages-edit {
+  h3 {
+    text-align: center;
+  }
+}
+
+.title-damage-edit {
+  label {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+}
+
+.description-damage-edit {
+  label {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+}
+
+.photo-edit {
+  h5 {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+}
