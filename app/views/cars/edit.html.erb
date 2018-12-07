@@ -1,4 +1,4 @@
-<h1>EDIT PAGE</h1>
+<!-- <h1>EDIT PAGE</h1>
 
 <%= simple_form_for(@car) do |f| %>
   <div class="kilometers-edit">
@@ -21,6 +21,44 @@
     <%= f.input :why_selling, as: :text %>
   </div>
   <%= f.submit "Submit", class: "btn btn-primary" %>
-  <%end%>
+  <%end%> -->
 
 
+<h1>EDIT PAGE</h1>
+<div class="form1">
+<%= simple_form_for(@car) do |f| %>
+  <div class="kilometers-edit">
+    <p>Votre kilométrage exacte:</p>
+    <%= f.input :exact_kilometer, as: :integer %>
+    <%= f.submit "Submit", class: "btn btn-primary", id: "submit-km"%>
+  </div>
+</div>
+
+<!-- Button damages yes or no => if yes redirect to new damages path -->
+
+<div class="form2 hidden">
+
+  <div class="photo-edit">
+    <h3>Ajouter des photos de votre voiture</h3>
+    <div class="photo-upload-features">
+      <%= f.input :photo_1, class: "photo-upload" %>
+      <%= f.input :photo_1_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.input :photo_2, class: "photo-upload"  %>
+      <%= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.input :photo_3, class: "photo-upload" %>
+      <%= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
+      <%= f.submit "Submit", class: "btn btn-primary", id: "submit-picture"%>
+    </div>
+  </div>
+
+</div>
+
+<div class="form3 hidden">
+
+  <div class="description-edit">
+    <p>Why do you sell your car?:</p>
+    <%= f.input :why_selling, as: :text %>
+  <%= f.submit "Submit", class: "btn btn-primary", id: "submit-why-selling" %>
+  </div>
+<%end%>
+</div>

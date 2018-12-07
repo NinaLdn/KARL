@@ -3,6 +3,7 @@ import {kilometer} from 'shared/kilometer';
 import {priceChart} from 'shared/price_chart';
 import {priceEvolutionChart} from 'shared/price_evolution_chart';
 import {moveCar} from 'shared/car';
+import {submit} from 'shared/edit_form';
 
 const chart = document.getElementById("myChart");
 if(chart){
