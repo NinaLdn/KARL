@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'page/dashboard'
   devise_for :users
   root to: 'pages#home'
   controller :pages do
@@ -15,9 +14,9 @@ Rails.application.routes.draw do
       # get 'why_selling', to: "cars#why_selling"
       get 'final_validation', to: "cars#final_validation"
       get 'final_message', to: "cars#final_message"
-      get 'dashboard', to: 'cars#dashboard'
 
     end
   end
+  get 'dashboard', to: 'cars#dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

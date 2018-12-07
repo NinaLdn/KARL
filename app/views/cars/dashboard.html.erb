@@ -4,6 +4,12 @@
     <h3 style="text-align:center">Dashboard:</h3>
   </div>
 
+<% @cars.each do |car| %>
+  <% if car.estimated_price %>
+      <div class="votre-annonce">
+        <h2>Votre annonce</h2>
+      </div>
+
 
   <div class="add-picture-wrapper">
     <div class="container-caroussel">
@@ -159,17 +165,21 @@
       <div style="display:flex" >
         <div class="row-forecast"><p> <%=  @car.forecast_90_days %> jours -</p></div>
         <div class="row-forecast"><p> <%= @car.forecast_90_value %> €</p></div>
+
       </div>
-  </div>
-</div>
+  <% end %>
+
+
+
 
 <div class = "dashboard_container">
   <h4 class="header-dashboard", style="padding:15px">Evolution 24m de la valeur de votre voiture</h4>
 
   <div id=price_evolution>
-    <canvas id="my_price_evolution_chart" width="300" height="400" data-prices="<%= @car_price_evolution.to_json%>"></canvas>
+    <canvas id="my_price_evolution_chart" width="300" height="400" data-prices="<%= car_price_evolution.to_json%>"></canvas>
   </div>
   </div>
 </div>
+  <% end %>
 
 </div>
