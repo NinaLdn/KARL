@@ -1,8 +1,8 @@
-<div class="moy-box">
-  <div class="title-box">
-    <h1>Dashboard</h1>
+<div class="karl-container">
+
+  <div class="final-validation-title">
+    <h3 style="text-align:center">Dashboard:</h3>
   </div>
-</div>
 
 <% @cars.each do |car| %>
   <% if car.estimated_price %>
@@ -10,47 +10,176 @@
         <h2>Votre annonce</h2>
       </div>
 
-      <div class="car-box">
-        <div class="car-infos">
-          <!-- info matthieu -->
-        </div>
+
+  <div class="add-picture-wrapper">
+    <div class="container-caroussel">
+      <% if @car.photo_1.file.nil?%>
+        <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 300%></div>
+      <% else %>
+      <div class="carousel">
+        <input type="radio" id="carousel-1" name="carousel[]" checked>
+        <input type="radio" id="carousel-2" name="carousel[]">
+        <input type="radio" id="carousel-3" name="carousel[]">
+        <ul class="carousel__items">
+          <li class="carousel__item"><img src="<%= @car.photo_1%>" alt=""></li>
+          <li class="carousel__item"><img src="<%= @car.photo_2%>" alt=""></li>
+          <li class="carousel__item"><img src="<%= @car.photo_3%>" alt=""></li>
+        </ul>
+         <div class="carousel__prev">
+          <label for="carousel-1"></label>
+          <label for="carousel-2"></label>
+          <label for="carousel-3"></label>
+         </div>
+         <div class="carousel__next">
+           <label for="carousel-1"></label>
+           <label for="carousel-2"></label>
+           <label for="carousel-3"></label>
+         </div>
+         <div class="carousel__nav">
+           <label for="carousel-1"></label>
+           <label for="carousel-2"></label>
+           <label for="carousel-3"></label>
+         </div>
+       </div>
+       <% end %>
+     </div>
+  </div>
 
 
-      <div class="dashboard_price" style="display:flex">
-        <div class="info-row-price" >
-            <div >
-              <p> <strong>Votre estimation</strong></p>
+  <div class="final-validation-second-title">
+    <h4 style="text-align:center">Fiche technique:</h4>
+  </div>
 
-              <p><%= car.estimated_price %> €</p>
-            </div>
-        </div>
-        <div class="info-row-depreciation" >
-          <p> <strong>Depreciation</strong></p>
-            <div >
-              <div class="row"> <p><%=  car.forecast_30_days %> jours</p></div>
-              <div class="row"><p><%= car.forecast_30_value %> €</p></div>
-            </div>
-            <div >
-              <div class="row"> <p><%=  car.forecast_60_days %> jours</p></div>
-              <div class="row"><p><%= car.forecast_60_value %> €</p></div>
-            </div>
-            <div >
-              <div class="row"><p> <%=  car.forecast_90_days %> jours</p></div>
-              <div class="row"><p><%= car.forecast_90_value %> €</p></div>
-            </div>
-        </div>
+  <div class="ad-info-wrapper">
+    <div class="info-row-1" >
+      <p>Marque: <%= @car.car_brand %></p>
+      <p>Version: <%= @car.model_type %> <%= @car.model_version %></p>
+      <p>Première immatriculation: <%= @car.registration_date %></p>
+    </div>
+
+    <div class="info-row-2" style='text-align: center'>
+      <div class="col-xs-4" style='display:inline-block'>
+        <div style="padding:10px"> <%= image_tag "001-horse.png" %> </div>
+        <p><%= @car.fiscal_horsepower %> CH</p>
       </div>
+      <div class="col-xs-4" style='display:inline-block'>
+        <div style="padding:10px"> <%= image_tag "001-fuel.png" %> </div>
+         <% if @car.fuel_type == "gasoline" %>
+         <p><%= "Essence" %></p>
+        <% else %>
+          <p><%= "Diesel" %></p>
+        <% end %>
+      </div>
+      <div class="col-xs-4" style='display:inline-block'>
+        <div style="padding:10px"> <%= image_tag "002-gearbox.png" %> </div>
+        <% if @car.gearbox == "M" %>
+         <p><%= "Manuel" %></p>
+        <% else %>
+          <p><%= "Automatique" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-      <div class = "dashboard_container">
-        <h4>Evolution 24m la valeur de votre voiture</h4>
+  <div class="ad-detail-wrapper">
+    <div class="title-ad-detail-wrapper">
+      <h5>Détails supplémentaires:</h5>
+    </div>
 
-        <div id=price_evolution>
-          <canvas id="my_price_evolution_chart" width="400" height="400" data-prices="<%= @car_price_evolution.to_json%>"></canvas>
-        </div>
-        </div>
+    <div class="ad-detail-wrapper-details">
+      <p>Nombres de places: <%= @car.seating_place_number %></p>
+      <p>Kilométrage: <%= @car.exact_kilometer %></p>
+    </div>
+  </div>
+
+  <div class="damages">
+    <h5>Dommages éventuels:</h5>
+    <% @car.damages.each do |damage| %>
+    <div class="damage">
+      <h6><%= damage.title %></h6>
+      <p><%= damage.description %></p>
+      <div class="container-caroussel">
+        <% if @car.photo_1.file.nil?%>
+          <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%></div>
+        <% else %>
+        <div class="carousel">
+          <input type="radio" id="carousel-4" name="carousel[]" checked>
+          <input type="radio" id="carousel-5" name="carousel[]">
+          <input type="radio" id="carousel-6" name="carousel[]">
+          <ul class="carousel__items">
+            <li class="carousel__item"><img src="<%= damage.picture_1%>" alt=""></li>
+            <li class="carousel__item"><img src="<%= damage.picture_2%>" alt=""></li>
+            <li class="carousel__item"><img src="<%= damage.picture_3%>" alt=""></li>
+          </ul>
+           <div class="carousel__prev">
+            <label for="carousel-4"></label>
+            <label for="carousel-5"></label>
+            <label for="carousel-6"></label>
+           </div>
+           <div class="carousel__next">
+             <label for="carousel-4"></label>
+             <label for="carousel-5"></label>
+             <label for="carousel-6"></label>
+           </div>
+           <div class="carousel__nav">
+             <label for="carousel-4"></label>
+             <label for="carousel-5"></label>
+             <label for="carousel-6"></label>
+           </div>
+         </div>
+         <% end %>
+       </div>
+      <div class="button-damage">
+        <%= link_to edit_car_damage_path(@car, damage) do %>
+          <button class="btn btn-custom-2">Modifier</button>
+        <% end %>
+        <%= link_to 'Supprimer',
+                 car_damage_path(@car, damage),
+                             method: :delete,
+                             data: { confirm: 'Are you sure?' },
+                             class: "btn btn-custom-1" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container-infos" style="display:flex; padding:15px">
+  <div class="info-row-price" style="width:50%">
+      <div style="padding:5px">
+        <p class="header-dashboard"> <strong>Estimation</strong></p>
+        <p> <strong> <%= @car.estimated_price %> € </strong></p>
+      </div>
+  </div>
+  <div class="info-row-depreciation" style="width:50%">
+    <p class="header-dashboard"> <strong>Depreciation</strong></p>
+      <div style="display:flex">
+        <div class="row-forecast"> <p><%=  @car.forecast_30_days %> jours -</p></div>
+        <div class="row-forecast" style="text-align: right"><p> <%= @car.forecast_30_value %> €</p></div>
+
+      </div>
+      <div style="display:flex" >
+        <div class="row-forecast"> <p><%=  @car.forecast_60_days %> jours -</p></div>
+        <div class="row-forecast"> <p><%= @car.forecast_60_value %> €</p></div>
+      </div>
+      <div style="display:flex" >
+        <div class="row-forecast"><p> <%=  @car.forecast_90_days %> jours -</p></div>
+        <div class="row-forecast"><p> <%= @car.forecast_90_value %> €</p></div>
+
       </div>
   <% end %>
 
-<% end %>
 
 
+
+<div class = "dashboard_container">
+  <h4 class="header-dashboard", style="padding:15px">Evolution 24m de la valeur de votre voiture</h4>
+
+  <div id=price_evolution>
+    <canvas id="my_price_evolution_chart" width="300" height="400" data-prices="<%= car_price_evolution.to_json%>"></canvas>
+  </div>
+  </div>
+</div>
+  <% end %>
+
+</div>

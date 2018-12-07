@@ -16,9 +16,9 @@ if(evolution_chart){
   priceEvolutionChart();
 }
 
-
 const slider_element = document.getElementById('ex11');
 if (slider_element) {
+console.log('hello');
   kilometer();
 }
 
