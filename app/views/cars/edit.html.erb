@@ -1,36 +1,38 @@
-<h1>EDIT PAGE</h1>
+
+<div class="edit-container">
+  <h3>Votre annonce: </h3>
 
 <%= simple_form_for(@car) do |f| %>
 
   <div class="form1">
     <div class="kilometers-edit">
-      <p>Votre kilométrage exacte</p>
-      <%= f.input :exact_kilometer, as: :integer %>
-      <%= f.submit "Submit", class: "btn btn-primary", id: "submit-km"%>
+      <%= f.input :exact_kilometer, label: "Kilométrage exacte:", as: :integer %>
+      <%= f.submit "Valider", class: "btn btn-success", id: "submit-km"%>
     </div>
   </div>
 
   <div class="form2 hidden">
     <div class="photo-edit">
-      <p>Ajouter des photos de votre voiture</p>
+      <h5>Ajouter des photos:</h5>
       <div class="photo-upload-features">
-        <%= f.input :photo_1, class: "photo-upload" %>
+        <%= f.input :photo_1, label: "Photo 1:",class: "photo-upload" %>
         <%= f.input :photo_1_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.input :photo_2, class: "photo-upload"  %>
+        <%= f.input :photo_2, label: "Photo 2:", class: "photo-upload"  %>
         <%= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.input :photo_3, class: "photo-upload" %>
+        <%= f.input :photo_3, label: "Photo 3:", class: "photo-upload" %>
         <%= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.submit "Submit", class: "btn btn-primary", id: "submit-picture"%>
+        <%= f.submit "Valider", class: "btn btn-success", id: "submit-picture"%>
       </div>
     </div>
   </div>
 
   <div class="form3 hidden">
     <div class="description-edit">
-      <p>Pour quelle raison vendez-vous votre voiture ?</p>
-      <%= f.input :why_selling, as: :text %>
-    <%= f.submit "Submit", class: "btn btn-primary", id: "submit-why-selling" %>
+      <%= f.input :why_selling, label: "Pour quelle raison vendez-vous votre voiture ?", as: :text %>
+    <%= f.submit "Valider", class: "btn btn-success", id: "submit-why-selling" %>
     </div>
   </div>
 
 <%end%>
+
+</div>

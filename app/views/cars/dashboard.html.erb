@@ -4,6 +4,7 @@
     <h3 style="text-align:center">Dashboard:</h3>
   </div>
 
+
   <div class="add-picture-wrapper">
     <div class="container-caroussel">
       <% if @car.photo_1.file.nil?%>
@@ -37,6 +38,7 @@
        <% end %>
      </div>
   </div>
+
 
   <div class="final-validation-second-title">
     <h4 style="text-align:center">Fiche technique:</h4>
@@ -148,6 +150,7 @@
       <div style="display:flex">
         <div class="row-forecast"> <p><%=  @car.forecast_30_days %> jours -</p></div>
         <div class="row-forecast" style="text-align: right"><p> <%= @car.forecast_30_value %> €</p></div>
+
       </div>
       <div style="display:flex" >
         <div class="row-forecast"> <p><%=  @car.forecast_60_days %> jours -</p></div>
