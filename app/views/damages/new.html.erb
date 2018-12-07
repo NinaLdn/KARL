@@ -1,24 +1,35 @@
 <h1>Votre dommage:</h1>
 
 <%= simple_form_for [@car, @damage] do |f| %>
-  <div class="title-damage-edit">
-    <p>Titre:</p>
-    <%= f.input :title, as: :string %>
+
+  <div class="form4">
+    <p>Avez-vous des dommages sur votre voiture ?</p>
+    <%= f.submit "Yes", class: "btn btn-primary", id: "submit-yes-damage"%>
+    <%= link_to "No", final_validation_car_path(@car), class: "btn btn-danger" %>
   </div>
-  <div class="description-damage-edit">
-    <p>description de votre dommage:</p>
-    <%= f.input :description, as: :text %>
-  </div>
-  <div class="photo-edit">
-    <h3>Ajouter des photos du dommage</h3>
-    <div class="photo-upload-features">
-      <%= f.input :picture_1, class: "photo-upload" %>
-      <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
-      <%= f.input :picture_2, class: "photo-upload"  %>
-      <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
-      <%= f.input :picture_3, class: "photo-upload" %>
-      <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
+
+  <div class="form5 hidden">
+    <div class="title-description-damage-edit">
+      <p>Titre et description du dommage</p>
+      <%= f.input :title, as: :string %>
+      <%= f.input :description, as: :text %>
+      <%= f.submit "Next", class: "btn btn-primary", id: "submit-damage-title-description"%>
     </div>
   </div>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+
+  <div class="form6 hidden">
+    <div class="photo-edit">
+      <p>Ajouter des photos du dommage</p>
+      <div class="photo-upload-features">
+        <%= f.input :picture_1, class: "photo-upload" %>
+        <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
+        <%= f.input :picture_2, class: "photo-upload"  %>
+        <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
+        <%= f.input :picture_3, class: "photo-upload" %>
+        <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
+      </div>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary", id: "submit-damage-pic" %>
+  </div>
+
 <%end%>

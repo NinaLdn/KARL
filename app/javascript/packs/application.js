@@ -2,7 +2,8 @@
 import {kilometer} from 'shared/kilometer';
 import {priceChart} from 'shared/price_chart';
 import {moveCar} from 'shared/car';
-import {submit} from 'shared/edit_form';
+import {submitCar} from 'shared/edit_form';
+import {submitDamage} from 'shared/new_damage_form';
 
 const chart = document.getElementById("myChart");
 if(chart){
@@ -14,4 +15,6 @@ if (slider_element) {
   kilometer();
 }
 
-moveCar();
+// moveCar();
+submitCar();
+submitDamage();
