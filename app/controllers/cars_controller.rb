@@ -6,7 +6,7 @@ require 'net/http'
 require 'date'
 
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :dashboard]
+  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation]
 
   def show
     # FOR THE TECHNICAL DATA SHEET OF 1 CAR = FINAL VALIDATION
@@ -25,7 +25,7 @@ class CarsController < ApplicationController
     @car.user = current_user
     @car.registration_number = params[:car][:registration_number]
 
-    url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=vincentbrass"
+    url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=decle75"
     immatriculation_xml_data = Nokogiri::XML(open(url_immatriculation).read)
     vehicule_json = immatriculation_xml_data.at_css("vehicleJson").text
     immatriculation_data = JSON.parse(vehicule_json, {symbolize_names: true})
@@ -146,7 +146,8 @@ class CarsController < ApplicationController
   end
 
   def dashboard
-    @car_price_evolution=[@car.estimated_price, @car.estimated_price*(1-@car.deval_fix), @car.estimated_price*(1-@car.deval_fix)**2,@car.estimated_price*(1-@car.deval_fix)**3, @car.estimated_price*(1-@car.deval_fix)**4]
+    @car = current_user.cars.first
+    @car_price_evolution = [@car.estimated_price, @car.estimated_price*(1-@car.deval_fix), @car.estimated_price*(1-@car.deval_fix)**2,@car.estimated_price*(1-@car.deval_fix)**3, @car.estimated_price*(1-@car.deval_fix)**4]
   end
 
 private
