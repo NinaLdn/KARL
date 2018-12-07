@@ -4,47 +4,53 @@
   </div>
 </div>
 
-
-<div class="votre-annonce">
-  <h2>Votre annonce</h2>
-</div>
-
-<div class="car-box">
-  <div class="car-infos">
-    <!-- info matthieu -->
-  </div>
-
-
-<div class="dashboard_price" style="display:flex">
-  <div class="info-row-price" >
-      <div >
-        <p> <strong>Votre estimation</strong></p>
-        <p><%= @car.estimated_price %> €</p>
+<% @cars.each do |car| %>
+  <% if car.estimated_price %>
+      <div class="votre-annonce">
+        <h2>Votre annonce</h2>
       </div>
-  </div>
-  <div class="info-row-depreciation" >
-    <p> <strong>Depreciation</strong></p>
-      <div >
-        <div class="row"> <p><%=  @car.forecast_30_days %> jours</p></div>
-        <div class="row"><p><%= @car.forecast_30_value %> €</p></div>
-      </div>
-      <div >
-        <div class="row"> <p><%=  @car.forecast_60_days %> jours</p></div>
-        <div class="row"><p><%= @car.forecast_60_value %> €</p></div>
-      </div>
-      <div >
-        <div class="row"><p> <%=  @car.forecast_90_days %> jours</p></div>
-        <div class="row"><p><%= @car.forecast_90_value %> €</p></div>
-      </div>
-  </div>
-</div>
 
-<div class = "dashboard_container">
-  <h4>Evolution 24m la valeur de votre voiture</h4>
+      <div class="car-box">
+        <div class="car-infos">
+          <!-- info matthieu -->
+        </div>
 
-  <div id=price_evolution>
-    <canvas id="my_price_evolution_chart" width="400" height="400" data-prices="<%= @car_price_evolution.to_json%>"></canvas>
-  </div>
-  </div>
-</div>
+
+      <div class="dashboard_price" style="display:flex">
+        <div class="info-row-price" >
+            <div >
+              <p> <strong>Votre estimation</strong></p>
+
+              <p><%= car.estimated_price %> €</p>
+            </div>
+        </div>
+        <div class="info-row-depreciation" >
+          <p> <strong>Depreciation</strong></p>
+            <div >
+              <div class="row"> <p><%=  car.forecast_30_days %> jours</p></div>
+              <div class="row"><p><%= car.forecast_30_value %> €</p></div>
+            </div>
+            <div >
+              <div class="row"> <p><%=  car.forecast_60_days %> jours</p></div>
+              <div class="row"><p><%= car.forecast_60_value %> €</p></div>
+            </div>
+            <div >
+              <div class="row"><p> <%=  car.forecast_90_days %> jours</p></div>
+              <div class="row"><p><%= car.forecast_90_value %> €</p></div>
+            </div>
+        </div>
+      </div>
+
+      <div class = "dashboard_container">
+        <h4>Evolution 24m la valeur de votre voiture</h4>
+
+        <div id=price_evolution>
+          <canvas id="my_price_evolution_chart" width="400" height="400" data-prices="<%= @car_price_evolution.to_json%>"></canvas>
+        </div>
+        </div>
+      </div>
+  <% end %>
+
+<% end %>
+
 
