@@ -12,7 +12,9 @@ const myPriceEvolutionChart = new Chart(ctx, {
         labels: ["","6", "12", "18", "24"],
         datasets: [{
             label: 'Fix price estmates',
-            data: JSON.parse(document.getElementById("my_price_evolution_chart").dataset.prices)}]
+            data: JSON.parse(document.getElementById("my_price_evolution_chart").dataset.prices),
+            display: true
+          }]
     },
     options: {
         scales: {

@@ -94,7 +94,6 @@ class CarsController < ApplicationController
         end
       end
 
-    raise
     @car.save
 
     if @car.save
