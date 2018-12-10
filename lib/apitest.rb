@@ -19,69 +19,69 @@ require 'net/http'
 
 # Immatriculation-API
 
-filepath = 'API_responses/immatriculation-api.json'
-immatriculation_response = File.read(filepath)
-immatriculation_data = JSON.parse(response, {symbolize_names: true})
+# filepath = 'API_responses/immatriculation-api.json'
+# immatriculation_response = File.read(filepath)
+# immatriculation_data = JSON.parse(response, {symbolize_names: true})
 
-# harmonize car attributes with DB
+# # harmonize car attributes with DB
 
-car_attributes = {
-  car_brand: immatriculation_data.dig(:MakeDescription),
-  model_type: immatriculation_data.dig(:ModelDescription),
-  model_variant: immatriculation_data.dig(:modele)
-  gearbox: immatriculation_data.dig(:boiteDeVitesse),
-  fuel_type: immatriculation_data.dig(:FuelType),
-  seating_place_number: immatriculation_data.dig(:nbPlace)
-  first_registration_date: immatriculation_data.dig(:RegistrationDate),
-  fiscal_horsepower: immatriculation_data.dig(:EngineSize),
-  maximum_net_power: immatriculation_data.dig(:puissanceDyn),
-  body: immatriculation_data.dig(:BodyStyle),
-  estimated_kilometers: 12000
-}
+# car_attributes = {
+#   car_brand: immatriculation_data.dig(:MakeDescription),
+#   model_type: immatriculation_data.dig(:ModelDescription),
+#   model_variant: immatriculation_data.dig(:modele)
+#   gearbox: immatriculation_data.dig(:boiteDeVitesse),
+#   fuel_type: immatriculation_data.dig(:FuelType),
+#   seating_place_number: immatriculation_data.dig(:nbPlace)
+#   first_registration_date: immatriculation_data.dig(:RegistrationDate),
+#   fiscal_horsepower: immatriculation_data.dig(:EngineSize),
+#   maximum_net_power: immatriculation_data.dig(:puissanceDyn),
+#   body: immatriculation_data.dig(:BodyStyle),
+#   estimated_kilometers: 12000
+# }
 
-# Create new car - create action
+# # Create new car - create action
 
-car = Car.create(car_attributes)
+# car = Car.create(car_attributes)
 
-# Autovisual-API
+# # Autovisual-API
 
-# __ post harmonized data
+# # __ post harmonized data
 
-var request = require("request");
+# var request = require("request");
 
-var options = { method: 'POST',
-  url: 'https://api.autovisual.com/v2/av',
-  headers: { 'content-type': 'application/json' },
-  body:
-   { txt: "#{car.brand} #{car.type} #{car.model_type} #{car.model_variant}",
-     km: car.estimated_kilometers,
-     dt_entry_service: car.first_registration_date,
-     fuel: car.fuel_type,
-     transmission: car.gearbox,
-     country_ref: 'FR',
-     value: 'true',
-     transaction: 'true',
-     market: 'true',
-     seats: car.seating_place_number },
-  json: true };
+# var options = { method: 'POST',
+#   url: 'https://api.autovisual.com/v2/av',
+#   headers: { 'content-type': 'application/json' },
+#   body:
+#    { txt: "#{car.brand} #{car.type} #{car.model_type} #{car.model_variant}",
+#      km: car.estimated_kilometers,
+#      dt_entry_service: car.first_registration_date,
+#      fuel: car.fuel_type,
+#      transmission: car.gearbox,
+#      country_ref: 'FR',
+#      value: 'true',
+#      transaction: 'true',
+#      market: 'true',
+#      seats: car.seating_place_number },
+#   json: true };
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-});
+# request(options, function (error, response, body) {
+#   if (error) throw new Error(error);
+# });
 
-# __ get additional information
+# # __ get additional information
 
-filepath = 'API_responses/autovisual-api.json'
-autovisual_response = File.read(filepath)
-autovisual_data = JSON.parse(response, {symbolize_names: true})
+# filepath = 'API_responses/autovisual-api.json'
+# autovisual_response = File.read(filepath)
+# autovisual_data = JSON.parse(response, {symbolize_names: true})
 
-# __ update car / enrich car with market data
+# # __ update car / enrich car with market data
 
-car_new_attributes {
-  estimated_price: autovisual_data.dig(:value, :c)
-}
+# car_new_attributes {
+#   estimated_price: autovisual_data.dig(:value, :c)
+# }
 
-car = Car.update(car_new_attributes)
+# car = Car.update(car_new_attributes)
 
 
 # Autoscout-API
@@ -94,4 +94,14 @@ car = Car.update(car_new_attributes)
 # response = File.read(filepath)
 # data = JSON.parse(response, {symbolize_names: true})
 # puts data
+
+
+#Mobile - API
+
+filepath = 'API_responses/mobile-api.json'
+immatriculation_response = File.read(filepath)
+immatriculation_data = JSON.parse(response, {symbolize_names: true})
+
+puts immatriculation_data
+
 
