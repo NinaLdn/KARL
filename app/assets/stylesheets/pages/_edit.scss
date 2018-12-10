@@ -29,6 +29,7 @@
   flex: 1 0 auto;
 }
 
+
 .description-edit-2 {
   position: relative;
   bottom: 0;
@@ -42,6 +43,31 @@
 .description-edit-2-2 {
   height: 60px;
 }
+
+
+.form1, .form2, .form3 {
+  .form-control {
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #14C98E;
+  margin-bottom: 20px;
+  height: 40px;
+  box-shadow:none;
+  }
+}
+
+.form5 {
+  .form-control {
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #14C98E;
+  margin-bottom: 10px;
+  box-shadow:none;
+  height: 38px;
+  }
+}
+
+
 
 .edit-address {
   display: flex;
@@ -99,6 +125,11 @@
 .edit-pictures-2-2 {
   height: 60px;
 }
+
+.photo_1_cache {
+  background-color: red;
+}
+
 
 .edit-technical-control {
   display: flex;
