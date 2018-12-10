@@ -23,7 +23,6 @@ class DamagesController < ApplicationController
 
   def update
     @car = Car.find(params[:car_id])
-
     @damage.update(damage_params)
     redirect_to final_validation_car_path(@car.id)
 
