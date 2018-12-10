@@ -4,9 +4,9 @@ import 'bootstrap-slider/dist/css/bootstrap-slider';
 
 const kilometer = () => {
   const slider = new Slider("#ex11", {
-    step: 10000,
+    step: 5000,
     min: 0,
-    max: 1000000
+    max: 800000
   });
   const handle = slider.handle1
   slider.on('slideStop', (event) => {
