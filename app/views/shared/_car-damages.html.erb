@@ -1,0 +1,24 @@
+<div class="damage">
+  <h6><%= damage.title %></h6>
+  <p><%= damage.description %></p>
+  <div class="container-caroussel">
+    <% if car.photo_1.file.nil?%>
+      <div>
+        <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%>
+      </div>
+    <% else %>
+      <%= render "shared/car-damages-carousel", damage: damage %>
+    <% end %>
+  </div>
+  <div class="button-damage">
+    <%= link_to edit_car_damage_path(car, damage) do %>
+      <button class="btn btn-custom-2">Modifier</button>
+    <% end %>
+    <%= link_to 'Supprimer',
+             car_damage_path(car, damage),
+             method: :delete,
+             data: { confirm: 'Are you sure?' },
+             class: "btn btn-custom-1" %>
+  </div>
+</div>
+

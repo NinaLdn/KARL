@@ -1,0 +1,21 @@
+<div class="info-row-price" style="width:50%">
+    <div style="padding:5px">
+      <p class="header-dashboard"> <strong>Estimation</strong></p>
+      <p> <strong> <%= car.estimated_price %> € </strong></p>
+    </div>
+</div>
+<div class="info-row-depreciation" style="width:50%">
+  <p class="header-dashboard"> <strong>Depreciation</strong></p>
+  <div style="display:flex">
+    <div class="row-forecast"> <p><%=  car.forecast_30_days %> jours -</p></div>
+    <div class="row-forecast" style="text-align: right"><p> <%= car.forecast_30_value %> €</p></div>
+  </div>
+  <div style="display:flex" >
+    <div class="row-forecast"> <p><%=  car.forecast_60_days %> jours -</p></div>
+    <div class="row-forecast"> <p><%= car.forecast_60_value %> €</p></div>
+  </div>
+  <div style="display:flex" >
+    <div class="row-forecast"><p> <%=  car.forecast_90_days %> jours -</p></div>
+    <div class="row-forecast"><p> <%= car.forecast_90_value %> €</p></div>
+  </div>
+</div>
