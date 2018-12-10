@@ -1,40 +1,42 @@
 
 <%= content_for(:navbar_class, "navbar-home") %>
 
-<div class="container">
+<div class="container-home">
 
-  <div class="row">
-    <div class="body-row" id="header-row">
-      <div class="col-xs-12">
+    <div class="header-home">
         <div class="home-title header__bg text-left">
           <div class="main-title " id="main-title">
-            <h1>Arrêtez de vous faire rouler</h1>
+            <div class="image-home">
+              <%= image_tag "Karl Blanc.png" %>
+            </div>
           </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="body-row">
-      <div class="comment-title" id="comment-title">
-        <p>Estimez le vrai prix de votre voiture</p>
-      </div>
-      <div class="arrow bounce">
-        <a class="fa fa-arrow-down fa-2x"></a>
-      </div>
-      <div class="col-xs-12">
+    <div class="body-home">
+      <div class="comment-form">
+        <div class="comment-form-text">
+          <p>Karl va vous aider à vendre votre voiture au meilleur prix et rapidement. Commençons par l’estimation.</p>
+        </div>
         <div class="first-form">
           <%= simple_form_for @car do |f| %>
-            <%= f.input :registration_number, as: :string, id:"reg-number", placeholder:"EG258MA", label:"Numéro de plaque d'immatriculation"%>
-            <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider'}%>
-            <!-- <input type="range" value="45" data-tooltip="true" id='slider'> -->
-            <label for="ex11">Kilométrage estimé</label>
-            <input id="ex11" type="text"/>
-            <%= f.submit "Prix", class: "btn btn-submit" %>
+          <div class="form-component-1">
+            <div class="form-component-1-1">
+              <%= f.input :registration_number, as: :string, id:"reg-number", placeholder:"EG258MA", label:"Numéro d'immatriculation"%>
+            </div>
+            <div class="form-component-1-2">
+              <div class="form-component-1-2-1">
+                <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider'}%>
+              </div>
+              <label for="ex11">Kilométrage estimé</label>
+              <input id="ex11" type="text"/>
+            </div>
+          </div>
+          <div class="form-component-2">
+            <%= f.submit "Découvrez le vrai prix de votre voiture !", class: "btn-hover color-5" %>
+          </div>
           <% end %>
         </div>
       </div>
     </div>
-  </div>
 </div>
