@@ -1,37 +1,64 @@
 <div class="container-damages-edit">
 
+  <%= simple_form_for [@car, @damage] do |f| %>
 
-<%= simple_form_for [@car, @damage] do |f| %>
-
-  <div class="formDamage4">
-    <p>Avez-vous des dommages sur votre voiture ?</p>
-    <%= f.submit "Yes", class: "btn btn-primary", id: "submit-yes-damage"%>
-    <%= link_to "No", final_validation_car_path(@car), class: "btn btn-danger" %>
-  </div>
-
-  <div class="formDamage5 hidden">
-    <div class="title-description-damage-edit">
-      <p>Titre et description du dommage</p>
-      <%= f.input :title, as: :string %>
-      <%= f.input :description, as: :text %>
-      <%= f.submit "Next", class: "btn btn-primary", id: "submit-damage-title-description"%>
+    <div class="formDamage1">
+      <p>Avez-vous des dommages sur votre voiture ?</p>
+      <%= f.submit "Yes", class: "btn btn-primary", id: "submit-yes-damage"%>
+      <%= link_to "No", final_validation_car_path(@car), class: "btn btn-danger" %>
     </div>
-  </div>
 
-  <div class="formDamage6 hidden">
-    <div class="photo-edit">
-      <p>Ajouter des photos du dommage</p>
-      <div class="photo-upload-features">
-        <%= f.input :picture_1, class: "photo-upload" %>
-        <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.input :picture_2, class: "photo-upload"  %>
-        <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.input :picture_3, class: "photo-upload" %>
-        <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
+    <div class="formDamage2 hidden">
+      <div class="title-description-damage-edit">
+        <p>Quelle est la nature de votre dommage ?</p>
+        <ul class="damages-type">
+          <li data-name="Carrosserie" class="btn" id="type-carrosserie">
+            <i class="fas fa-car-crash"></i>
+            <h4 id="damages-type-font">Carrosserie</h4>
+          </li>
+          <li data-name="Mécanique" class='btn' id='type-mecanique'>
+            <i class="fas fa-wrench"></i>
+            <h4 id="damages-type-font">Mécanique</h4>
+          </li>
+        </ul>
       </div>
     </div>
-    <%= f.submit "Submit", class: "btn btn-primary", id: "submit-damage-pic" %>
-  </div>
 
-<%end%>
+    <div class="formDamage3 hidden">
+      <label for="Mecanique">Le dommage sur la mécanique de votre voiture concerne:</label>
+      <% ['La batterie', 'embrayage', 'La boite de vitesse', 'La courroie de distribution', 'L électronique du moteur', 'Les disques de freins', 'L alimentation (pompe à injection)', 'Les éclairages (phares, feux, ampoules)', 'Le chauffage, la climatisation', 'Autre'].each do |damage| %>
+      <br><%= radio_button_tag 'Mecanique', damage, @mecanique == damage %>
+      <%= damage %>
+      <% end %>
+      <%= f.input :title, as: :hidden %>
+      <%= f.input :description, as: :text %>
+      <%= f.submit "Finaliser", class: "btn btn-primary", id: "submit-damage-title-description"%>
+    </div>
 
+    <div class="formDamage4 hidden">
+      <label for="carrosserie">Le dommage sur la carrosserie de votre voiture concerne:</label>
+      <% ['Un trou ou une fracture', 'Une déformation suite à un choc ', 'Une rayure', 'Une corosion', 'Autre'].each do |damage| %>
+      <br><%= radio_button_tag 'carrosserie', damage, @carrosserie == damage %>
+      <%= damage %>
+      <% end %>
+      <div class="formDamage5">
+        <div class="photo-edit">
+          <p>Ajouter des photos du dommage</p>
+          <div class="photo-upload-features">
+            <%= f.input :picture_1, class: "photo-upload" %>
+            <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
+            <%= f.input :picture_2, class: "photo-upload"  %>
+            <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
+            <%= f.input :picture_3, class: "photo-upload" %>
+            <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
+          </div>
+        </div>
+        <%= f.submit "Submit", class: "btn btn-primary", id: "submit-damage-pic" %>
+      </div>
+      <%= f.input :description, as: :text %>
+      <%= f.submit "Finaliser", class: "btn btn-primary", id: "submit-damage-title-description"%>
+    </div>
+
+  <%end%>
+
+</div>
