@@ -1,0 +1,31 @@
+<% if car.photo_1.file.nil?%>
+  <div>
+    <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 300%>
+  </div>
+<% else %>
+  <div class="carousel">
+    <input type="radio" id="carousel-1" name="carousel[]" checked>
+    <input type="radio" id="carousel-2" name="carousel[]">
+    <input type="radio" id="carousel-3" name="carousel[]">
+    <ul class="carousel__items">
+      <li class="carousel__item"><img src="<%= car.photo_1%>" alt=""></li>
+      <li class="carousel__item"><img src="<%= car.photo_2%>" alt=""></li>
+      <li class="carousel__item"><img src="<%= car.photo_3%>" alt=""></li>
+    </ul>
+    <div class="carousel__prev">
+      <label for="carousel-1"></label>
+      <label for="carousel-2"></label>
+      <label for="carousel-3"></label>
+    </div>
+    <div class="carousel__next">
+      <label for="carousel-1"></label>
+      <label for="carousel-2"></label>
+      <label for="carousel-3"></label>
+    </div>
+    <div class="carousel__nav">
+       <label for="carousel-1"></label>
+       <label for="carousel-2"></label>
+       <label for="carousel-3"></label>
+    </div>
+  </div>
+<% end %>

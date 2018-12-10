@@ -1,38 +1,52 @@
 
 <div class="edit-container">
+
   <h3>Votre annonce: </h3>
+  <%= simple_form_for(@car) do |f| %>
 
-<%= simple_form_for(@car) do |f| %>
-
-  <div class="form1">
-    <div class="kilometers-edit">
-      <%= f.input :exact_kilometer, label: "Kilométrage exacte:", as: :integer %>
-      <%= f.submit "Valider", class: "btn btn-success", id: "submit-km"%>
-    </div>
-  </div>
-
-  <div class="form2 hidden">
-    <div class="photo-edit">
-      <h5>Ajouter des photos:</h5>
-      <div class="photo-upload-features">
-        <%= f.input :photo_1, label: "Photo 1:",class: "photo-upload" %>
-        <%= f.input :photo_1_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.input :photo_2, label: "Photo 2:", class: "photo-upload"  %>
-        <%= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.input :photo_3, label: "Photo 3:", class: "photo-upload" %>
-        <%= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
-        <%= f.submit "Valider", class: "btn btn-success", id: "submit-picture"%>
+    <div class="form1">
+      <div class="description-edit">
+        <%= f.input :why_selling, label: "Pour quelle raison vendez-vous votre voiture ?", as: :text %>
+        <%= f.submit "Continuer", class: "btn btn-success", id: "submit-why-selling" %>
       </div>
     </div>
-  </div>
 
-  <div class="form3 hidden">
-    <div class="description-edit">
-      <%= f.input :why_selling, label: "Pour quelle raison vendez-vous votre voiture ?", as: :text %>
-    <%= f.submit "Valider", class: "btn btn-success", id: "submit-why-selling" %>
+    <div class="form2 hidden">
+      <div class="address-edit">
+        <%= f.input :location, label: "Dans quelle ville se situe votre voiture ?", as: :string %>
+        <%= f.submit "Continuer", class: "btn btn-success", id: "submit-address"%>
+      </div>
     </div>
-  </div>
 
-<%end%>
+    <div class="form3 hidden">
+      <div class="kilometers-edit">
+        <%= f.input :exact_kilometer, label: "Quel est le kilométrage exact de votre voiture ?", as: :integer %>
+        <%= f.submit "Continuer", class: "btn btn-success", id: "submit-km"%>
+      </div>
+    </div>
+
+    <div class="form4 hidden">
+      <div class="photo-edit">
+        <h5>Ajouter des photos :</h5>
+        <div class="photo-upload-features">
+          <%= f.input :photo_1, label: "Photo 1:",class: "photo-upload" %>
+          <%= f.input :photo_1_cache, as: :hidden, class: "photo-upload" %>
+          <%= f.input :photo_2, label: "Photo 2:", class: "photo-upload"  %>
+          <%= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
+          <%= f.input :photo_3, label: "Photo 3:", class: "photo-upload" %>
+          <%= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
+          <%= f.submit "Continuer", class: "btn btn-success", id: "submit-picture"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="form5 hidden">
+      <div class="technical-control-edit">
+        <%= f.input :next_technical_control_date, label: "Quelle est la date de votre dernier contrôle technique ?", as: :date %>
+        <%= f.submit "Finaliser", class: "btn btn-success", id: "submit-technical-control"%>
+      </div>
+    </div>
+
+  <%end%>
 
 </div>

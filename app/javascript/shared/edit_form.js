@@ -1,36 +1,43 @@
 const submitCar = () => {
 
-  // Select submit button
+  // Select forms
   const form1 = document.querySelector(".form1");
   const form2 = document.querySelector(".form2");
   const form3 = document.querySelector(".form3");
-  // const form4 = document.querySelector(".form4");
+  const form4 = document.querySelector(".form4");
+  const form5 = document.querySelector(".form5");
 
+// Select submit buttons in the forms
+  const submitWhySelling = document.getElementById("submit-why-selling");
+  const submitAddress = document.getElementById("submit-address");
   const submitKm = document.getElementById("submit-km");
   const submitPic = document.getElementById("submit-picture");
-  const submitWhySelling = document.getElementById("submit-why-selling");
-  // const submitDamages = document.getElementById("submit-damages");
+  const submitTechnicalControl = document.getElementById("submit-technical-control");
 
-  if (submitKm) {
-    submitKm.addEventListener("click", (event) => {
-      // console.log(form1)
-      // console.log(form2)
-      // console.log(form3)
+  if (submitWhySelling) {
+
+    submitWhySelling.addEventListener("click", (event) => {
       event.preventDefault();
-      // form2.toggle();
       form1.classList.add("hidden")
       form2.classList.remove("hidden")
     });
 
-    // submitDamages.addEventListener("click", (event) => {
-    //   form.classList.add("hidden")
-    //   form3.classList.remove("hidden")
-    // });
-
-    submitPic.addEventListener("click", (event) => {
+    submitAddress.addEventListener("click", (event) => {
       event.preventDefault();
       form2.classList.add("hidden")
       form3.classList.remove("hidden")
+    });
+
+    submitKm.addEventListener("click", (event) => {
+      event.preventDefault();
+      form3.classList.add("hidden")
+      form4.classList.remove("hidden")
+    });
+
+    submitPic.addEventListener("click", (event) => {
+      event.preventDefault();
+      form4.classList.add("hidden")
+      form5.classList.remove("hidden")
     });
 
   }
