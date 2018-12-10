@@ -1,0 +1,26 @@
+<div class="info-row-1" >
+  <p>Marque: <%=car.car_brand %></p>
+  <p>Version: <%=car.model_type %> <%= car.model_version %></p>
+  <p>Première immatriculation: <%= car.registration_date %></p>
+</div>
+
+<div class="info-row-2" style='text-align: center'>
+  <div class="col-xs-4" style='display:inline-block'>
+    <div style="padding:10px">
+      <%= image_tag "001-horse.png" %>
+    </div>
+    <p><%= car.fiscal_horsepower %> CH</p>
+  </div>
+  <div class="col-xs-4" style='display:inline-block'>
+    <div style="padding:10px">
+      <%= image_tag "001-fuel.png" %>
+    </div>
+    <p><% car.fuel_type == "gasoline" ? "Essence" : "Diesel"%></p>
+  </div>
+  <div class="col-xs-4" style='display:inline-block'>
+    <div style="padding:10px">
+      <%= image_tag "002-gearbox.png" %>
+    </div>
+    <p><% car.gearbox == "M" ? "Manuel" : "Automatique" %></p>
+  </div>
+</div>
