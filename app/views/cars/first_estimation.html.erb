@@ -1,26 +1,29 @@
-<div class ="container" style="padding:15px">
-  <h3>Notre estimation</h3>
-
-  <p>Que pouvez vous obtenir pour votre <strong> <%= @car.car_brand %> <%= @car.model_type %> </strong></p>
-
+<div class ="container" id="first-estimation-body">
+  <div class="first-estimation-text col-xs-12">
+    <h4>Notre estimation:</h4>
+    <p>Que pouvez vous obtenir pour votre <strong><%= @car.car_brand %> <%= @car.model_type %></strong></p>
+  </div>
   <div class="info-row" >
-    <div class="col-xs-6" style='display:inline-block'>
-      <div style="padding:10px; text-align: center"> <%= image_tag "Karl32.png" %> </div>
-      <div style="padding:10px">  </div>
-      <p style="text-align: center"> <strong> <%= number_to_currency(@car.estimated_price, unit:"€", format: "%n %u") %></strong></p>
+    <div class="col-xs-6" id="karl-estimation" style='display:inline-block'>
+      <div style="padding:10px; text-align: center"> <%= image_tag "Karl32.png" %></div>
+      <div class="first-estimation-text-1">
+        <p style="text-align: center"><strong><%= number_to_currency(@car.estimated_price, unit:"€", format: "%n %u") %></strong></p>
+      </div>
     </div>
     <div class="col-xs-6" style='display:inline-block; text-align: center'>
-      <div style="padding:10px"> <%= image_tag "002-salesman.png" %> </div>
-      <p><%= number_to_currency((@car.estimated_price / 1.4), unit:"€", format: "%n %u") %></p>
+      <div style="padding:10px"> <%= image_tag "002-salesman.png" %></div>
+      <p><%= number_to_currency((@car.estimated_price / 1.3), unit:"€", format: "%n %u") %></p>
     </div>
   </div>
   <div id=chart>
-    <canvas id="myChart" width="400" height="400" data-prices="<%= @car_prices.to_json%>"></canvas>
+    <canvas id="myChart" data-prices="<%= @car_prices.to_json%>"></canvas>
   </div>
 
-  <div style='text-align: center; padding:10px'>
+  <div class="first-estimation-button">
     <%= link_to start_car_path(@car) do %>
-      <button class="btn btn-success">Let's go</button>
+    <div class="first-estimation-button-1">
+      <button class="btn-hover color-5">Je veux vendre ma voiture au meilleur prix !</button>
+    </div>
     <%end%>
   </div>
 </div>
