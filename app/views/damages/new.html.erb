@@ -3,13 +3,13 @@
 
 <%= simple_form_for [@car, @damage] do |f| %>
 
-  <div class="form4">
+  <div class="formDamage4">
     <p>Avez-vous des dommages sur votre voiture ?</p>
     <%= f.submit "Yes", class: "btn btn-primary", id: "submit-yes-damage"%>
     <%= link_to "No", final_validation_car_path(@car), class: "btn btn-danger" %>
   </div>
 
-  <div class="form5 hidden">
+  <div class="formDamage5 hidden">
     <div class="title-description-damage-edit">
       <p>Titre et description du dommage</p>
       <%= f.input :title, as: :string %>
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="form6 hidden">
+  <div class="formDamage6 hidden">
     <div class="photo-edit">
       <p>Ajouter des photos du dommage</p>
       <div class="photo-upload-features">
