@@ -98,10 +98,51 @@ require 'net/http'
 
 #Mobile - API
 
-filepath = 'API_responses/mobile-api.json'
-immatriculation_response = File.read(filepath)
-immatriculation_data = JSON.parse(response, {symbolize_names: true})
+# filepath = 'API_responses/mobile-api.json'
+# mobile_response = File.read(filepath)
+# # mobile_data = JSON.parse(mobile_response, {symbolize_names: true})
 
-puts immatriculation_data
+# puts mobile_data
 
+karl_request =
+{
+  "vehicleClass": "Car",
+  "category": "#{@car.body}",
+  "make": "#{@car.car_brand}",
+  "model": "#{@car.model_type}",
+  "modelDescription": "#{@car_brand} #{@car.model_type} #{@car.model_version}",
+  "condition": "USED",
+  "firstRegistration": "#{@car.registration_date}",
+  "mileage": "#{@car.registration_date.to_i}",
+  "power": "#{@car.fiscal_horsepower.to_i}",
+  "gearbox": "#{@car.gearbox}",
+  "fuel": "#{@car.fuel_type}",
+  "images": [
+        {
+          "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$",
+          "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$_27.JPG",
+          "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+        },
+        {
+          "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$",
+          "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$_27.JPG",
+          "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+        }
+  ],
+  "doors": "#{@car.door_number}",
+  "seats": "#{@car.seating_place_number}",
+  "generalInspection": "#{@car.next_technical_control_date}",
+  "description": "#{@car.announce_description}",
+  "price": {
+    "dealerPriceGross": "#{@car.given_price}",
+    "consumerPriceGross": "#{@car.given_price}",
+    "dealerPriceNet": "#{@car.given_price / 1.19}",
+    "consumerPriceNet": "#{@car.given_price / 1.19}",
+    "vatRate": "19.00",
+    "type": "FIXED",
+    "currency": "EUR"
+  }
 
+  karl_request_json = File.write(JSON.generate(karl_request))
+  pp karl_request
+  RestClient.post "http://api.test.sandbox.mobile.de:8080", karl_request, {content_type: :json, accept: :json}

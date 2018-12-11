@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       # get 'pictures', to: "cars#pictures"
       # get 'why_selling', to: "cars#why_selling"
       get 'final_validation', to: "cars#final_validation"
+      get 'publish', to: "cars#publish_offer"
       get 'final_message', to: "cars#final_message"
 
     end

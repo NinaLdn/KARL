@@ -6,7 +6,7 @@ require 'net/http'
 require 'date'
 
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation]
+  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :publish_offer]
 
   def show
     # FOR THE TECHNICAL DATA SHEET OF 1 CAR = FINAL VALIDATION
@@ -54,7 +54,7 @@ class CarsController < ApplicationController
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-    request = Net::HTTP::Post.new(url_autovisual)
+
     # date_string = @car.registration_date.to_s
     # date_autovisual = Date.parse("#{date_string.last(4)}-#{date_string[2..3]}-#{date_string.first(2)}")
     request["content-type"] = 'application/json'
@@ -146,6 +146,73 @@ class CarsController < ApplicationController
     # USER STORY 6: MESSAGE DE VALIDATION FINALE
   end
 
+  def publish_offer
+    @car.user = current_user
+    payload =
+    {
+      "vehicleClass": "Car",
+      "category": 'Van',
+      "make": "#{@car.car_brand}",
+      "model": "Scenic",
+      "modelDescription": "#{@car_brand} #{@car.model_type} #{@car.model_version}",
+      "condition": "USED",
+      "damageUnrepaired": false,
+      "firstRegistration": "201606",
+      "mileage": "#{@car.exact_kilometer.to_i}",
+      "power": "#{@car.fiscal_horsepower.to_i}",
+      "gearbox": "MANUAL_GEAR",
+      "fuel": "PETROL",
+      "images": [
+            {
+              "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$",
+              "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$_27.JPG",
+              "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+            },
+            {
+              "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$",
+              "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$_27.JPG",
+              "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+            }
+      ],
+      "doors": "#{@car.door_number}",
+      "seats": "#{@car.seating_place_number}",
+      "generalInspection": "201611",
+      "description": "#{@car.announce_description}",
+      "price": {
+        "dealerPriceGross": "#{@car.estimated_price}",
+        "consumerPriceGross": "#{@car.estimated_price}",
+        "dealerPriceNet": "#{@car.estimated_price / 1.19}",
+        "consumerPriceNet": "#{@car.estimated_price / 1.19}",
+        "vatRate": "19.00",
+        "type": "FIXED",
+        "currency": "EUR"
+      }
+    }
+
+    # @karl_request_json = karl_request.to_json
+    # puts JSON.generate(karl_request)
+    # karl_request_json = File.write(JSON.generate(karl_request))
+    # mobile_response = RestClient::Request.execute method: :post, url:"http://api.test.sandbox.mobile.de:8080", user: 'API52', password: 'API52pass1', body: @karl_request_json
+    # raise
+    # RestClient.post 'api.test.sandbox.mobile.de:8080', @karl_request_json, {:Authorization => 'Basic QVBJNTI6QVBJNTJwYXNzMQ=='}
+    mobile_response = RestClient::Request.execute(
+      method: :post,
+      url: 'https://services.mobile.de/seller-api/sellers/1152/ads',
+      proxy: 'http://api.test.sandbox.mobile.de:8080',
+      payload: payload.to_json,
+      content_type: :json,
+      headers: {
+        authorization: 'Basic QVBJNTI6QVBJNTJwYXNzMQ==',
+        content_type: 'application/vnd.de.mobile.api+json',
+        accept: 'application/vnd.de.mobile.api+json'
+      }
+    )
+    final_data = mobile_response.body
+    puts final_data
+    raise
+
+  end
+
   def dashboard
     @cars = current_user.cars
     @cars.each do |car|
@@ -162,6 +229,6 @@ private
   end
 
   def car_params
-    params.require(:car).permit(:registration_number, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :first_registration_date, :fiscal_horsepower, :maximum_net_power, :body )
+    params.require(:car).permit(:registration_number, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :first_registration_date, :fiscal_horsepower, :maximum_net_power, :body, :door_number, :next_technical_control_date, :announce_description, :given_price )
   end
 end
