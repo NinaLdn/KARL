@@ -8,6 +8,7 @@ require 'date'
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :publish_offer]
 
+
   def final_validation
     # USERSTORY 5 : SHOW DU FORM + FINAL EDIT
     # @car = Car.find(params[:id])

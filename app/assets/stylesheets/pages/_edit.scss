@@ -6,4 +6,146 @@
     line-height: 1.1;
     color: inherit;
   }
+  h3 {
+    padding-left: 15px;
+  }
+}
+
+.description-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  height: calc(100vh - 130px);
+  .progress {
+    margin-bottom: 100px;
+  }
+  .btn-hover {
+    margin-left: 0px;
+  }
+}
+
+.description-edit-1 {
+  flex: 1 0 auto;
+}
+
+
+.description-edit-2 {
+  position: relative;
+  bottom: 0;
+  margin-bottom: 12px;
+  height: 150px;
+  .progress {
+  margin-top: 30px;
+  }
+}
+
+.description-edit-2-2 {
+  height: 60px;
+}
+
+
+.form1, .form2, .form3 {
+  .form-control {
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #14C98E;
+  margin-bottom: 20px;
+  height: 40px;
+  box-shadow:none;
+  }
+}
+
+.form5 {
+  .form-control {
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #14C98E;
+  margin-bottom: 10px;
+  box-shadow:none;
+  height: 38px;
+  }
+}
+
+
+
+.edit-address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  height: calc(100vh - 77px);
+  .progress {
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
+  .btn-hover {
+    margin-left: 0px;
+  }
+}
+
+.edit-adress-2-2 {
+  height: 60px;
+}
+
+.edit-kilometers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  height: calc(100vh - 77px);
+  .progress {
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
+  .btn-hover {
+    margin-left: 0px;
+  }
+}
+
+.edit-kilometers-2-2 {
+  height: 60px;
+}
+
+.edit-pictures {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  height: calc(100vh - 77px);
+  .progress {
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
+  .btn-hover {
+    margin-left: 0px;
+  }
+}
+
+.edit-pictures-2-2 {
+  height: 60px;
+}
+
+.photo_1_cache {
+  background-color: red;
+}
+
+
+.edit-technical-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  height: calc(100vh - 77px);
+  .progress {
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
+  .btn-hover {
+    margin-left: 0px;
+  }
+}
+
+.edit-technical-control-2-2 {
+  height: 60px;
 }

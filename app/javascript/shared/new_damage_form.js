@@ -1,8 +1,8 @@
 const submitDamage = () => {
 
-  const form4 = document.querySelector(".form4");
-  const form5 = document.querySelector(".form5");
-  const form6 = document.querySelector(".form6");
+  const formDamage4 = document.querySelector(".formDamage4");
+  const formDamage5 = document.querySelector(".formDamage5");
+  const formDamage6 = document.querySelector(".formDamage6");
 
   const submitYesDamage = document.getElementById("submit-yes-damage");
   const submitNoDamage = document.getElementById("submit-no-damage");
@@ -12,8 +12,8 @@ const submitDamage = () => {
   if (submitYesDamage) {
     submitYesDamage.addEventListener("click", (event) => {
       event.preventDefault();
-      form4.classList.add("hidden")
-      form5.classList.remove("hidden")
+      formDamage4.classList.add("hidden")
+      formDamage5.classList.remove("hidden")
     });
     submitNoDamage.addEventListener("click", (event) => {
       event.preventDefault();
@@ -21,8 +21,8 @@ const submitDamage = () => {
 
     submitTitleDescriptionDamage.addEventListener("click", (event) => {
       event.preventDefault();
-      form5.classList.add("hidden")
-      form6.classList.remove("hidden")
+      formDamage5.classList.add("hidden")
+      formDamage6.classList.remove("hidden")
     });
   }
 };
