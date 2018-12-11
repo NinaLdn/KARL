@@ -3,6 +3,27 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  h5 {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+  p {
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.66);
+  }
+}
+
+.final-validation-third-title {
+  h5 {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
 }
 
 .add-picture-wrapper {
@@ -12,16 +33,17 @@
 }
 
 .back-up-image {
-  width: 400px;
+  width: 100vw;
 }
 
 .final-validation-second-title {
-  border: 1px solid black;
+  text-align: left;
+
 }
 
 .info-row-1 {
   text-align: left;
-  padding: 15px;
+  padding: 5px;
 }
 
 .title-ad-detail-wrapper {
@@ -34,7 +56,20 @@
 
 .ad-detail-wrapper-details {
   text-align: left;
-  padding: 15px;
+  padding: 10px;
+}
+
+.final-validation-last-modification {
+  text-align: left;
+  padding: 10px;
+  label {
+    font-size: 16px !important;
+    color: black;
+  }
+  input {
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.66);
+  }
 }
 
 .ad-form-wrapper {
@@ -46,6 +81,7 @@
     line-height: 1.1;
     color: inherit;
   }
+  padding: 10px;
 }
 
 .damages {
@@ -69,7 +105,19 @@
 
 .final-step-button {
   margin-top: 20px;
-
+  margin-bottom: 20px;
+  .btn-hover {
+  width: 94% !important;
+  }
+  position: -webkit-sticky;  // required for Safari
+  position: sticky;
+  bottom: 10px; // required as well.
 }
 
-
+.final-validation-line {
+  height: 3px;
+  width: 30%;
+  background-image: linear-gradient(to left, #49ff00, #68f500, #7cec00, #8be200, #96d900);
+  border-radius: 5px;
+  margin-bottom: 5px;
+}

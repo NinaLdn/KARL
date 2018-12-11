@@ -14,12 +14,12 @@ const myChart = new Chart(ctx, {
             label: 'Total Price Estimates',
             data: JSON.parse(document.getElementById("myChart").dataset.prices),
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)'
+                  'rgba(163, 250, 165, 1)',
+                  'rgba(243, 94, 96, 0.77)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)'
+                'rgba(144, 249, 146, 1)',
+                'rgba(240, 61, 73, 0.77)'
             ],
             borderWidth: 1
         }]
