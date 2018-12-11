@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_12_11_114748) do
 
   # These are extensions that must be enabled in order to support this database
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_114748) do
     t.string "picture_3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nature"
     t.index ["car_id"], name: "index_damages_on_car_id"
   end
 
