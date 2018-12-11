@@ -8,19 +8,17 @@ require 'date'
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :publish_offer]
 
-  def show
-    # FOR THE TECHNICAL DATA SHEET OF 1 CAR = FINAL VALIDATION
+  def final_validation
+    # USERSTORY 5 : SHOW DU FORM + FINAL EDIT
     # @car = Car.find(params[:id])
   end
 
-
   def new
-    # USER STORY 1: HOME PAGE
+    # USERSTORY 1: HOME PAGE
     @car = Car.new
   end
 
   def create
-    # USER STORY 1: HOME PAGE
     @car = Car.new(car_params)
     @car.user = current_user
     @car.registration_number = params[:car][:registration_number]
@@ -54,7 +52,7 @@ class CarsController < ApplicationController
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-
+    request = Net::HTTP::Post.new(url_autovisual)
     # date_string = @car.registration_date.to_s
     # date_autovisual = Date.parse("#{date_string.last(4)}-#{date_string[2..3]}-#{date_string.first(2)}")
     request["content-type"] = 'application/json'
@@ -104,46 +102,29 @@ class CarsController < ApplicationController
   end
 
   def edit
-
+    # @car = Car.find(params[:id])
   end
 
   def update
-
     @car = Car.find(params[:id])
     @car.update(car_params)
-    # redirect_to final_validation_car_path(@car)
     redirect_to new_car_damage_path(@car)
-    # else
-    #   render :edit
-    # end
-  end
-
-  def destroy
-    # USER STORY 7 : DELETE ANNOUNCE AND GOT BACK TO THE HOME PAGE
-    @car.destroy
-    redirect_to root_path
   end
 
   def first_estimation
     @car_prices=[@car.estimated_price, @car.estimated_price*0.7]
-    # USER STORY 2: SHOW DE LA FIRST ESTIMATION
+    # USERSTORY 2: SHOW DE LA FIRST ESTIMATION
     # @car = Car.find(params[:id])
-    # pricing API Argus pour estimation du prix
-    # redirect_to start page
   end
 
   def start
-    # USER STORY 3 : CALL TO ACTION "START"
+    # USERSTORY 3 : CALL TO ACTION "START"
     # @car = Car.find(params[:id])
   end
 
-  def final_validation
-    # USER STORY 5 : SHOW DU FORM + EDIT
-    # @car = Car.find(params[:id])
-  end
 
   def final_message
-    # USER STORY 6: MESSAGE DE VALIDATION FINALE
+    # USERSTORY 6: MESSAGE DE VALIDATION FINALE
   end
 
   def publish_offer
@@ -207,19 +188,18 @@ class CarsController < ApplicationController
         accept: 'application/vnd.de.mobile.api+json'
       }
     )
-    final_data = mobile_response.body
-    puts final_data
+    final_data = mobile_response.headers
+    ad_url = final_data[:location]
     raise
 
-  end
 
-  def dashboard
-    @cars = current_user.cars
-    @cars.each do |car|
-      if car.estimated_price && car.deval_fix
-        @car_price_evolution = [car.estimated_price, car.estimated_price*(1-car.deval_fix), car.estimated_price*(1-car.deval_fix)**2,car.estimated_price*(1-car.deval_fix)**3, car.estimated_price*(1-car.deval_fix)**4]
-      end
-    end
+    # USERSTORY 6: MESSAGE DE VALIDATION FINALE
+   end
+
+  def destroy
+    # USERSTORY 7 : DELETE ANNOUNCE
+    @car.destroy
+    redirect_to root_path
   end
 
 private
@@ -229,6 +209,8 @@ private
   end
 
   def car_params
-    params.require(:car).permit(:registration_number, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :first_registration_date, :fiscal_horsepower, :maximum_net_power, :body, :door_number, :next_technical_control_date, :announce_description, :given_price )
+    params.require(:car).permit(:registration_number, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :first_registration_date, :fiscal_horsepower, :maximum_net_power, :body )
   end
 end
+
+

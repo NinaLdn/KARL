@@ -1,0 +1,55 @@
+<div class="karl-container">
+
+  <div class="info-card-large">
+    <h5 style="margin-top: 30px"> Votre Renault Scenic III</h5>
+    <h1> 7000 €</h1>
+    <p> Estimation Karl</p>
+  </div>
+
+  <% @cars.each do |car| %>
+    <% if car.estimated_price %>
+      <div class="votre-annonce">
+        <h2>Votre annonce</h2>
+      </div>
+      <div class="add-picture-wrapper">
+        <div class="container-caroussel">
+         <%= render 'shared/car-photos-carousel', car: car %>
+        </div>
+      </div>
+      <div class="final-validation-second-title">
+        <h4 style="text-align:center">Fiche technique:</h4>
+      </div>
+      <div class="ad-info-wrapper">
+        <%= render "shared/car-information", car: car %>
+      </div>
+
+      <div class="ad-detail-wrapper">
+        <div class="title-ad-detail-wrapper">
+          <h5>Détails supplémentaires:</h5>
+        </div>
+
+        <div class="ad-detail-wrapper-details">
+          <p>Nombres de places: <%= car.seating_place_number %></p>
+          <p>Kilométrage: <%= car.exact_kilometer %></p>
+        </div>
+      </div>
+
+      <div class="damages">
+        <h5>Dommages éventuels:</h5>
+        <% car.damages.each do |damage| %>
+          <%= render "shared/car-damages", damage: damage, car: car %>
+        <% end %>
+      </div>
+      <div class="container-infos" style="display:flex; padding:15px">
+        <%= render "shared/car-depreciation", car: car %>
+      </div>
+    <% end %>
+
+    <div class = "dashboard_container">
+      <h4 class="header-dashboard", style="padding:15px">Evolution 24m de la valeur de votre voiture</h4>
+      <div id=price_evolution>
+        <canvas id="my_price_evolution_chart" width="300" height="400" data-prices="<%= @car_price_evolution.to_json%>"></canvas>
+      </div>
+    </div>
+  <% end %>
+</div>
