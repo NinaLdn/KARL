@@ -19,69 +19,69 @@ require 'net/http'
 
 # Immatriculation-API
 
-filepath = 'API_responses/immatriculation-api.json'
-immatriculation_response = File.read(filepath)
-immatriculation_data = JSON.parse(response, {symbolize_names: true})
+# filepath = 'API_responses/immatriculation-api.json'
+# immatriculation_response = File.read(filepath)
+# immatriculation_data = JSON.parse(response, {symbolize_names: true})
 
-# harmonize car attributes with DB
+# # harmonize car attributes with DB
 
-car_attributes = {
-  car_brand: immatriculation_data.dig(:MakeDescription),
-  model_type: immatriculation_data.dig(:ModelDescription),
-  model_variant: immatriculation_data.dig(:modele)
-  gearbox: immatriculation_data.dig(:boiteDeVitesse),
-  fuel_type: immatriculation_data.dig(:FuelType),
-  seating_place_number: immatriculation_data.dig(:nbPlace)
-  first_registration_date: immatriculation_data.dig(:RegistrationDate),
-  fiscal_horsepower: immatriculation_data.dig(:EngineSize),
-  maximum_net_power: immatriculation_data.dig(:puissanceDyn),
-  body: immatriculation_data.dig(:BodyStyle),
-  estimated_kilometers: 12000
-}
+# car_attributes = {
+#   car_brand: immatriculation_data.dig(:MakeDescription),
+#   model_type: immatriculation_data.dig(:ModelDescription),
+#   model_variant: immatriculation_data.dig(:modele)
+#   gearbox: immatriculation_data.dig(:boiteDeVitesse),
+#   fuel_type: immatriculation_data.dig(:FuelType),
+#   seating_place_number: immatriculation_data.dig(:nbPlace)
+#   first_registration_date: immatriculation_data.dig(:RegistrationDate),
+#   fiscal_horsepower: immatriculation_data.dig(:EngineSize),
+#   maximum_net_power: immatriculation_data.dig(:puissanceDyn),
+#   body: immatriculation_data.dig(:BodyStyle),
+#   estimated_kilometers: 12000
+# }
 
-# Create new car - create action
+# # Create new car - create action
 
-car = Car.create(car_attributes)
+# car = Car.create(car_attributes)
 
-# Autovisual-API
+# # Autovisual-API
 
-# __ post harmonized data
+# # __ post harmonized data
 
-var request = require("request");
+# var request = require("request");
 
-var options = { method: 'POST',
-  url: 'https://api.autovisual.com/v2/av',
-  headers: { 'content-type': 'application/json' },
-  body:
-   { txt: "#{car.brand} #{car.type} #{car.model_type} #{car.model_variant}",
-     km: car.estimated_kilometers,
-     dt_entry_service: car.first_registration_date,
-     fuel: car.fuel_type,
-     transmission: car.gearbox,
-     country_ref: 'FR',
-     value: 'true',
-     transaction: 'true',
-     market: 'true',
-     seats: car.seating_place_number },
-  json: true };
+# var options = { method: 'POST',
+#   url: 'https://api.autovisual.com/v2/av',
+#   headers: { 'content-type': 'application/json' },
+#   body:
+#    { txt: "#{car.brand} #{car.type} #{car.model_type} #{car.model_variant}",
+#      km: car.estimated_kilometers,
+#      dt_entry_service: car.first_registration_date,
+#      fuel: car.fuel_type,
+#      transmission: car.gearbox,
+#      country_ref: 'FR',
+#      value: 'true',
+#      transaction: 'true',
+#      market: 'true',
+#      seats: car.seating_place_number },
+#   json: true };
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-});
+# request(options, function (error, response, body) {
+#   if (error) throw new Error(error);
+# });
 
-# __ get additional information
+# # __ get additional information
 
-filepath = 'API_responses/autovisual-api.json'
-autovisual_response = File.read(filepath)
-autovisual_data = JSON.parse(response, {symbolize_names: true})
+# filepath = 'API_responses/autovisual-api.json'
+# autovisual_response = File.read(filepath)
+# autovisual_data = JSON.parse(response, {symbolize_names: true})
 
-# __ update car / enrich car with market data
+# # __ update car / enrich car with market data
 
-car_new_attributes {
-  estimated_price: autovisual_data.dig(:value, :c)
-}
+# car_new_attributes {
+#   estimated_price: autovisual_data.dig(:value, :c)
+# }
 
-car = Car.update(car_new_attributes)
+# car = Car.update(car_new_attributes)
 
 
 # Autoscout-API
@@ -95,3 +95,54 @@ car = Car.update(car_new_attributes)
 # data = JSON.parse(response, {symbolize_names: true})
 # puts data
 
+
+#Mobile - API
+
+# filepath = 'API_responses/mobile-api.json'
+# mobile_response = File.read(filepath)
+# # mobile_data = JSON.parse(mobile_response, {symbolize_names: true})
+
+# puts mobile_data
+
+karl_request =
+{
+  "vehicleClass": "Car",
+  "category": "#{@car.body}",
+  "make": "#{@car.car_brand}",
+  "model": "#{@car.model_type}",
+  "modelDescription": "#{@car_brand} #{@car.model_type} #{@car.model_version}",
+  "condition": "USED",
+  "firstRegistration": "#{@car.registration_date}",
+  "mileage": "#{@car.registration_date.to_i}",
+  "power": "#{@car.fiscal_horsepower.to_i}",
+  "gearbox": "#{@car.gearbox}",
+  "fuel": "#{@car.fuel_type}",
+  "images": [
+        {
+          "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$",
+          "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$_27.JPG",
+          "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+        },
+        {
+          "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$",
+          "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$_27.JPG",
+          "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+        }
+  ],
+  "doors": "#{@car.door_number}",
+  "seats": "#{@car.seating_place_number}",
+  "generalInspection": "#{@car.next_technical_control_date}",
+  "description": "#{@car.announce_description}",
+  "price": {
+    "dealerPriceGross": "#{@car.given_price}",
+    "consumerPriceGross": "#{@car.given_price}",
+    "dealerPriceNet": "#{@car.given_price / 1.19}",
+    "consumerPriceNet": "#{@car.given_price / 1.19}",
+    "vatRate": "19.00",
+    "type": "FIXED",
+    "currency": "EUR"
+  }
+
+  karl_request_json = File.write(JSON.generate(karl_request))
+  pp karl_request
+  RestClient.post "http://api.test.sandbox.mobile.de:8080", karl_request, {content_type: :json, accept: :json}

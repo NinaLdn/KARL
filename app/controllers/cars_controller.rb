@@ -6,7 +6,8 @@ require 'net/http'
 require 'date'
 
 class CarsController < ApplicationController
-  before_action :set_car, only: [:edit, :first_estimation, :start, :final_validation]
+  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :publish_offer]
+
 
   def final_validation
     # USERSTORY 5 : SHOW DU FORM + FINAL EDIT
@@ -127,6 +128,102 @@ class CarsController < ApplicationController
     # USERSTORY 6: MESSAGE DE VALIDATION FINALE
   end
 
+  def publish_offer
+    @car.user = current_user
+    payload =
+    {
+      "vehicleClass": "Car",
+      "category": 'Van',
+      "make": "#{@car.car_brand}",
+      "model": "Scenic",
+      "modelDescription": "#{@car_brand} #{@car.model_type} #{@car.model_version}",
+      "condition": "USED",
+      "damageUnrepaired": false,
+      "firstRegistration": "201606",
+      "mileage": "#{@car.exact_kilometer.to_i}",
+      "power": "#{@car.fiscal_horsepower.to_i}",
+      "gearbox": "MANUAL_GEAR",
+      "fuel": "PETROL",
+      "images": [
+            {
+              "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$",
+              "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/3CcAAOSwy59YeN0z/$_27.JPG",
+              "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+            },
+            {
+              "baseUrl": "i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$",
+              "ref": "http://i.ebayimg.sandbox.ebay.com/00/s/NDkyWDE2MDA=/z/iQUAAOSwQ2ZYeN02/$_27.JPG",
+              "hash": "fda8487ed7fcfbecdf1eb55cf582fccf"
+            }
+      ],
+      "doors": "#{@car.door_number}",
+      "seats": "#{@car.seating_place_number}",
+      "generalInspection": "201611",
+      "description": "#{@car.announce_description}",
+      "price": {
+        "dealerPriceGross": "#{@car.estimated_price}",
+        "consumerPriceGross": "#{@car.estimated_price}",
+        "dealerPriceNet": "#{@car.estimated_price / 1.19}",
+        "consumerPriceNet": "#{@car.estimated_price / 1.19}",
+        "vatRate": "19.00",
+        "type": "FIXED",
+        "currency": "EUR"
+      }
+    }
+
+    # @karl_request_json = karl_request.to_json
+    # puts JSON.generate(karl_request)
+    # karl_request_json = File.write(JSON.generate(karl_request))
+    # mobile_response = RestClient::Request.execute method: :post, url:"http://api.test.sandbox.mobile.de:8080", user: 'API52', password: 'API52pass1', body: @karl_request_json
+    # raise
+    # RestClient.post 'api.test.sandbox.mobile.de:8080', @karl_request_json, {:Authorization => 'Basic QVBJNTI6QVBJNTJwYXNzMQ=='}
+    mobile_response = RestClient::Request.execute(
+      method: :post,
+      url: 'https://services.mobile.de/seller-api/sellers/1152/ads',
+      proxy: 'http://api.test.sandbox.mobile.de:8080',
+      payload: payload.to_json,
+      content_type: :json,
+      headers: {
+        authorization: 'Basic QVBJNTI6QVBJNTJwYXNzMQ==',
+        content_type: 'application/vnd.de.mobile.api+json',
+        accept: 'application/vnd.de.mobile.api+json'
+      }
+    )
+    response_data = mobile_response.headers
+    response_url = response_data[:location]
+
+    mobile_ad = RestClient::Request.execute(
+      method: :get,
+      url: "#{response_url}",
+      proxy: 'http://api.test.sandbox.mobile.de:8080',
+      payload: payload.to_json,
+      content_type: :json,
+      headers: {
+        authorization: 'Basic QVBJNTI6QVBJNTJwYXNzMQ==',
+        content_type: 'application/vnd.de.mobile.api+json',
+        accept: 'application/vnd.de.mobile.api+json'
+      }
+    )
+
+    final_ad = JSON.parse(mobile_ad, {symbolize_names: true})
+    @car.update_attributes(
+      add_id: final_ad.dig(:mobileAdId)
+    )
+    @car.save
+    raise
+    # USERSTORY 6: MESSAGE DE VALIDATION FINALE
+  end
+
+  def show
+     @cars = current_user.cars
+     @cars.each do |car|
+       if car.estimated_price && car.deval_fix
+         @car_price_evolution = [car.estimated_price, car.estimated_price*(1+car.deval_fix), car.estimated_price*(1+car.deval_fix)**2,car.estimated_price*(1+car.deval_fix)**3, car.estimated_price*(1+car.deval_fix)**4]
+       end
+    end
+  end
+
+
   def destroy
     # USERSTORY 7 : DELETE ANNOUNCE
     @car.destroy
@@ -143,3 +240,5 @@ private
     params.require(:car).permit(:registration_number, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :first_registration_date, :fiscal_horsepower, :maximum_net_power, :body )
   end
 end
+
+
