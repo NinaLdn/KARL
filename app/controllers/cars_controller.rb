@@ -210,7 +210,6 @@ class CarsController < ApplicationController
       add_id: final_ad.dig(:mobileAdId)
     )
     @car.save
-    raise
     # USERSTORY 6: MESSAGE DE VALIDATION FINALE
   end
 
