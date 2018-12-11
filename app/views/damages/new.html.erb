@@ -37,7 +37,7 @@
       <%= simple_form_for [@car, @damage] do |f| %>
         <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-carrosserie'}%>
         <div class="nature-damages">
-          <p>Quel type de dommage avez-vous sur la carrosserie de votre voiture? </p>
+          <p>Le dommage sur la carrosserie concerne: </p>
           <ul class="damages-nature">
             <% Damage::CARROSSERIE.each do |damage| %>
             <li class="btn" data-value="<%= damage %>" data-name="carrosserie">
@@ -64,7 +64,7 @@
       <%= simple_form_for [@car, @damage] do |f| %>
         <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-mecanique'}%>
         <div class="nature-damages">
-          <p>Quel type de dommage avez-vous sur la mécanique de votre voiture? </p>
+          <p>Le dommage sur la mécanique concerne: </p>
           <ul class="damages-nature">
             <% Damage::MECANIQUE.each do |damage| %>
             <li class="btn" data-value="<%= damage %>" data-name="mecanique">
@@ -78,8 +78,6 @@
         <%= f.submit "Finaliser", class: "btn btn-primary"%>
       <% end %>
     </div>
-
-    <#%= f.submit "Submit", class: "btn btn-primary", id: "submit-damage-pic" %>
 
   </div>
 </div>

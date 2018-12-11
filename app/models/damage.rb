@@ -1,7 +1,7 @@
 class Damage < ApplicationRecord
   NATURE = ["carrosserie", "mecanique"]
-  MECANIQUE = ["La batterie", "l'embrayage", "La boite de vitesse", "Le moteur", "Les disques de freins", "L'alimentation", "Les éclairages", "Autre"]
-  CARROSSERIE = ["Une fracture", "Une déformation", "Une rayure", "Une corosion", "Autre"]
+  MECANIQUE = ["L'embrayage", "La boite de vitesse", "La courroie\n de distribution", "Autre"]
+  CARROSSERIE = ["Une rayure", "Une bosse", "Autre"]
   belongs_to :car
   mount_uploader :picture_1, PhotoUploader
   mount_uploader :picture_2, PhotoUploader

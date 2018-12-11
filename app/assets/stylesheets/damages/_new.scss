@@ -26,7 +26,8 @@
 }
 
 .damages-nature{
-    display: flex;
+  flex-wrap: wrap;
+  display: flex;
   justify-content: center;
   li {
     list-style: none;
