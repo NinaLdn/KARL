@@ -3,6 +3,11 @@
     <p>Avez-vous des dommages sur votre voiture ?</p>
     <p class="btn btn-primary" id="submit-yes-damage">Yes</p>
     <%= link_to "No", final_validation_car_path(@car), class: "btn btn-danger" %>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:77.7%">
+        </div>
+      </div>
   </div>
 
   <div id="form-damage">
@@ -19,6 +24,14 @@
         </li>
       </ul>
     </div>
+
+        <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:88.8%">
+        </div>
+      </div>
+  </div>
+
 
     <div class="form-damage-nature hide-or-active" id="form-carrosserie">
       <%= simple_form_for [@car, @damage] do |f| %>
@@ -65,5 +78,8 @@
         <%= f.submit "Finaliser", class: "btn btn-primary"%>
       <% end %>
     </div>
+
+    <#%= f.submit "Submit", class: "btn btn-primary", id: "submit-damage-pic" %>
+
   </div>
 </div>

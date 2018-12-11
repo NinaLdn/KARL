@@ -1,17 +1,32 @@
-<div class="container">
+<div class="start-page-body container">
 
-  <div class="start-title">
-    <h1 id="start-title">Rendez-vous près de votre voiture</h1>
+  <div class="body-high-part">
+    <div class="progress-box">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:11.1%">
+        </div>
+      </div>
+    </div>
+
+    <div class="start-title">
+      <p>Pour commencer, vous devez vous rendre près de votre voiture.</p>
+      <p>Nous allons avoir besoin de votre kilometrage exacte, et de quelques photos</p>
+    </div>
+
+    <div class="car-image">
+      <img src="https://cdn.dribbble.com/users/1249/screenshots/796577/hatchbck_loading.png" alt="">
+    </div>
   </div>
 
-  <div class="car-image">
-    <img src="https://cdn.dribbble.com/users/1249/screenshots/796577/hatchbck_loading.png" alt="">
+  <div class="body-low-part">
+    <div class="start-button-box">
+      <div class="start-button-box-1">
+        <%= link_to edit_car_path(@car) do %>
+          <button class="btn-hover color-5">Je suis près de ma voiture !</button>
+        <%end%>
+      </div>
+    </div>
   </div>
-
-  <div class="start-button-box">
-    <%= link_to edit_car_path(@car) do %>
-      <button class="btn btn-success btn-lg">Start</button>
-    <%end%>
-  </div>
-
 </div>
+

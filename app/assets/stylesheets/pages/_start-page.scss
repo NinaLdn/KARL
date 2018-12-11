@@ -1,17 +1,49 @@
+
+.start-page-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  height: calc(100vh - 50px);
+}
+
+.body-high-part {
+  flex: 1 0 auto;
+}
+
+.body-low-part {
+  position: relative;
+  bottom: 0;
+  margin-bottom: -10px;
+  height: 100px;
+  .progress {
+    margin-bottom: 100px;
+  }
+}
+
 .start-title {
   text-align: center;
   margin-top: 70px;
+  p {
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.66);
+  }
+  text-align: center;
+  margin-top: 15px;
+  .black-matter {
+    color: black !important;
+  }
 }
 
-#start-title{
-  font-size: 35px;
-
-}
 .start-button-box{
   margin-top: -30px;
+  height: 55px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  .btn-hover {
+    margin-left: 0px;
+  }
 }
 
 .car-image{
@@ -22,6 +54,24 @@
   img {
     max-block-size: 250px;
   }
+}
 
+.start-button-box-1 {
+  width: 100vw;
+}
 
+.progress-box {
+  height: 40px;
+}
+
+.progress {
+  margin-top: 40px;
+  border-radius: 10px;
+  height: 10px;
+}
+
+.progress-bar {
+ background-image: linear-gradient(to left, #49ff00, #68f500, #7cec00, #8be200, #96d900);;
+  border-radius: 10px;
+  height: 10px;
 }
