@@ -41,6 +41,6 @@ private
   end
 
   def damage_params
-    params.require(:damage).permit(:car_id, :title, :description, :picture_1, :picture_2, :picture_3)
+    params.require(:damage).permit(:car_id, :nature, :title, :description, :picture_1, :picture_2, :picture_3)
   end
 end

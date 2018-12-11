@@ -1,36 +1,40 @@
 <div class="container">
-  <div class="formDamage1">
+  <div class="formDamageYesNo">
     <p>Avez-vous des dommages sur votre voiture ?</p>
     <p class="btn btn-primary" id="submit-yes-damage">Yes</p>
     <%= link_to "No", final_validation_car_path(@car), class: "btn btn-danger" %>
   </div>
 
   <div id="form-damage">
-    <div class="choose-form-damage-nature">
+    <div class="choose-form-damage-nature form-damage-nature">
       <p>Quelle est la nature de votre dommage ?</p>
       <ul class="damages-type">
-        <li data-name="Carrosserie" class="btn" data-target="form-carrosserie">
+        <li data-name="carrosserie" class="btn" data-target="form-carrosserie">
           <i class="fas fa-car-crash"></i>
           <h4 id="damages-type-font">Carrosserie</h4>
         </li>
-        <li data-name="Mécanique" class='btn' data-target="form-mecanique">
+        <li data-name="mecanique" class='btn' data-target="form-mecanique">
           <i class="fas fa-wrench"></i>
           <h4 id="damages-type-font">Mécanique</h4>
         </li>
       </ul>
     </div>
 
-    <div class="form-damage-nature" id="form-carrosserie">
+    <div class="form-damage-nature hide-or-active" id="form-carrosserie">
       <%= simple_form_for [@car, @damage] do |f| %>
-        <%= f.input :nature, as: :hidden %>
-        <ul>
-          <% Damage::CARROSSERIE.each do |damage| %>
-          <li class="btn" data-value="<%= damage %>">
-            <%= damage %>
-          </li>
-          <% end %>
-        </ul>
-        <%= f.input :title, as: :hidden, input_html: { id: 'true-title'}%>
+        <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-carrosserie'}%>
+        <div class="nature-damages">
+          <p>Quel type de dommage avez-vous sur la carrosserie de votre voiture? </p>
+          <ul class="damages-nature">
+            <% Damage::CARROSSERIE.each do |damage| %>
+            <li class="btn" data-value="<%= damage %>" data-name="carrosserie">
+              <%= damage %>
+            </li>
+            <% end %>
+          </ul>
+          <%= f.input :title, as: :hidden, input_html: { id: 'true-title-carrosserie'}%>
+        </div>
+        <%= f.input :description, as: :text %>
         <div class="photo-damages">
           <%= f.input :picture_1, class: "photo-upload" %>
           <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
@@ -39,13 +43,27 @@
           <%= f.input :picture_3, class: "photo-upload" %>
           <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
         </div>
-        <%= f.input :description, as: :text %>
         <%= f.submit "Finaliser", class: "btn btn-primary"%>
       <% end %>
 
     </div>
-    <div class="form-damage-nature" id="form-mecanique">
-      Hello
+    <div class="form-damage-nature hide-or-active" id="form-mecanique">
+      <%= simple_form_for [@car, @damage] do |f| %>
+        <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-mecanique'}%>
+        <div class="nature-damages">
+          <p>Quel type de dommage avez-vous sur la mécanique de votre voiture? </p>
+          <ul class="damages-nature">
+            <% Damage::MECANIQUE.each do |damage| %>
+            <li class="btn" data-value="<%= damage %>" data-name="mecanique">
+              <%= damage %>
+            </li>
+            <% end %>
+          </ul>
+          <%= f.input :title, as: :hidden, input_html: { id: 'true-title-mecanique'}%>
+        </div>
+        <%= f.input :description, as: :text %>
+        <%= f.submit "Finaliser", class: "btn btn-primary"%>
+      <% end %>
     </div>
   </div>
 </div>
