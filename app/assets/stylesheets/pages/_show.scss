@@ -22,9 +22,29 @@
 }
 
 .header-dashboard {
-  font-size: 14px
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .row-forecast {
-  font-size: 12px
+  font-size: 14px
+}
+
+.info-price {
+  margin-top: 15px;
+  height: 150px;
+  display: flex;
+  vertical-align: middle;
+  padding: 10px
+}
+
+.price-items{
+  text-align: center
+}
+
+.dashboard_container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }

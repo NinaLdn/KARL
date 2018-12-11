@@ -1,0 +1,76 @@
+<div class="karl-container">
+
+  <div class="info-card-large">
+    <div>
+      <p>Votre Véhicule</p>
+    </div>
+    <div>
+      <h3> <%= @car.car_brand %> <%= @car.model_type %></h3>
+    </div>
+  </div>
+
+  <div class="info-price">
+    <div class='price-card'>
+      <div class='price-card-content'>
+        <p class='price-card-titles'><strong>Prix demandé</strong></p>
+        <div class='price-card-inner-content' style='color:black'>
+        <h3> <%= @car.estimated_price %> € </h3>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+        <p style='margin-top: 17px'>Mettre à jour</p>
+        </button>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Mettre à jour le prix de votre <%= @car.car_brand %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p> <%= @car.estimated_price %> €</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary">Enregister</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class='price-card'>
+      <div class='price-card-content'>
+        <p class='price-card-titles'> <strong>Recommendation Karl</strong></p>
+        <div class='price-card-inner-content'>
+          <h3> <%= @car.estimated_price %> € </h3>
+          <h4 style='color:#FDD116; margin-top: 30px'>Maintenir</h4>
+          <div style='margin-top: 30px'> <%= image_tag "graphic (1).png", width: 24%> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class = "dashboard_container">
+    <p class="header-dashboard"> Statut de vos annonces</p>
+    <% if @car.add_id %>
+      <div class="info-card-small">
+        <p><%= image_tag "mobilede-Logo-Font.jpg", width:100%></p>
+        <h5>Pending</h5>
+      </div>
+      <div class="info-card-small">
+        <p><%= image_tag "ebay_logo.jpeg", width:100%></p>
+        <h5>Pending</h5>
+      </div>
+    <% end %>
+  </div>
+
+
+    <div class = "dashboard_container">
+      <p class="header-dashboard"> Projection de dépréciation sur 24 mois</p>
+      <div id=price_evolution>
+        <canvas id="my_price_evolution_chart" width="300" height="100" data-prices="<%= @car_price_evolution.to_json%>"></canvas>
+      </div>
+    </div>
+</div>
