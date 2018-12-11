@@ -47,7 +47,10 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="#">Mon profil</a></li>
-        <li> <%= link_to "Dashboard", dashboard_path%></li>
+
+        <li><%= link_to "Dashboard", car_path(@car) unless @car.id.nil? %></li>
+        <li><a href="#"></a></li>
+
       </ul>
     </div>
   </div>
