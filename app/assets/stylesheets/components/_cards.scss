@@ -1,17 +1,51 @@
 .info-card-large {
-  box-shadow: 0 1px 5px;
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
   transition: all 0.3s ease;
-  border-radius: 20px;
   height: 200px;
   padding: 0px 30px;
-  justify-content: space-around;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  font-size: 14px;
   background-image: linear-gradient(to left bottom, #1306a1, #005ad9, #0087d6, #00aeaf, #16cf86);
   color: white;
 }
 
 
 .info-card-small {
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  transition: all 0.3s ease;
+  height: 60px;
+  padding: 10px 30px;
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  vertical-align: middle;
+}
 
+.price-card {
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  transition: all 0.3s ease;
+  height: 120px;
+  width: 100vh;
+  font-size: 14px;
+  background-color: white;
+}
+
+.price-card-content {
+  padding: 20px
+}
+
+.price-card-inner-content {
+  text-align:center;
+  display:flex;
+  justify-content: space-around;
+  color: #C1C1BF
+}
+
+.price-card-titles {
+  text-align:center;
+  margin-bottom:0px;
 }

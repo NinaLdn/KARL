@@ -188,13 +188,40 @@ class CarsController < ApplicationController
         accept: 'application/vnd.de.mobile.api+json'
       }
     )
-    final_data = mobile_response.headers
-    ad_url = final_data[:location]
+    response_data = mobile_response.headers
+    response_url = response_data[:location]
+
+    mobile_ad = RestClient::Request.execute(
+      method: :get,
+      url: "#{response_url}",
+      proxy: 'http://api.test.sandbox.mobile.de:8080',
+      payload: payload.to_json,
+      content_type: :json,
+      headers: {
+        authorization: 'Basic QVBJNTI6QVBJNTJwYXNzMQ==',
+        content_type: 'application/vnd.de.mobile.api+json',
+        accept: 'application/vnd.de.mobile.api+json'
+      }
+    )
+
+    final_ad = JSON.parse(mobile_ad, {symbolize_names: true})
+    @car.update_attributes(
+      add_id: final_ad.dig(:mobileAdId)
+    )
+    @car.save
     raise
-
-
     # USERSTORY 6: MESSAGE DE VALIDATION FINALE
-   end
+  end
+
+  def show
+     @cars = current_user.cars
+     @cars.each do |car|
+       if car.estimated_price && car.deval_fix
+         @car_price_evolution = [car.estimated_price, car.estimated_price*(1+car.deval_fix), car.estimated_price*(1+car.deval_fix)**2,car.estimated_price*(1+car.deval_fix)**3, car.estimated_price*(1+car.deval_fix)**4]
+       end
+    end
+  end
+
 
   def destroy
     # USERSTORY 7 : DELETE ANNOUNCE

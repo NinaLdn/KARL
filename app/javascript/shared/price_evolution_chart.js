@@ -9,11 +9,11 @@ const ctx = document.getElementById("my_price_evolution_chart").getContext('2d')
 const myPriceEvolutionChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["","6", "12", "18", "24"],
+        labels: ["","6 mois", "12 mois", "18 mois", "24 mois"],
         datasets: [{
-            label: 'Fix price estmates',
             data: JSON.parse(document.getElementById("my_price_evolution_chart").dataset.prices),
-            display: true
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)']
           }]
     },
     options: {
