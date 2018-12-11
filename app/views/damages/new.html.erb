@@ -25,12 +25,12 @@
         <%= f.input :nature, as: :hidden %>
         <ul>
           <% Damage::CARROSSERIE.each do |damage| %>
-          <li data-value="<%= damage %>">
+          <li class="btn" data-value="<%= damage %>">
             <%= damage %>
           </li>
           <% end %>
         </ul>
-        <%= f.input :title, as: :hidden %>
+        <%= f.input :title, as: :hidden, input_html: { id: 'true-title'}%>
         <div class="photo-damages">
           <%= f.input :picture_1, class: "photo-upload" %>
           <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>

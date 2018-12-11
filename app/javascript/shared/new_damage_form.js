@@ -7,6 +7,10 @@ const submitDamage = () => {
       const formTarget = document.getElementById(targetNature);
       formTarget.classList.add("active");
 
+      const trueTitle = document.getElementById("true-title");
+      const targetNatureValue = event.currentTarget.dataset.name;
+      trueTitle.value = targetNatureValue
+      console.log(targetNatureValue);
     });
 
   });
@@ -14,22 +18,3 @@ const submitDamage = () => {
 };
 
 export {submitDamage};
-
-
-
-
-
-const kilometer = () => {
-  const slider = new Slider("#ex11", {
-    step: 10000,
-    min: 0,
-    max: 1000000
-  });
-  const handle = slider.handle1
-  slider.on('slideStop', (event) => {
-    const trueSlider = document.getElementById('trueSlider')
-    if (trueSlider){
-      trueSlider.value = event
-    }
-  });
-};
