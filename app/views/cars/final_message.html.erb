@@ -7,9 +7,10 @@
   </div>
 
   <div class="central-message">
+
     <div class="final-message-text-big-box">
       <div class="final-message-text">
-        <p>Félicitations ! Votre annonce est désormais disponible sur 20 sites de petites annonces</p>
+        <p>Félicitations ! Votre annonce est désormais disponible sur <strong>2 sites</strong> de petites annonces</p>
       </div>
     </div>
 
@@ -22,10 +23,11 @@
         </svg>
       </div>
     </div>
+
   </div>
 
+    <div class="dash">
+      <p><%= link_to "Rendez-vous dans votre dashboard", car_path(@car) if ( @car && @car.id) %></p>
+    </div>
+
 </div>
-
-
-
-<%= link_to "Dashboard", car_path(@car)%>
