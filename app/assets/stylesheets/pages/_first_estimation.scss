@@ -1,6 +1,7 @@
 
 .first-estimation-body {
   padding: 15px;
+  height: calc(100vh - 140px);
 }
 
 .first-estimation-text {
@@ -12,7 +13,7 @@
     font-size: 20px !important;
   }
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
   .black-matter {
     color: black !important;
   }
@@ -34,7 +35,7 @@
   p {
     font-size: 15px !important;
     color: rgba(0, 0, 0, 0.66);
-    margin: -6px 0 12.5px !important;
+    margin: -6px 0 -2.5px !important;
   }
   .black-matter {
     color: black !important;
@@ -61,11 +62,11 @@
 }
 
 #myChart {
-  margin-bottom: -40px;
+  margin-bottom: -35px;
 }
 
 .chartjs-render-monitor {
-  height: 290px !important;
+  height: 238px !important;
 }
 
 .first-estimation-button {
@@ -73,4 +74,5 @@
     margin-left: 0px;
   }
 }
+
 

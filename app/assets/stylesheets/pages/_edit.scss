@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   padding: 15px;
   .progress {
     margin-bottom: 40px;
@@ -58,13 +58,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 50px);
+  padding: 15px;
+  height: calc(100vh - 135px);
+  #camera--output {
+    position: relative !important;
+  }
+  .btn-hover {
+    margin: 0px !important;
+  }
+}
+
+.form6-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
 }
 
 .form7-1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 15px;
   height: calc(100vh - 50px);
 }
 
@@ -73,7 +88,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   .btn-hover {
     margin-left: 0px;
   }
@@ -88,7 +103,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   .btn-hover {
     margin-left: 0px;
   }
@@ -103,7 +118,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   .btn-hover {
     margin-left: 0px;
     z-index: 1;
@@ -111,7 +126,8 @@
 }
 
 .edit-pictures-2 {
-  margin-bottom: 45px;
+  margin-bottom: 120px;
+  width: 345px;
 }
 
 .photo_1_cache {
@@ -119,12 +135,16 @@
 }
 
 
+
+
+
+
 .edit-technical-control {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   .btn-hover {
     margin-left: 0px;
   }
