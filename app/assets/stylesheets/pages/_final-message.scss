@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 265px);
+  height: calc(100vh - 100px);
   padding: 15px;
   p {
     font-size: 14px !important;
@@ -10,6 +10,9 @@
   }
 }
 
+.dash {
+  text-align: center;
+}
 
 .final-message-text-big-box {
   display: flex;
