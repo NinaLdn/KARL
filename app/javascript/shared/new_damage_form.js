@@ -1,3 +1,11 @@
+// Fonction qui sert à activer une classe sur une liste d'élément
+function setClass(el, klass, target) {
+  document.querySelectorAll(el).forEach((form) => {
+    form.classList.remove(klass);
+  })
+  target.classList.add(klass);
+}
+
 const submitDamage = () => {
 
 // FORM YES/NO => EVENT : CLICK YES TO DAMAGES => AFFICHAGE FORM => NATURE DOMAGE
@@ -14,6 +22,7 @@ submitYesDamage.addEventListener('click', (event) => {
   const damageNatures = document.querySelectorAll(".damages-type li");
   damageNatures.forEach((nature) => {
     nature.addEventListener('click', (event) => {
+      // => DATA SAVE IN FORM
       const dataName = nature.dataset.name;
       const trueNature = document.getElementById(`true-nature-${dataName}`);
       console.log(event)
@@ -21,13 +30,26 @@ submitYesDamage.addEventListener('click', (event) => {
       trueNature.value = targetNatureValue
       console.log(targetNatureValue);
       console.log(trueNature.value);
+      // => FRONT JS OPACITY
+      if (event.currentTarget.dataset.name === "carrosserie"){
+        const otherItem = document.querySelector(`li[data-name="mecanique"]`);
+        setClass('.damages-type li', 'not-selected', otherItem);
+        // otherItem.classList.toggle("not-selected");
+        // event.currentTaret.dataset.name
+      } else {
+        const otherItem = document.querySelector(`li[data-name="carrosserie"]`);
+        // otherItem.classList.toggle("not-selected")
+        setClass('.damages-type li', 'not-selected', otherItem);
+      }
+
       // => DISPLAY FORM TITLE DOMAGE
       const targetNature = event.currentTarget.dataset.target;
       const formTarget = document.getElementById(targetNature);
-      document.querySelectorAll('.hide-or-active').forEach((form) => {
-        form.classList.remove('active');
-      })
-      formTarget.classList.add("active");
+      setClass('.hide-or-active', 'active', formTarget);
+      // document.querySelectorAll('.hide-or-active').forEach((form) => {
+      //   form.classList.remove('active');
+      // })
+      // formTarget.classList.add("active");
 
       // => NATURE DATA SAVE IN FORM
       // const trueNatures = document.querySelectorAll("true-nature")

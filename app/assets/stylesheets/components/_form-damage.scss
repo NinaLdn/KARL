@@ -9,3 +9,8 @@
 .hidden {
   display: none;
 }
+
+.damages-type li.not-selected {
+  filter: grayscale(90%);
+  opacity: 0.6;
+}
