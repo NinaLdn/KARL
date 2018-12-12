@@ -53,13 +53,14 @@
             <h13>Le dommage sur la carrosserie concerne: </h13>
           </div>
           <div class="nature-damages-2">
-            <ul class="damages-nature">
+            <div class="damages-nature">
               <% Damage::CARROSSERIE.each do |damage| %>
-              <li class="btn" data-value="<%= damage %>" data-name="carrosserie">
-                <%= damage %>
-              </li>
+              <div class="info-card-small" data-value="<%= damage %>" data-name="carrosserie">
+                <p><%= image_tag "002-tick-1.png"%></p>
+                <h5> <%= damage %> </h5>
+              </div>
               <% end %>
-            </ul>
+            </div>
             <%= f.input :title, as: :hidden, input_html: { id: 'true-title-carrosserie'}%>
           </div>
           <div class="nature-damages-3">
@@ -93,13 +94,14 @@
           </div>
 
           <div class="nature-damages-6">
-            <ul class="damages-nature nature-damages-6-1">
+            <div class="damages-nature nature-damages-6-1">
               <% Damage::MECANIQUE.each do |damage| %>
-              <li class="btn" data-value="<%= damage %>" data-name="mecanique">
-                <%= damage %>
-              </li>
+              <div class="info-card-small" data-value="<%= damage %>" data-name="mecanique">
+                <p><%= image_tag "002-tick-1.png"%></p>
+                <h5> <%= damage %> </h5>
+              </div>
               <% end %>
-            </ul>
+            </div>
             <%= f.input :title, as: :hidden, input_html: { id: 'true-title-mecanique'}%>
           </div>
 

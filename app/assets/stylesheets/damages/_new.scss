@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 450px);
+  height: calc(100vh - 530px);
 }
 
 .choose-form-damage-nature-2 {
@@ -58,7 +58,6 @@
 }
 
 .nature-damages {
-  display: flex;
   flex-direction: column;
 }
 
@@ -73,6 +72,14 @@
   }
 }
 
+.nature-damages-3 {
+  margin-top: 15px;
+}
+
+.nature-damages-7 {
+  margin-top: 15px;
+}
+
 .nature-damages-5 {
   .btn-hover {
     width: 93% !important;
@@ -80,7 +87,6 @@
 }
 
 .nature-damages-6-1 {
-  margin-right: 40px;
   li {
     padding: 45px !important;
   }
@@ -118,9 +124,7 @@
 
 .damages-nature{
   flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-  li {
+    li {
     list-style: none;
     display: flex;
     flex-direction: column;
