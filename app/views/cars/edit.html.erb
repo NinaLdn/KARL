@@ -3,7 +3,6 @@
 
   <h3>Votre annonce: </h3>
   <%= simple_form_for(@car) do |f| %>
-
     <div class="form1">
       <div class="description-edit">
         <div class="description-edit-1">
@@ -66,31 +65,119 @@
       </div>
     </div>
 
-    <div class="form4 hidden">
-      <div class="edit-pictures">
-        <div class="edit-pictures-1">
-          <h5>Ajouter des photos :</h5>
-          <div class="photo-upload-features">
-            <%= f.input :photo_1, label: "Photo 1:",class: "photo-upload" %>
-            <%= f.input :photo_1_cache, as: :hidden, class: "photo-upload" %>
-            <%= f.input :photo_2, label: "Photo 2:", class: "photo-upload"  %>
-            <%= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
-            <%= f.input :photo_3, label: "Photo 3:", class: "photo-upload" %>
-            <%= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
-          </div>
-        </div>
-        <div class="edit-pictures-2">
-          <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-picture"%>
+ <div class="form4 hidden">
+    <div class="edit-pictures">
+
+      <div class="edit-pictures-1">
+        <h5>Photo frontale</h5>
+
+        <div class="photo-upload-features">
+
+          <main id="camera">
+          <!-- Camera sensor -->
+            <canvas id="camera--sensor"></canvas>
+            <!-- Camera view -->
+            <video id="camera--view" autoplay playsinline>
+            </video>
+              <div class="picture-content">
+                <h1>Heading</h1>
+                <p>Lorem ipsum...</p>
+              </div>
+
+            <a id="camera--trigger-1" class="btn-hover color-5">Prendre photo</a>
+
+
+
+          </main>
+
           <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="70"
             aria-valuemin="0" aria-valuemax="100" style="width:55.5%">
             </div>
           </div>
+
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="form5 hidden">
+
+  <div class="form5 hidden">
+    <div class="edit-pictures-2">
+
+         <!-- Camera output -->
+      <img src="//:0" alt="" id="camera--output">
+
+      <%= f.input :photo_1, as: :hidden, class: "photo-upload" %>
+
+      <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-picture-1"%>
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:55.5%">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+   <div class="form6 hidden">
+    <div class="edit-pictures">
+
+      <div class="edit-pictures-1">
+        <h5>Photo du coté</h5>
+
+        <div class="photo-upload-features">
+
+          <main id="camera1">
+          <!-- Camera sensor -->
+            <canvas id="camera--sensor-1"></canvas>
+            <!-- Camera view -->
+            <video id="camera--view-1" autoplay playsinline></video>
+
+            <a id="camera--trigger-2" class="btn-hover color-5">Prendre photo</a>
+
+          </main>
+
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70"
+            aria-valuemin="0" aria-valuemax="100" style="width:55.5%">
+            </div>
+          </div>
+
+            <%#= f.input :photo_2, label: "Photo 2:", class: "photo-upload" %>
+            <%#= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
+            <%#= f.input :photo_3, label: "Photo 3:", class: "photo-upload" %>
+            <%#= f.input :photo_3_cache, as: :hidden, class: "photo-upload" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form7 hidden">
+    <div class="edit-pictures-2">
+
+         <!-- Camera output -->
+      <img src="//:0" alt="" id="camera--output-1">
+
+      <%= f.input :photo_2, as: :hidden, class: "photo-upload" %>
+
+      <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-picture-2"%>
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:55.5%">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+    <div class="form8 hidden">
       <div class="edit-technical-control">
         <div class="edit-technical-control-1">
           <%= f.input :next_technical_control_date, label: "Quelle est la date de votre dernier contrôle technique ?", as: :date %>
