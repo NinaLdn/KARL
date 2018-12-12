@@ -24,7 +24,7 @@ class CarsController < ApplicationController
     @car.user = current_user
     @car.registration_number = params[:car][:registration_number]
 
-    url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=declon75"
+    url_immatriculation = "http://www.regcheck.org.uk/api/reg.asmx/CheckFrance?RegistrationNumber=#{@car.registration_number}&username=live-key"
     immatriculation_xml_data = Nokogiri::XML(open(url_immatriculation).read)
     vehicule_json = immatriculation_xml_data.at_css("vehicleJson").text
     immatriculation_data = JSON.parse(vehicule_json, {symbolize_names: true})
