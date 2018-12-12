@@ -1,0 +1,137 @@
+
+.damages-container {
+  padding: 15px;
+  p {
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.66);
+  }
+}
+
+.formDamageYesNo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 120px);
+}
+
+.formDamageYesNo-1 {
+  text-align: center;
+}
+
+.formDamageYesNo-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .formDamageYesNo-3-1 {
+    width: 50%;
+    .btn-hover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 88% !important;
+    }
+  }
+  .formDamageYesNo-3-2 {
+    width: 50%;
+    .btn-hover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 88% !important;
+    }
+  }
+}
+
+.choose-form-damage-nature {
+  padding: 15px;
+}
+
+.choose-form-damage-nature-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 450px);
+}
+
+.choose-form-damage-nature-2 {
+  margin-right: 40px;
+}
+
+.nature-damages {
+  display: flex;
+  flex-direction: column;
+}
+
+.nature-damages-1 {
+  padding-bottom: 15px;
+}
+
+.nature-damages-2 {
+  margin-right: 10px;
+  ul {
+    margin-right: 19px;
+  }
+}
+
+.nature-damages-5 {
+  .btn-hover {
+    width: 93% !important;
+  }
+}
+
+.nature-damages-6-1 {
+  margin-right: 40px;
+  li {
+    padding: 45px !important;
+  }
+}
+
+
+
+
+.damages-type {
+  display: flex;
+  justify-content: center;
+  li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+  }
+  li:last-child {
+    margin-left: 20px;
+  }
+  li i {
+    font-size: 40px;
+  }
+}
+
+.fa-car-crash, .fa-wrench {
+  color: #2dc2c0;
+}
+
+.damages-nature{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 40px; 
+    margin: 5px;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 12px;
+  }
+}

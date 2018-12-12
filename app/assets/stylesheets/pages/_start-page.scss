@@ -15,7 +15,7 @@
   position: relative;
   bottom: 0;
   margin-bottom: -10px;
-  height: 150px;
+  height: 100px;
   .progress {
     margin-bottom: 100px;
   }
@@ -24,6 +24,15 @@
 .start-title {
   text-align: center;
   margin-top: 70px;
+  p {
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.66);
+  }
+  text-align: center;
+  margin-top: 15px;
+  .black-matter {
+    color: black !important;
+  }
 }
 
 .start-button-box{
@@ -52,11 +61,11 @@
 }
 
 .progress-box {
-  height: 60px;
+  height: 40px;
 }
 
 .progress {
-  margin-top: 50px;
+  margin-top: 40px;
   border-radius: 10px;
   height: 10px;
 }

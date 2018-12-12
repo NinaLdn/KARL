@@ -1,28 +1,46 @@
-<div class ="container" id="first-estimation-body">
+<div class ="container" class="first-estimation-body">
   <div class="first-estimation-text col-xs-12">
-    <h4>Notre estimation:</h4>
-    <p>Que pouvez vous obtenir pour votre <strong><%= @car.car_brand %> <%= @car.model_type %></strong></p>
+    <h5>Première estimation</h5>
+    <p>Notre algorythme a évalué le marché.</p>
+    <p>Gagnez <strong class="black-matter"><%= ((@car.estimated_price)-(@car.estimated_price / 1.3)).round%>€</strong> grâce à <strong class="black-matter">Karl</strong>, et générez automatiquement votre annonce sur 2 sites de vente entre particuliers, en moins de 3 minutes.</p>
   </div>
+
   <div class="info-row" >
     <div class="col-xs-6" id="karl-estimation" style='display:inline-block'>
-      <div style="padding:10px; text-align: center"> <%= image_tag "Karl32.png" %></div>
-      <div class="first-estimation-text-1">
-        <p style="text-align: center"><strong><%= number_to_currency(@car.estimated_price, unit:"€", format: "%n %u") %></strong></p>
+      <div class="first-estimation-price-2">
+        <p class="black-matter"><strong><%= number_to_currency((@car.estimated_price), unit:"€", format: "%n %u", precision: 0) %></strong></p>
       </div>
     </div>
-    <div class="col-xs-6" style='display:inline-block; text-align: center'>
-      <div style="padding:10px"> <%= image_tag "002-salesman.png" %></div>
-      <p><%= number_to_currency((@car.estimated_price / 1.3), unit:"€", format: "%n %u") %></p>
+    <div class="col-xs-6" id="seller-estimation" style='display:inline-block; text-align: center'>
+      <div class="seller-estimation-price-2">
+        <p class="black-matter"><%= number_to_currency((@car.estimated_price / 1.3), unit:"€", format: "%n %u", precision: 0) %></p>
+      </div>
     </div>
   </div>
+
   <div id=chart>
     <canvas id="myChart" data-prices="<%= @car_prices.to_json%>"></canvas>
   </div>
 
+  <div class="info-row-2">
+    <div class="col-xs-6" id="karl-estimation" style='display:inline-block'>
+      <div class="karl-estimation-price-1">
+        <p class="black-matter">Acheteur particulier</p>
+      </div>
+    </div>
+    <div class="col-xs-6" id="seller-estimation" style='display:inline-block; text-align: center'>
+      <div class="seller-estimation-price-1">
+        <p class="black-matter">Acheteur professionnel</p>
+      </div>
+    </div>
+  </div>
+
+
+
   <div class="first-estimation-button">
     <%= link_to start_car_path(@car) do %>
     <div class="first-estimation-button-1">
-      <button class="btn-hover color-5">Je veux vendre ma voiture au meilleur prix !</button>
+      <button class="btn-hover color-5">Vendez votre voiture au meilleur prix !</button>
     </div>
     <%end%>
   </div>

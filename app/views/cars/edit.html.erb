@@ -1,42 +1,35 @@
 
 <div class="edit-container">
 
-  <h3>Votre annonce: </h3>
+<!--   <h3>Votre annonce: </h3> -->
   <%= simple_form_for(@car) do |f| %>
     <div class="form1">
       <div class="description-edit">
-        <div class="description-edit-1">
-          <div>
-            <%= f.input :why_selling, label: "Pour quelle raison vendez-vous votre voiture ?", placeholder:"Achat d'une nouvelle voiture", as: :text %>
-          </div>
-        </div>
 
-        <div class="description-edit-2">
-          <div class="description-edit-2-1">
-            <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-why-selling" %>
-          </div>
-          <div class="description-edit-2-2">
+
+          <div class="description-edit-1-1">
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="70"
               aria-valuemin="0" aria-valuemax="100" style="width:22.2%">
               </div>
             </div>
           </div>
-        </div>
+
+          <div class="description-edit-1-1">
+            <% options = ["Je déménage", "J'achète une nouvelle voiture", "Je préfère le co-voiturage"] %>
+            <%= f.input :why_selling, label: "Pour quelle raison vendez-vous votre voiture ?", placeholder:"Achat d'une nouvelle voiture", as: :text %>
+          </div>
+
+          <div class="description-edit-2-1">
+            <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-why-selling" %>
+          </div>
+
       </div>
     </div>
 
     <div class="form2 hidden">
       <div class="edit-address">
 
-        <div class="edit-address-1">
-          <%= f.input :location, label: "Dans quelle ville se situe votre voiture ?", placeholder:"Lyon", as: :string %>
-        </div>
-
-        <div class="edit-address-2">
-          <div class="edit-address-2-1">
-            <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-address"%>
-          </div>
           <div class="edit-address-2-2">
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="70"
@@ -44,26 +37,39 @@
               </div>
             </div>
           </div>
-        </div>
+
+          <div class="edit-address-1">
+            <%= f.input :location, label: "Dans quelle ville se situe votre voiture ?", placeholder:"Lyon", as: :string %>
+          </div>
+
+          <div class="edit-address-2">
+              <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-address"%>
+          </div>
 
       </div>
     </div>
 
     <div class="form3 hidden">
       <div class="edit-kilometers">
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70"
+            aria-valuemin="0" aria-valuemax="100" style="width:44.4%">
+          </div>
+        </div>
+
         <div class="edit-kilometers-1">
           <%= f.input :exact_kilometer, label: "Quel est le kilométrage exact de votre voiture ?", placeholder:"123000", as: :integer %>
         </div>
+
         <div class="edit-kilometers-2">
-          <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-km"%>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70"
-            aria-valuemin="0" aria-valuemax="100" style="width:44.4%">
-            </div>
-          </div>
+          <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-km"%>
         </div>
+
+
       </div>
     </div>
+
 
  <div class="form4 hidden">
     <div class="edit-pictures">
@@ -80,8 +86,8 @@
             <video id="camera--view" autoplay playsinline>
             </video>
               <div class="picture-content">
-                <h1>Heading</h1>
-                <p>Lorem ipsum...</p>
+                <p>Prenez une photo de face</p>
+                <div>  <%= image_tag "sportive-car-front-view.png"%></div>
               </div>
 
             <a id="camera--trigger-1" class="btn-hover color-5">Prendre photo</a>
@@ -103,22 +109,21 @@
 
 
   <div class="form5 hidden">
-    <div class="edit-pictures-2">
 
-         <!-- Camera output -->
-      <img src="//:0" alt="" id="camera--output">
+    <div class="form5-1">
 
-      <%= f.input :photo_1, as: :hidden, class: "photo-upload" %>
+      <div class="edit-pictures-2">
+           <!-- Camera output -->
+        <img src="//:0" alt="" id="camera--output">
+        <%= f.input :photo_1, as: :hidden, class: "photo-upload" %>
+      </div>
 
-      <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-picture-1"%>
-
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:55.5%">
-        </div>
+      <div class="edit-pictures-3">
+        <%= f.submit "Étape suivante", class: "btn-hover color-5", id: "submit-picture-1"%>
       </div>
 
     </div>
+
   </div>
 
    <div class="form6 hidden">
@@ -135,15 +140,14 @@
             <!-- Camera view -->
             <video id="camera--view-1" autoplay playsinline></video>
 
+            <div class="picture-content">
+                <p>Prenez une photo du coté</p>
+                <div>  <%= image_tag "car-facing-left.png"%></div>
+            </div>
+
             <a id="camera--trigger-2" class="btn-hover color-5">Prendre photo</a>
 
           </main>
-
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70"
-            aria-valuemin="0" aria-valuemax="100" style="width:55.5%">
-            </div>
-          </div>
 
             <%#= f.input :photo_2, label: "Photo 2:", class: "photo-upload" %>
             <%#= f.input :photo_2_cache, as: :hidden, class: "photo-upload" %>
@@ -156,20 +160,18 @@
 
 
   <div class="form7 hidden">
-    <div class="edit-pictures-2">
 
-         <!-- Camera output -->
-      <img src="//:0" alt="" id="camera--output-1">
-
-      <%= f.input :photo_2, as: :hidden, class: "photo-upload" %>
-
-      <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-picture-2"%>
-
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:55.5%">
-        </div>
+    <div class="form7-1">
+      <div class="edit-pictures-2">
+           <!-- Camera output -->
+        <img src="//:0" alt="" id="camera--output-1">
+        <%= f.input :photo_2, as: :hidden, class: "photo-upload" %>
       </div>
+
+      <div class="edit-pictures-3">
+          <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-picture-2"%>
+      </div>
+
 
     </div>
   </div>
@@ -179,17 +181,21 @@
 
     <div class="form8 hidden">
       <div class="edit-technical-control">
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70"
+          aria-valuemin="0" aria-valuemax="100" style="width:66.6%">
+          </div>
+        </div>
+
         <div class="edit-technical-control-1">
           <%= f.input :next_technical_control_date, label: "Quelle est la date de votre dernier contrôle technique ?", as: :date %>
         </div>
+
         <div class="edit-technical-control-2">
-          <%= f.submit "Je passe à l'étape suivante", class: "btn-hover color-5", id: "submit-technical-control"%>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70"
-            aria-valuemin="0" aria-valuemax="100" style="width:66.6%">
-            </div>
-          </div>
+          <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-technical-control"%>
         </div>
+
       </div>
     </div>
 

@@ -15,35 +15,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: calc(100vh - 50px);
   padding: 15px;
-  height: calc(100vh - 130px);
   .progress {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
   }
   .btn-hover {
     margin-left: 0px;
   }
-}
-
-.description-edit-1 {
-  flex: 1 0 auto;
-}
-
-
-.description-edit-2 {
-  position: relative;
-  bottom: 0;
-  margin-bottom: 12px;
-  height: 150px;
-  .progress {
-  margin-top: 30px;
+  .label {
+  margin-bottom: 20px;
   }
 }
 
-.description-edit-2-2 {
-  height: 60px;
+.description-edit-2-1 {
+  margin-bottom: 45px;
 }
-
 
 .form1, .form2, .form3 {
   .form-control {
@@ -67,25 +54,33 @@
   }
 }
 
+.form5-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 50px);
+}
 
+.form7-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 50px);
+}
 
 .edit-address {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 77px);
-  .progress {
-    margin-bottom: 100px;
-    margin-top: 30px;
-  }
+  height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
   }
 }
 
-.edit-adress-2-2 {
-  height: 60px;
+.edit-address-2 {
+  margin-bottom: 45px;
 }
 
 .edit-kilometers {
@@ -93,18 +88,14 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 77px);
-  .progress {
-    margin-bottom: 100px;
-    margin-top: 30px;
-  }
+  height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
   }
 }
 
-.edit-kilometers-2-2 {
-  height: 60px;
+.edit-kilometers-2 {
+  margin-bottom: 45px;
 }
 
 .edit-pictures {
@@ -112,18 +103,15 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 77px);
-  .progress {
-    margin-bottom: 100px;
-    margin-top: 30px;
-  }
+  height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
+    z-index: 1;
   }
 }
 
-.edit-pictures-2-2 {
-  height: 60px;
+.edit-pictures-2 {
+  margin-bottom: 45px;
 }
 
 .photo_1_cache {
@@ -136,16 +124,12 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 77px);
-  .progress {
-    margin-bottom: 100px;
-    margin-top: 30px;
-  }
+  height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
   }
 }
 
-.edit-technical-control-2-2 {
-  height: 60px;
+.edit-technical-control-2 {
+  margin-bottom: 45px;
 }

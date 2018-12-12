@@ -1,10 +1,11 @@
-#camera, #camera--view, #camera--sensor, #camera--output{
+#camera, #camera--view, #camera--sensor, #camera--output, #camera1, #camera--view-1, #camera--sensor-1, #camera--output-1{
     position: fixed;
+    width:100%
 }
-#camera--view, #camera--sensor, #camera--output{
-    transform: scaleX(-1);
-    filter: FlipH;
-}
+// #camera--view, #camera--sensor, #camera--output{
+//     transform: scaleX(-1);
+//     filter: FlipH;
+// }
 #camera--trigger-1{
     width: 200px;
     background-color: black;
@@ -20,17 +21,31 @@
     left: calc(50% - 100px);
     z-index: 1;
 }
+
+#camera--trigger-2{
+    width: 200px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    position: fixed;
+    bottom: 30px;
+    left: calc(50% - 100px);
+    z-index: 1;
+}
+
 .taken{
-    height: 100%;
-    width: 100%;
     transition: all 0.5s ease-in;
     border: solid 3px white;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-    top: 20px;
-    right: 20px;
+    z-index: -1;
 }
 
-#camera--view {
+#camera--view, #camera--view-1 {
   position: relative;
 }
 
@@ -44,4 +59,5 @@
   color: #f1f1f1;
   width: 100%;
   padding: 20px;
+  text-align:center;
 }

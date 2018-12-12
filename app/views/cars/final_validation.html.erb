@@ -1,7 +1,13 @@
 <div class="karl-container">
 
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70"
+     aria-valuemin="0" aria-valuemax="100" style="width:95%">
+    </div>
+  </div>
+
   <div class="final-validation-title">
-    <h3 style="text-align:center">Validez votre annonce:</h3>
+    <h3 style="text-align:center">Récapitulatif</h3>
   </div>
 
   <div class="add-picture-wrapper">
@@ -9,14 +15,14 @@
       <% if @car.photo_1.file.nil?%>
         <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%></div>
       <% else %>
-      <div class="carousel">
+<!--       <div class="carousel">
         <input type="radio" id="carousel-1" name="carousel[]" checked>
         <input type="radio" id="carousel-2" name="carousel[]">
         <input type="radio" id="carousel-3" name="carousel[]">
         <ul class="carousel__items">
-          <li class="carousel__item"><img src="<%= @car.photo_1%>" alt=""></li>
-          <li class="carousel__item"><img src="<%= @car.photo_2%>" alt=""></li>
-          <li class="carousel__item"><img src="<%= @car.photo_3%>" alt=""></li>
+          <li class="carousel__item"><img src="<%#= @car.photo_1%>" alt=""></li>
+          <li class="carousel__item"><img src="<%#= @car.photo_2%>" alt=""></li>
+          <li class="carousel__item"><img src="<%#= @car.photo_3%>" alt=""></li>
         </ul>
          <div class="carousel__prev">
           <label for="carousel-1"></label>
@@ -33,13 +39,45 @@
            <label for="carousel-2"></label>
            <label for="carousel-3"></label>
          </div>
-       </div>
+      </div> -->
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="<%= @car.photo_1%>" alt="">
+          </div>
+
+          <div class="item">
+            <img src="<%= @car.photo_2%>" alt="">
+          </div>
+
+          <div class="item">
+            <img src="<%= @car.photo_3%>" alt="">
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
        <% end %>
      </div>
   </div>
 
   <div class="final-validation-second-title">
-    <h4 style="text-align:center">Fiche technique:</h4>
+    <h5>Fiche technique</h5>
+  </div>
+
+  <div class="final-validation-line">
   </div>
 
   <div class="ad-info-wrapper">
@@ -75,7 +113,10 @@
 
   <div class="ad-detail-wrapper">
     <div class="title-ad-detail-wrapper">
-      <h5>Détails supplémentaires:</h5>
+      <h5>Détails supplémentaires</h5>
+    </div>
+
+    <div class="final-validation-line">
     </div>
 
     <div class="ad-detail-wrapper-details">
@@ -85,7 +126,7 @@
   </div>
 
   <div class="damages">
-    <h5>Dommages éventuels:</h5>
+    <h6>Dommages éventuels</h6>
     <% @car.damages.each do |damage| %>
     <div class="damage">
       <h6><%= damage.title %></h6>
@@ -94,14 +135,15 @@
         <% if @car.photo_1.file.nil?%>
           <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%></div>
         <% else %>
-        <div class="carousel">
+
+<!--         <div class="carousel">
           <input type="radio" id="carousel-4" name="carousel[]" checked>
           <input type="radio" id="carousel-5" name="carousel[]">
           <input type="radio" id="carousel-6" name="carousel[]">
           <ul class="carousel__items">
-            <li class="carousel__item"><img src="<%= damage.picture_1%>" alt=""></li>
-            <li class="carousel__item"><img src="<%= damage.picture_2%>" alt=""></li>
-            <li class="carousel__item"><img src="<%= damage.picture_3%>" alt=""></li>
+            <li class="carousel__item"><img src="<#%= damage.picture_1%>" alt=""></li>
+            <li class="carousel__item"><img src="<#%= damage.picture_2%>" alt=""></li>
+            <li class="carousel__item"><img src="<#%= damage.picture_3%>" alt=""></li>
           </ul>
            <div class="carousel__prev">
             <label for="carousel-4"></label>
@@ -118,7 +160,36 @@
              <label for="carousel-5"></label>
              <label for="carousel-6"></label>
            </div>
-         </div>
+        </div> -->
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="<%= damage.picture_1%>" alt="">
+            </div>
+
+            <div class="item">
+              <img src="<%= damage.picture_2%>" alt="">
+            </div>
+
+            <div class="item">
+              <img src="<%= damage.picture_3%>" alt="">
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
          <% end %>
        </div>
       <div class="button-damage">
@@ -140,16 +211,30 @@
     </div>
   </div>
 
-  <div class="ad-form-wrapper">
+  <div class="final-validation-last-modification">
+
+    <div class="final-validation-third-title">
+      <h5>Personnalisez votre annonce</h5>
+    </div>
+
+    <div class="final-validation-line">
+    </div>
+
     <%= simple_form_for(@car) do |f| %>
-    <%= f.input :announce_description, label: "Personnalisez votre annonce:", input_html:{value: f.object.announce_description.presence || "Bonjour, je vend ma #{@car.car_brand} #{@car.model_type} sur #{@car.location}. Je dois m'en séparer car je #{@car.why_selling?}"}%>
-    <%= f.input :given_price, label: "Prix proposé:", as: :integer, input_html:{value: f.object.given_price.presence || "#{@car.estimated_price}"}%>
-    <%= f.submit "Modifier", label: "Poster votre annonce", class: "btn btn-custom-2"%>
+    <div class="ad-form-wrapper-1">
+
+      <%= f.input :announce_description, label: "Description",input_html:{id: 'description-box', value: f.object.announce_description.presence || "Bonjour, je vends ma #{@car.car_brand} #{@car.model_type} (#{@car.body} #{@car.seating_place_number} places).\nLa voiture est en parfait état (intérieur comme extérieur) avec suivi des entretiens.Aucun frais n'est à prévoir.\nJe m'en sépare car #{@car.why_selling}.\n\nChevaux fiscaux: #{@car.fiscal_horsepower} CV\nType de carburant: #{@car.fuel_type}\nKilométrage: #{@car.exact_kilometer} km\nMise en circulation: #{@car.registration_date} \n\nPlus de photos sur demande possible.\nMerci de me contacter par mail dans un premier temps pour des informations complémentaires"}%>
+    </div>
+
+    <div class="ad-form-wrapper-2">
+      <%= f.input :given_price, label: "Prix", as: :integer, input_html:{value: f.object.given_price.presence || "#{@car.estimated_price}"}%>
+    </div>
+
+    <div class="ad-form-wrapper-3">
+      <%= f.submit "Modifier", label: "Poster votre annonce", class: "btn btn-custom-2"%>
+    </div>
     <%end%>
   </div>
-
-  <!-- le lien pour l'étape suivante-->
-
 
   <div class="final-step-button">
     <%= link_to final_message_car_path(@car) do %>
@@ -157,9 +242,4 @@
     <%end%>
   </div>
 
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-     aria-valuemin="0" aria-valuemax="100" style="width:99%">
-    </div>
-  </div>
 </div>
