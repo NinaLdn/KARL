@@ -6,7 +6,7 @@ require 'net/http'
 require 'date'
 
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :publish_offer]
+  before_action :set_car, only: [:show, :edit, :first_estimation, :start, :final_validation, :publish_offer, :final_message]
 
 
   def final_validation
