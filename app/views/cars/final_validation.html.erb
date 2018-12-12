@@ -193,7 +193,7 @@
     <%= simple_form_for(@car) do |f| %>
     <div class="ad-form-wrapper-1">
 
-      <%= f.input :announce_description, label: "Description",input_html:{value: f.object.announce_description.presence || "Bonjour, je vend ma #{@car.car_brand} #{@car.model_type} sur #{@car.location}. Je dois m'en séparer car je #{@car.why_selling?}"}%>
+      <%= f.input :announce_description, label: "Description",input_html:{id: 'description-box', value: f.object.announce_description.presence || "Bonjour, je vends ma #{@car.car_brand} #{@car.model_type} (#{@car.body} #{@car.seating_place_number} places).\nLa voiture est en parfait état (intérieur comme extérieur) avec suivi des entretiens.Aucun frais n'est à prévoir.\nJe m'en sépare car #{@car.why_selling}.\n\nChevaux fiscaux: #{@car.fiscal_horsepower} CV\nType de carburant: #{@car.fuel_type}\nKilométrage: #{@car.exact_kilometer} km\nMise en circulation: #{@car.registration_date} \n\nPlus de photos sur demande possible.\nMerci de me contacter par mail dans un premier temps pour des informations complémentaires"}%>
     </div>
 
     <div class="ad-form-wrapper-2">

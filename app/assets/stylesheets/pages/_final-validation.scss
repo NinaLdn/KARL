@@ -100,7 +100,6 @@
   justify-content: center;
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid black;
 }
 
 .final-step-button {
@@ -120,4 +119,8 @@
   background-image: linear-gradient(to left, #49ff00, #68f500, #7cec00, #8be200, #96d900);
   border-radius: 5px;
   margin-bottom: 5px;
+}
+
+#description-box {
+  height: 350px;
 }
