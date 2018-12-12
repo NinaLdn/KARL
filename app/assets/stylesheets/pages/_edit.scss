@@ -54,6 +54,20 @@
   }
 }
 
+.form5-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 50px);
+}
+
+.form7-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 50px);
+}
+
 .edit-address {
   display: flex;
   flex-direction: column;
@@ -92,6 +106,7 @@
   height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
+    z-index: 1;
   }
 }
 

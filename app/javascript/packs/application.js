@@ -5,6 +5,7 @@ import {priceEvolutionChart} from 'shared/price_evolution_chart';
 import {moveCar} from 'shared/car';
 import {submitCar} from 'shared/edit_form';
 import {submitDamage} from 'shared/new_damage_form';
+import {cameraStart} from 'shared/camera';
 
 const chart = document.getElementById("myChart");
 if(chart){
@@ -18,9 +19,14 @@ if(evolution_chart){
 
 const slider_element = document.getElementById('ex11');
 if (slider_element) {
-console.log('hello');
   kilometer();
 }
+
+const camera = document.getElementById('camera');
+if (camera) {
+  cameraStart();
+}
+
 
 // moveCar();
 submitCar();

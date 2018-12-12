@@ -28,7 +28,7 @@
     text-align:center;
     border: none;
     background-size: 300% 100%;
-
+    z-index: 1;
     border-radius: 50px;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
@@ -42,6 +42,7 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    z-index: 1;
 }
 
 .btn-hover:focus {
@@ -67,18 +68,22 @@
 .btn-hover.color-5 {
     background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
     box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    z-index: 1;
 }
 .btn-hover.color-6 {
     background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
     box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+    z-index: 1;
 }
 .btn-hover.color-7 {
     background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
     box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+    z-index: 1;
 }
 .btn-hover.color-8 {
     background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
     box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    z-index: 1;
 }
 .btn-hover.color-9 {
     background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);

@@ -31,6 +31,7 @@ class CarsController < ApplicationController
     filepath = 'API_responses/immatriculation-api.json'
     immatriculation_response = File.read(filepath)
     immatriculation_data = JSON.parse(immatriculation_response, {symbolize_names: true})
+    
     @car.update_attributes(
       car_brand: immatriculation_data.dig(:MakeDescription)[:CurrentTextValue],
       model_type: immatriculation_data.dig(:ModelDescription)[:CurrentTextValue],
@@ -213,7 +214,6 @@ class CarsController < ApplicationController
       add_id: final_ad.dig(:mobileAdId)
     )
     @car.save
-    raise
     # USERSTORY 6: MESSAGE DE VALIDATION FINALE
   end
 
