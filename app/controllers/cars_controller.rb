@@ -31,7 +31,7 @@ class CarsController < ApplicationController
     filepath = 'API_responses/immatriculation-api.json'
     immatriculation_response = File.read(filepath)
     immatriculation_data = JSON.parse(immatriculation_response, {symbolize_names: true})
-    
+
     @car.update_attributes(
       car_brand: immatriculation_data.dig(:MakeDescription)[:CurrentTextValue],
       model_type: immatriculation_data.dig(:ModelDescription)[:CurrentTextValue],
@@ -112,7 +112,7 @@ class CarsController < ApplicationController
 
   def update
     @car = Car.find(params[:id])
-    @car.update(car_params)
+    @car.update!(car_params)
     redirect_to new_car_damage_path(@car)
   end
 
@@ -240,7 +240,7 @@ private
   end
 
   def car_params
-    params.require(:car).permit(:registration_number, :location, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :first_registration_date, :fiscal_horsepower, :maximum_net_power, :body)
+    params.require(:car).permit(:registration_number, :location, :estimated_kilometers, :exact_kilometer, :why_selling, :photo_1, :photo_2, :photo_3, :car_brand, :model_type, :model_variant, :gearbox, :fuel_type, :seating_place_number, :fiscal_horsepower, :maximum_net_power, :body)
   end
 end
 
