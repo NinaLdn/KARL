@@ -64,7 +64,14 @@
 
 
               <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="carrosserie">
-                <i class="fas fa-check"></i>
+                <!-- <i class="fas fa-check"></i>-->
+                <div class="tick-gris">
+                  <%= image_tag "tick-gris.png", alt: "tick" %>
+                </div>
+                <div class="tick-vert hidden">
+                  <%= image_tag "tick-vert.png", alt: "tick" %>
+                </div>
+
                 <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
               </div>
 
@@ -160,7 +167,7 @@
       <div class="nature-damages">
 
         <div class="nature-damages-5">
-          <h13>Le dommage sur la mécanique concerne: </h13>
+          <!-- <h13>Le dommage sur la mécanique concerne: </h13> -->
         </div>
 
           <div class="nature-damages-6">
@@ -168,7 +175,13 @@
               <% Damage::MECANIQUE.each do |damage| %>
 
               <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="mecanique">
-                <i class="fas fa-check"></i>
+                <!-- <i class="fas fa-check"></i> -->
+                <div class="tick-gris">
+                  <%= image_tag "tick-gris.png", alt: "tick" %>
+                </div>
+                <div class="tick-vert hidden">
+                  <%= image_tag "tick-vert.png", alt: "tick" %>
+                </div>
                 <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
 
               </div>
