@@ -25,7 +25,7 @@ function cameraDamageStart() {
     cameraOutputdamage.src = cameraSensordamage.toDataURL("image/png");
     cameraOutputdamage.classList.add("taken");
     const imageDatadamage = cameraOutputdamage.src
-    document.getElementById("damage_photo_1").setAttribute("value", imageDatadamage)
+    document.getElementById("damage_picture_1").setAttribute("value", imageDatadamage)
   };
 
 }
