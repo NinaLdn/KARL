@@ -1,8 +1,11 @@
-<div class ="container" class="first-estimation-body">
+<div class ="container">
+<div class="saved-price"> <%=number_to_currency(((@car.estimated_price)-(@car.estimated_price / 1.3)), unit:"€", format: "%n %u", precision: 0)%> d'économie</div>
+  <div class="first-estimation-body">
   <div class="first-estimation-text col-xs-12">
     <h5>Première estimation</h5>
-    <p>Notre algorythme a évalué le marché.</p>
+    <p>Notre algorithme a évalué le marché.</p>
     <p>Gagnez <strong style="font-size:20px" class="black-matter price-size"><%= ((@car.estimated_price)-(@car.estimated_price / 1.3)).round%>€</strong> grâce à <strong class="black-matter">Karl</strong>,<br/>et générez automatiquement votre annonce.<br/>En moins de 3 minutes.</p>
+
   </div>
 
   <div class="info-row" >
@@ -19,7 +22,8 @@
   </div>
 
   <div id=chart>
-    <canvas id="myChart" data-prices="<%= @car_prices.to_json%>"></canvas>
+    <canvas id="myChart" data-prices="<%= @car_prices.to_json%>">
+    </canvas>
   </div>
 
   <div class="info-row-2">

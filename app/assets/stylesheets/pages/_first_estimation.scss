@@ -14,8 +14,9 @@
   }
   text-align: center;
   margin-top: 10px;
-  .black-matter {
-    color: black !important;
+
+.black-matter {
+  color: black !important;
   }
   margin-bottom: 10px;
 }
@@ -37,7 +38,7 @@
     color: rgba(0, 0, 0, 0.66);
     margin: -6px 0 -2.5px !important;
   }
-  .black-matter {
+.black-matter {
     color: black !important;
   }
   margin-top: 0px;
@@ -63,6 +64,21 @@
 
 #myChart {
   margin-bottom: -35px;
+}
+
+.container {
+  position: relative;
+}
+
+.saved-price {
+  position: absolute;
+  left: 67px;
+  top: 250px;
+  width: 100px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: bolder;
 }
 
 .chartjs-render-monitor {
