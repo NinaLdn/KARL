@@ -2,7 +2,10 @@
 <div class="container-damages-edit">
 
   <div class="title-damages-edit">
-    <h3>Votre dommage:</h3>
+    <h5>Votre dommage:</h5>
+  </div>
+
+  <div class="final-validation-line">
   </div>
 
   <div class="simple-form-damages-edit">
@@ -18,17 +21,17 @@
 
       <div class="photo-edit">
         <h5>Ajouter des photos:</h5>
+        <div class="final-validation-line">
+        </div>
         <div class="photo-upload-features">
           <%= f.input :picture_1, label: "Photo n°1:", class: "photo-upload", capture: "camera"%>
           <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload"%>
-          <%= f.input :picture_2, label: "Photo n°2:",class: "photo-upload"  %>
-          <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
-          <%= f.input :picture_3, label: "Photo n°3:",class: "photo-upload" %>
-          <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
         </div>
       </div>
-      <%= f.submit "Submit", class: "btn btn-success" %>
-    <%end%>
   </div>
+  <div class="damage-edit-button">
+    <%= f.submit "Submit", class: "btn-hover color-5" %>
+  </div>
+    <%end%>
 </div>
 

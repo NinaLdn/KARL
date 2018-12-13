@@ -20,6 +20,36 @@
   }
 }
 
+.button-damage {
+  .btn {
+    padding: 3px 7px !important;
+    font-size: 15px !important;
+    border-radius: 15px;
+  }
+  .btn-custom-1 {
+    background-color: #CC0828;
+    color: white;
+    border: none;
+  }
+  .btn-custom-2 {
+    background-color: #117A9C;
+    color: white;
+    border: none;
+  }
+}
+
+.damage-question-button {
+  .btn {
+    margin-top: 3px;
+  }
+  .btn-custom-3 {
+    background-color: #36AF5D;
+    color: white;
+    border: none;
+
+  }
+}
+
 .description-damage-edit {
   label {
     font-size: 20px;
@@ -39,3 +69,24 @@
     color: inherit;
   }
 }
+
+.damage-picture-final-validation {
+  margin-bottom: 5px;
+  img {
+    width: 100%;
+  }
+}
+
+.add-picture-wrapper {
+  .container-caroussel {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.damage-edit-button {
+  margin-left: -10px;
+  margin-right: 10px;
+}
+
