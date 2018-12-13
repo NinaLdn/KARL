@@ -6,7 +6,7 @@ const kilometer = () => {
   const slider = new Slider("#ex11", {
     step: 5000,
     min: 0,
-    max: 800000
+    max: 500000
   });
   const handle = slider.handle1
   slider.on('slideStop', (event) => {
