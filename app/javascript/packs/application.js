@@ -1,4 +1,5 @@
 // import slider from 'shared/slider'
+import "../shared/flatpickr"
 import {kilometer} from 'shared/kilometer';
 import {priceChart} from 'shared/price_chart';
 import {priceEvolutionChart} from 'shared/price_evolution_chart';
