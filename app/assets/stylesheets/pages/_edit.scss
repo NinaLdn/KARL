@@ -141,7 +141,11 @@
 }
 
 .edit-kilometers-2 {
-  margin-bottom: 45px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 10px;
 }
 
 .edit-pictures {
@@ -156,9 +160,50 @@
   }
 }
 
-.edit-pictures-2 {
-  margin-bottom: 120px;
-  width: 345px;
+.form4 {
+  .edit-pictures {
+    .edit-pictures-2 {
+    width: 345px;
+    margin-top: 20px;
+    margin-bottom: 90px;
+    position: -webkit-sticky;
+    position: sticky;
+    }
+  }
+}
+
+.form5 {
+  .form5-1 {
+    .edit-pictures-3 {
+    width: 345px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    }
+  }
+}
+
+.form6 {
+  .form6-2 {
+    width: 345px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.form7 {
+  .form7-1 {
+    .edit-pictures-3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 10px
+    }
+  }
 }
 
 .photo_1_cache {
