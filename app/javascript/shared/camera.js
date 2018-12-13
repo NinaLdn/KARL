@@ -1,6 +1,5 @@
 function cameraStart() {
-  const constraints = { video: true, audio: false
-  };
+  const constraints = { video: true, audio: false, video: { facingMode: { exact: "environment" } } };
 
   const cameraView = document.querySelector("#camera--view"),
         cameraView1 = document.querySelector("#camera--view-1"),
