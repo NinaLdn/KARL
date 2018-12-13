@@ -2,7 +2,7 @@
 .karl-container {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 15px;
   h5 {
     font-size: 20px;
     font-family: "Fira Sans", sans-serif;
@@ -61,14 +61,13 @@
 
 .final-validation-last-modification {
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   label {
     font-size: 16px !important;
     color: black;
   }
   input {
-    font-size: 14px !important;
-    color: rgba(0, 0, 0, 0.66);
+    font-size: 20px !important;
   }
 }
 
@@ -123,4 +122,17 @@
 
 #description-box {
   height: 350px;
+}
+
+.ad-form-wrapper-2 {
+  .form-control {
+    border: solid 1px #68f500;
+    border-radius: 5px;
+  }
+}
+
+.ad-form-wrapper-1 {
+  .form-control {
+  border-radius: 5px;
+  }
 }
