@@ -1,26 +1,30 @@
 <div class="damages-container">
 
-  <div class="formDamageYesNo">
-    <div class="formDamageYesNo-2">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:77.7%">
+
+    <div class="formDamageYesNo">
+
+      <div class="formDamageYesNo-2">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70"
+          aria-valuemin="0" aria-valuemax="100" style="width:77.7%">
+          </div>
+        </div>
+      </div>
+
+      <div class="formDamageYesNo-1">
+        <h13>Avez-vous des dommages <br/> sur votre voiture ?</h13>
+      </div>
+
+      <div class="formDamageYesNo-3">
+        <div class="formDamageYesNo-3-1">
+          <div class="btn-hover color-5" id="submit-yes-damage">Oui</div>
+        </div>
+        <div class="formDamageYesNo-3-2">
+          <%= link_to "Non", final_validation_car_path(@car), class: "btn-hover color-11" %>
         </div>
       </div>
     </div>
-    <div class="formDamageYesNo-1">
-      <h13>Avez-vous des dommages <br/> sur votre voiture ?</h13>
 
-    </div>
-    <div class="formDamageYesNo-3">
-      <div class="formDamageYesNo-3-1">
-        <h12 class="btn-hover color-5" id="submit-yes-damage">Oui</h12>
-      </div>
-      <div class="formDamageYesNo-3-2">
-        <%= link_to "Non", final_validation_car_path(@car), class: "btn-hover color-11" %>
-      </div>
-    </div>
-  </div>
 
   <div id="form-damage">
     <div class="choose-form-damage-nature form-damage-nature">
@@ -39,22 +43,25 @@
               <h4 id="damages-type-font">Mécanique</h4>
             </li>
           </ul>
+
         </div>
       </div>
     </div>
-  </div>
 
 
     <div class="form-damage-nature hide-or-active" id="form-carrosserie">
       <%= simple_form_for [@car, @damage] do |f| %>
         <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-carrosserie'}%>
         <div class="nature-damages">
+
           <div class="nature-damages-1">
             <!-- <h13>Le dommage sur la carrosserie concerne: </h13> -->
           </div>
+
           <div class="nature-damages-2">
             <div class="damages-nature">
               <% Damage::CARROSSERIE.each do |damage| %>
+
 
               <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="carrosserie">
                 <i class="fas fa-check"></i>
@@ -62,34 +69,20 @@
               </div>
 
               <% end %>
+
             </div>
             <%= f.input :title, as: :hidden, input_html: { id: 'true-title-carrosserie'}%>
           </div>
+
           <div class="nature-damages-3">
             <%= f.input :description, label: "Description", as: :text %>
           </div>
-          <div class="nature-damages-4">
-            <div class="photo-damages">
-              <%= f.input :picture_1, label: "Photo 1", class: "photo-upload" %>
-              <%= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
-              <%= f.input :picture_2, label: "Photo 2", class: "photo-upload"  %>
-              <%= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
-              <%= f.input :picture_3, label: "Photo 3", class: "photo-upload" %>
-              <%= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
-            </div>
-          </div>
-          <div class="final-step-button">
-            <%= f.submit "Finaliser", class: "btn-hover color-5"%>
-          </div>
-      <% end %>
-      </div>
-    </div>
 
-    <div class="form-damage-nature hide-or-active" id="form-mecanique">
-      <%= simple_form_for [@car, @damage] do |f| %>
-        <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-mecanique'}%>
+          <div id="damage-camera-button"> test </div>
+        </div>
 
-        <div class="nature-damages">
+        <div class="nature-damages-4">
+
 
           <div class="nature-damages-5">
             <!-- <h13>Le dommage sur la mécanique concerne: </h13> -->
@@ -102,23 +95,101 @@
               <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="mecanique">
                 <i class="fas fa-check"></i>
                 <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
+
               </div>
-              <% end %>
             </div>
-            <%= f.input :title, as: :hidden, input_html: { id: 'true-title-mecanique'}%>
-          </div>
+            
+             <div class="damage-camera-video hidden">
+              <div class="edit-pictures">
 
-          <div class="nature-damages-7">
-            <%= f.input :description, as: :text %>
-          </div>
+                <div class="edit-pictures-1">
+                  <h5>Veuillez documenter les dommages</h5>
 
-          <div class="final-step-button">
-            <%= f.submit "Finaliser", class: "btn-hover color-5"%>
-          </div>
+                  <div class="photo-upload-features">
 
+                    <main id="camera-damage">
+                    <!-- Camera sensor -->
+                      <canvas id="camera--sensor-damage"></canvas>
+                      <!-- Camera view -->
+                      <video id="camera--view-damage" autoplay playsinline>
+                      </video>
+                        <div class="picture-content-damage">
+                          <p>Prenez une photo de face</p>
+                          <div>  <%= image_tag "sportive-car-front-view.png"%></div>
+                        </div>
+
+                      <a id="camera--trigger-3" class="btn-hover color-5">Prendre photo</a>
+
+                    </main>
+
+                  </div>
+
+                </div>
+
+            <div class="damage-camera-capture hidden">
+
+              <div class="form5-1">
+
+                <div class="edit-pictures-2">
+                     <!-- Camera output -->
+                  <img src="//:0" alt="" id="camera--output-damage">
+                  <%= f.input :picture_1, as: :hidden, class: "photo-upload" %>
+                </div>
+              </div>
+            </div>
         </div>
-      <% end %>
+        <div class="edit-pictures-3">
+          <%= f.submit "Finaliser", class: "btn-hover color-5"%>
+        </div>
+        <% end %>
     </div>
 
+      <!--   <div class="photo-damages">
+          <%#= f.input :picture_1, label: "Photo 1", class: "photo-upload" %>
+          <%#= f.input :picture_1_cache, as: :hidden, class: "photo-upload" %>
+          <%#= f.input :picture_2, label: "Photo 2", class: "photo-upload"  %>
+          <%#= f.input :picture_2_cache, as: :hidden, class: "photo-upload" %>
+          <%#= f.input :picture_3, label: "Photo 3", class: "photo-upload" %>
+          <%#= f.input :picture_3_cache, as: :hidden, class: "photo-upload" %>
+        </div>
+      </div> -->
+
+
+
+
+
+  <div class="form-damage-nature hide-or-active" id="form-mecanique">
+    <%= simple_form_for [@car, @damage] do |f| %>
+      <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-mecanique'}%>
+
+      <div class="nature-damages">
+
+        <div class="nature-damages-5">
+          <h13>Le dommage sur la mécanique concerne: </h13>
+        </div>
+
+        <div class="nature-damages-6">
+          <div class="damages-nature nature-damages-6-1">
+            <% Damage::MECANIQUE.each do |damage| %>
+            <div class="info-card-small" data-value="<%= damage %>" data-name="mecanique">
+              <p><%= image_tag "002-tick-1.png"%></p>
+              <h5> <%= damage %> </h5>
+            </div>
+            <% end %>
+          </div>
+          <%= f.input :title, as: :hidden, input_html: { id: 'true-title-mecanique'}%>
+        </div>
+
+        <div class="nature-damages-7">
+          <%= f.input :description, as: :text %>
+        </div>
+
+        <div class="final-step-button">
+          <%= f.submit "Finaliser", class: "btn-hover color-5"%>
+        </div>
+
+      </div>
+
+    <% end %>
   </div>
 </div>
