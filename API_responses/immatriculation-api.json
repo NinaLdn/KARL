@@ -1,24 +1,24 @@
 {
   "ABICode": "",
-  "Description": "RENAULT MODUS",
-  "RegistrationYear": "2009",
+  "Description": "VOLKSWAGEN COMBI",
+  "RegistrationYear": "1996",
   "CarMake": {
-    "CurrentTextValue": "RENAULT"
+    "CurrentTextValue": "VOLKSWAGEN"
   },
   "CarModel": {
-    "CurrentTextValue": "MODUS"
+    "CurrentTextValue": "Combi"
   },
   "EngineSize": {
-    "CurrentTextValue": "6"
+    "CurrentTextValue": "9"
   },
   "FuelType": {
-    "CurrentTextValue": "Essence"
+    "CurrentTextValue": "Diesel"
   },
   "MakeDescription": {
-    "CurrentTextValue": "RENAULT"
+    "CurrentTextValue": "VOLKSWAGEN"
   },
   "ModelDescription": {
-    "CurrentTextValue": "MODUS"
+    "CurrentTextValue": "COMBI"
   },
   "Immobiliser": {
     "CurrentTextValue": ""
@@ -30,38 +30,38 @@
     "CurrentTextValue": ""
   },
   "BodyStyle": {
-    "CurrentTextValue": "Berline 5 portes"
+    "CurrentTextValue": "Break"
   },
-  "RegistrationDate": "15042009",
+  "RegistrationDate": "15041996",
   "ImageUrl":
 "http:\/\/immatriculationapi.com\/image.aspx\/@UkVOQVVMVCBNT0RVUw==",
   "ExtendedData": {
-    "anneeSortie": "2009",
+    "anneeSortie": "1996",
     "boiteDeVitesse": "M",
-    "carburantVersion": "E",
-    "carrosserieVersion": "21",
+    "carburantVersion": "D",
+    "carrosserieVersion": "23",
     "classeSra": "I",
-    "libVersion": "TCE 100 EXCEPTION",
-    "libelleModele": "MODUS",
-    "marque": "RE",
-    "modele": "70",
+    "libVersion": "T4 2.4 D",
+    "libelleModele": "78ch long",
+    "marque": "VW",
+    "modele": "t4 2.4",
     "produit": "A1",
-    "puissance": "6",
-    "version": "204",
+    "puissance": "8",
+    "version": "2.4 D",
     "cleCarrosserie": "2199BE5",
     "groupeSra": "30",
-    "nbPlace": "5",
-    "datePremiereMiseCirculation": "15042009",
+    "nbPlace": "9",
+    "datePremiereMiseCirculation": "15041996",
     "questionBatterie": "N",
     "electrique": "N",
     "genre": null,
-    "typeVehicule": "99",
+    "typeVehicule": "150",
     "numSerieMoteur": "VF1JP0W0541168026",
     "valeurANeufSRA": "",
     "niveauRisqueVol": "0",
     "protectionConstructeur": "S7",
-    "puissanceDyn": "100",
-    "segmentVeh": "B"
+    "puissanceDyn": "78",
+    "segmentVeh": "D"
   }
 }
 
