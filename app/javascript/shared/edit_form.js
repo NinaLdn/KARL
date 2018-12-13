@@ -22,17 +22,7 @@ const submitCar = () => {
 
   if (submitWhySelling) {
 
-    submitWhySelling.addEventListener("click", (event) => {
-      event.preventDefault();
-      form1.classList.add("hidden")
-      form2.classList.remove("hidden")
-    });
 
-    submitAddress.addEventListener("click", (event) => {
-      event.preventDefault();
-      form2.classList.add("hidden")
-      form3.classList.remove("hidden")
-    });
 
     submitKm.addEventListener("click", (event) => {
       event.preventDefault();
@@ -64,6 +54,23 @@ const submitCar = () => {
       form8.classList.remove("hidden")
     });
 
+    submitTechnicalControl.addEventListener("click", (event) => {
+      event.preventDefault();
+      form8.classList.add("hidden")
+      form1.classList.remove("hidden")
+    });
+
+    submitWhySelling.addEventListener("click", (event) => {
+      event.preventDefault();
+      form1.classList.add("hidden")
+      form2.classList.remove("hidden")
+    });
+
+    // submitAddress.addEventListener("click", (event) => {
+    //   event.preventDefault();
+    //   form2.classList.add("hidden")
+    //   form3.classList.remove("hidden")
+    // });
   }
   // submitWhySelling.addEventListener("click", (event) => {
 
