@@ -6,6 +6,7 @@
 
 .first-estimation-body {
   padding: 15px;
+  height: calc(100vh - 140px);
 }
 
 .first-estimation-text {
@@ -17,9 +18,10 @@
     font-size: 20px !important;
   }
   text-align: center;
-  margin-top: 15px;
-  .black-matter {
-    color: black !important;
+  margin-top: 10px;
+
+.black-matter {
+  color: black !important;
   }
   margin-bottom: 10px;
 }
@@ -39,9 +41,9 @@
   p {
     font-size: 15px !important;
     color: rgba(0, 0, 0, 0.66);
-    margin: -6px 0 12.5px !important;
+    margin: -6px 0 -2.5px !important;
   }
-  .black-matter {
+.black-matter {
     color: black !important;
   }
   margin-top: 0px;
@@ -66,11 +68,26 @@
 }
 
 #myChart {
-  margin-bottom: -40px;
+  margin-bottom: -35px;
+}
+
+.container {
+  position: relative;
+}
+
+.saved-price {
+  position: absolute;
+  left: 67px;
+  top: 250px;
+  width: 100px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: bolder;
 }
 
 .chartjs-render-monitor {
-  height: 290px !important;
+  height: 238px !important;
 }
 
 .first-estimation-button {
@@ -78,4 +95,5 @@
     margin-left: 0px;
   }
 }
+
 

@@ -25,24 +25,25 @@
       </div>
     </div>
 
-    <div id="form-damage">
-      <div class="choose-form-damage-nature form-damage-nature">
-        <div class="choose-form-damage-nature-container">
-          <div class="choose-form-damage-nature-1">
-            <h13>Quelle est la nature de votre dommage ?</h13>
-          </div>
-          <div class="choose-form-damage-nature-2">
-            <ul class="damages-type">
-              <li data-name="carrosserie" class="btn" data-target="form-carrosserie">
-                <i class="fas fa-car-crash"></i>
-                <h4 id="damages-type-font">Carrosserie</h4>
-              </li>
-              <li data-name="mecanique" class='btn' data-target="form-mecanique">
-                <i class="fas fa-wrench"></i>
-                <h4 id="damages-type-font">Mécanique</h4>
-              </li>
-            </ul>
-          </div>
+
+  <div id="form-damage">
+    <div class="choose-form-damage-nature form-damage-nature">
+      <div class="choose-form-damage-nature-container">
+        <div class="choose-form-damage-nature-1">
+          <h13>Le dommage concerne:</h13>
+        </div>
+        <div class="choose-form-damage-nature-2">
+          <ul style="margin-top:10px; margin-bottom:100px" class="damages-type">
+            <li data-name="carrosserie" class="btn" data-target="form-carrosserie">
+              <i class="fas fa-car-crash"></i>
+              <h4 id="damages-type-font">Carrosserie</h4>
+            </li>
+            <li data-name="mecanique" class='btn' data-target="form-mecanique">
+              <i class="fas fa-wrench"></i>
+              <h4 id="damages-type-font">Mécanique</h4>
+            </li>
+          </ul>
+
         </div>
       </div>
     </div>
@@ -54,17 +55,21 @@
         <div class="nature-damages">
 
           <div class="nature-damages-1">
-            <h13>Le dommage sur la carrosserie concerne: </h13>
+            <!-- <h13>Le dommage sur la carrosserie concerne: </h13> -->
           </div>
 
           <div class="nature-damages-2">
             <div class="damages-nature">
               <% Damage::CARROSSERIE.each do |damage| %>
-                <div class="info-card-small" data-value="<%= damage %>" data-name="carrosserie">
-                  <p><%= image_tag "002-tick-1.png"%></p>
-                  <h5> <%= damage %> </h5>
-                </div>
-                <% end %>
+
+
+              <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="carrosserie">
+                <i class="fas fa-check"></i>
+                <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
+              </div>
+
+              <% end %>
+
             </div>
             <%= f.input :title, as: :hidden, input_html: { id: 'true-title-carrosserie'}%>
           </div>
@@ -78,7 +83,23 @@
 
         <div class="nature-damages-4">
 
-            <div class="damage-camera-video hidden">
+
+          <div class="nature-damages-5">
+            <!-- <h13>Le dommage sur la mécanique concerne: </h13> -->
+          </div>
+
+          <div class="nature-damages-6">
+            <div class="damages-nature nature-damages-6-1">
+              <% Damage::MECANIQUE.each do |damage| %>
+
+              <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="mecanique">
+                <i class="fas fa-check"></i>
+                <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
+
+              </div>
+            </div>
+            
+             <div class="damage-camera-video hidden">
               <div class="edit-pictures">
 
                 <div class="edit-pictures-1">
@@ -104,8 +125,6 @@
                   </div>
 
                 </div>
-              </div>
-            </div>
 
             <div class="damage-camera-capture hidden">
 
