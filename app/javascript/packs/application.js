@@ -6,6 +6,8 @@ import {moveCar} from 'shared/car';
 import {submitCar} from 'shared/edit_form';
 import {submitDamage} from 'shared/new_damage_form';
 import {cameraStart} from 'shared/camera';
+import {cameraDamageStart} from 'shared/damage-camera';
+import {launchLoader} from 'shared/loader';
 
 const chart = document.getElementById("myChart");
 if(chart){
@@ -27,9 +29,24 @@ if (camera) {
   cameraStart();
 }
 
+const cameraDamage = document.getElementById('camera-damage-video');
+if (cameraDamage) {
+  cameraDamageStart();
+}
+
+const fakeLoader = document.querySelector('.fake-loader');
+if (fakeLoader) {
+  launchLoader();
+}
+
+const newDamage = document.querySelector('.damages-container');
+if (newDamage) {
+  submitDamage();
+}
 
 // moveCar();
+
 submitCar();
-submitDamage();
+
 
 
