@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://localhost:3000/cars/5/damages/new -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Karl - Arrêtez de vous faire rouler</title>
+    <meta name="description" content="Karl vous permet de générer l&#39;annonce de votre voiture pour ensuite l&#39;expédier sur les principaux sites de vente à particulier">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:3000/assets/favicon-a494063064fa82d5cbf56ac636abe983f8a30fd2a72a2dd1a7f56ce7ab48ec65.ico">
+
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="Karl - Arrêtez de vous faire rouler">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:3000/cars/5/damages/new">
+    <meta property="og:image" content="http://localhost:3000/assets/Logo_Meta-794c8053447cac82ad32ce495512d65419145c3998f39007f996972199997e1c.png">
+    <meta property="og:description" content="Karl vous permet de générer l&#39;annonce de votre voiture pour ensuite l&#39;expédier sur les principaux sites de vente à particulier">
+    <meta property="og:site_name" content="Karl - Arrêtez de vous faire rouler">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="cdFBr8KobQSrzQeEeWa3GDHX/1In5x89Idq1cM5joZm2e7b5nObE5T94a7qgvJKHTqznq0kG9PBzPn2NdO7UYA==">
+    <meta name="action-cable-url" content="/cable">
+    <link rel="stylesheet" media="all" href="./Karl - Arrêtez de vous faire rouler_files/application-4b0b2fcac4030d16dc6ffc39078c7761aff26988c8e8d9efe20c7a291fdc4cad.css">
+    <link rel="stylesheet" media="all" href="./Karl - Arrêtez de vous faire rouler_files/application-1fef8ee6f98c5a62ede561e509106ad6.css">
+  <style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+  <body cz-shortcut-listen="true">
+    <div class="navbar-wagon ">
+  <!-- Logo -->
+  <a class="karl-logo" href="http://localhost:3000/">Karl</a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+
+      <!-- Links when logged in -->
+      <a class="navbar-wagon-item navbar-wagon-link" href="http://localhost:3000/cars/5/damages/new#">Host</a>
+      <a class="navbar-wagon-item navbar-wagon-link" href="http://localhost:3000/cars/5/damages/new#">Trips</a>
+      <a class="navbar-wagon-item navbar-wagon-link" href="http://localhost:3000/cars/5/damages/new#">Messages</a>
+
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" src="./Karl - Arrêtez de vous faire rouler_files/ssaunier">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <a href="http://localhost:3000/cars/5/damages/new#">
+                <i class="fa fa-user"></i> Profile
+</a>            </li>
+            <li>
+              <a href="http://localhost:3000/cars/5/damages/new#">
+                <i class="fa fa-cog"></i>  Settings
+</a>            </li>
+            <li>
+              <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">
+                <i class="fa fa-sign-out"></i>  Log out
+</a>            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="http://localhost:3000/cars/5/damages/new#">Mon profil</a></li>
+
+
+        <li><a href="http://localhost:3000/cars/5">Dashboard</a></li>
+
+        <li><a href="http://localhost:3000/cars/5/damages/new#"></a></li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="damages-container">
+
+  <div class="formDamageYesNo">
+    <div class="formDamageYesNo-2">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:77.7%">
+        </div>
+      </div>
+    </div>
+    <div class="formDamageYesNo-1">
+      <h13>Avez-vous des dommages <br> sur votre voiture ?</h13>
+
+    </div>
+    <div class="formDamageYesNo-3">
+      <div class="formDamageYesNo-3-1">
+        <h12 class="btn-hover color-5" id="submit-yes-damage">Oui</h12>
+      </div>
+      <div class="formDamageYesNo-3-2">
+        <a class="btn-hover color-11" href="http://localhost:3000/cars/5/final_validation">Non</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="form-damage">
+    <div class="choose-form-damage-nature form-damage-nature">
+      <div class="choose-form-damage-nature-container">
+        <div class="choose-form-damage-nature-1">
+          <h13>Le dommage concerne:</h13>
+        </div>
+        <div class="choose-form-damage-nature-2">
+          <ul style="margin-top:10px; margin-bottom:100px" class="damages-type">
+            <li data-name="carrosserie" class="btn" data-target="form-carrosserie">
+              <i class="fas fa-car-crash"></i>
+              <h4 id="damages-type-font">Carrosserie</h4>
+            </li>
+            <li data-name="mecanique" class="btn" data-target="form-mecanique">
+              <i class="fas fa-wrench"></i>
+              <h4 id="damages-type-font">Mécanique</h4>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="form-damage-nature hide-or-active" id="form-carrosserie">
+      <form class="simple_form new_damage" id="new_damage" novalidate="novalidate" enctype="multipart/form-data" action="http://localhost:3000/cars/5/damages" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="cdFBr8KobQSrzQeEeWa3GDHX/1In5x89Idq1cM5joZm2e7b5nObE5T94a7qgvJKHTqznq0kG9PBzPn2NdO7UYA==">
+        <div class="form-group hidden damage_nature"><input class="form-control hidden" id="true-nature-carrosserie" type="hidden" name="damage[nature]"></div>
+        <div class="nature-damages">
+          <div class="nature-damages-1">
+            <!-- <h13>Le dommage sur la carrosserie concerne: </h13> -->
+          </div>
+          <div class="nature-damages-2">
+            <div class="damages-nature">
+              <div class="info-card-small btn" data-value="Une rayure" data-name="carrosserie">
+                <p id="validation-check"><img src="./Karl - Arrêtez de vous faire rouler_files/002-tick-1-c4d0495a89a863ed4f55b09cd5c8f98f9f49882d863187bd61de5b0de77b2056.png"></p>
+                <h5> Une rayure </h5>
+              </div>
+              <div class="info-card-small btn" data-value="Une bosse" data-name="carrosserie">
+                <p id="validation-check"><img src="./Karl - Arrêtez de vous faire rouler_files/002-tick-1-c4d0495a89a863ed4f55b09cd5c8f98f9f49882d863187bd61de5b0de77b2056.png"></p>
+                <h5> Une bosse </h5>
+              </div>
+              <div class="info-card-small btn" data-value="Autre" data-name="carrosserie">
+                <p id="validation-check"><img src="./Karl - Arrêtez de vous faire rouler_files/002-tick-1-c4d0495a89a863ed4f55b09cd5c8f98f9f49882d863187bd61de5b0de77b2056.png"></p>
+                <h5> Autre </h5>
+              </div>
+            </div>
+            <div class="form-group hidden damage_title"><input class="form-control hidden" id="true-title-carrosserie" type="hidden" name="damage[title]"></div>
+          </div>
+          <div class="nature-damages-3">
+            <div class="form-group text optional damage_description"><label class="form-control-label text optional" for="damage_description">Description</label><textarea class="form-control text optional" name="damage[description]" id="damage_description"></textarea></div>
+          </div>
+          <div class="nature-damages-4">
+            <div class="photo-damages">
+              <div class="form-group file optional damage_picture_1"><label class="file optional" for="damage_picture_1">Photo 1</label><input class="form-control-file file optional" type="file" name="damage[picture_1]" id="damage_picture_1"></div>
+              <div class="form-group hidden damage_picture_1_cache"><input class="form-control hidden" type="hidden" name="damage[picture_1_cache]" id="damage_picture_1_cache"></div>
+              <div class="form-group file optional damage_picture_2"><label class="file optional" for="damage_picture_2">Photo 2</label><input class="form-control-file file optional" type="file" name="damage[picture_2]" id="damage_picture_2"></div>
+              <div class="form-group hidden damage_picture_2_cache"><input class="form-control hidden" type="hidden" name="damage[picture_2_cache]" id="damage_picture_2_cache"></div>
+              <div class="form-group file optional damage_picture_3"><label class="file optional" for="damage_picture_3">Photo 3</label><input class="form-control-file file optional" type="file" name="damage[picture_3]" id="damage_picture_3"></div>
+              <div class="form-group hidden damage_picture_3_cache"><input class="form-control hidden" type="hidden" name="damage[picture_3_cache]" id="damage_picture_3_cache"></div>
+            </div>
+          </div>
+          <div class="final-step-button">
+            <input type="submit" name="commit" value="Finaliser" class="btn-hover color-5" data-disable-with="Finaliser">
+          </div>
+      </div></form>
+    </div>
+
+    <div class="form-damage-nature hide-or-active" id="form-mecanique">
+      <form class="simple_form new_damage" id="new_damage" novalidate="novalidate" action="http://localhost:3000/cars/5/damages" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="cdFBr8KobQSrzQeEeWa3GDHX/1In5x89Idq1cM5joZm2e7b5nObE5T94a7qgvJKHTqznq0kG9PBzPn2NdO7UYA==">
+        <div class="form-group hidden damage_nature"><input class="form-control hidden" id="true-nature-mecanique" type="hidden" name="damage[nature]"></div>
+
+        <div class="nature-damages">
+
+          <div class="nature-damages-5">
+            <!-- <h13>Le dommage sur la mécanique concerne: </h13> -->
+          </div>
+
+          <div class="nature-damages-6">
+            <div class="damages-nature nature-damages-6-1">
+              <div class="info-card-small btn" data-value="L&#39;embrayage" data-name="mecanique">
+                <p id="validation-check"><img src="./Karl - Arrêtez de vous faire rouler_files/002-tick-1-c4d0495a89a863ed4f55b09cd5c8f98f9f49882d863187bd61de5b0de77b2056.png"></p>
+                <h5> L'embrayage </h5>
+              </div>
+              <div class="info-card-small btn" data-value="La boite de vitesse" data-name="mecanique">
+                <p id="validation-check"><img src="./Karl - Arrêtez de vous faire rouler_files/002-tick-1-c4d0495a89a863ed4f55b09cd5c8f98f9f49882d863187bd61de5b0de77b2056.png"></p>
+                <h5> La boite de vitesse </h5>
+              </div>
+              <div class="info-card-small btn" data-value="La courroie
+de distribution" data-name="mecanique">
+                <p id="validation-check"><img src="./Karl - Arrêtez de vous faire rouler_files/002-tick-1-c4d0495a89a863ed4f55b09cd5c8f98f9f49882d863187bd61de5b0de77b2056.png"></p>
+                <h5> La courroie
+de distribution </h5>
+              </div>
+              <div class="info-card-small btn" data-value="Autre" data-name="mecanique">
+                <p id="validation-check"><img src="./Karl - Arrêtez de vous faire rouler_files/002-tick-1-c4d0495a89a863ed4f55b09cd5c8f98f9f49882d863187bd61de5b0de77b2056.png"></p>
+                <h5> Autre </h5>
+              </div>
+            </div>
+            <div class="form-group hidden damage_title"><input class="form-control hidden" id="true-title-mecanique" type="hidden" name="damage[title]"></div>
+          </div>
+
+          <div class="nature-damages-7">
+            <div class="form-group text optional damage_description"><label class="form-control-label text optional" for="damage_description">Description</label><textarea class="form-control text optional" name="damage[description]" id="damage_description"></textarea></div>
+          </div>
+
+          <div class="final-step-button">
+            <input type="submit" name="commit" value="Finaliser" class="btn-hover color-5" data-disable-with="Finaliser">
+          </div>
+
+        </div>
+</form>    </div>
+
+  </div>
+
+
+    <script src="./Karl - Arrêtez de vous faire rouler_files/application-50000f29e1bf2752ae7e56dda39f10dd0f67a47aea5c3f07ed0d933f3e1a256a.js"></script>
+    <script src="./Karl - Arrêtez de vous faire rouler_files/application-d5e1bfc4f48fe381491c.js"></script>
+  
+
+<iframe id="webpack-dev-server-client-overlay" src="./Karl - Arrêtez de vous faire rouler_files/saved_resource.html" style="position: fixed; left: 0px; top: 0px; right: 0px; bottom: 0px; width: 100vw; height: 100vh; border: none; z-index: 2147483647;"></iframe></body></html>

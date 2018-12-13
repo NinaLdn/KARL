@@ -2,7 +2,7 @@
   <div class="first-estimation-text col-xs-12">
     <h5>Première estimation</h5>
     <p>Notre algorythme a évalué le marché.</p>
-    <p>Gagnez <strong class="black-matter"><%= ((@car.estimated_price)-(@car.estimated_price / 1.3)).round%>€</strong> grâce à <strong class="black-matter">Karl</strong>, et générez automatiquement votre annonce sur 2 sites de vente entre particuliers, en moins de 3 minutes.</p>
+    <p>Gagnez <strong style="font-size:20px" class="black-matter price-size"><%= ((@car.estimated_price)-(@car.estimated_price / 1.3)).round%>€</strong> grâce à <strong class="black-matter">Karl</strong>,<br/>et générez automatiquement votre annonce.<br/>En moins de 3 minutes.</p>
   </div>
 
   <div class="info-row" >
@@ -40,7 +40,7 @@
   <div class="first-estimation-button">
     <%= link_to start_car_path(@car) do %>
     <div class="first-estimation-button-1">
-      <button class="btn-hover color-5">Vendez votre voiture au meilleur prix !</button>
+      <button class="btn-hover color-5">Créez votre annonce !</button>
     </div>
     <%end%>
   </div>

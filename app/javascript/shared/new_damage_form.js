@@ -27,7 +27,7 @@ submitYesDamage.addEventListener('click', (event) => {
       const trueNature = document.getElementById(`true-nature-${dataName}`);
       console.log(event)
       const targetNatureValue = event.currentTarget.dataset.name;
-      trueNature.value = targetNatureValue
+      trueNature.value = targetNatureValue;
       console.log(targetNatureValue);
       console.log(trueNature.value);
       // => FRONT JS OPACITY
@@ -79,7 +79,7 @@ submitYesDamage.addEventListener('click', (event) => {
   });
 
 // FORM-DAMAGE-NATURE => EVENT : CLICK FOR TITLE OF DAMAGES
-  const damagesTitle = document.querySelectorAll(".damages-nature li");
+  const damagesTitle = document.querySelectorAll(".info-card-small-damage");
   damagesTitle.forEach((title) => {
     title.addEventListener('click', (event) => {
       const dataName = title.dataset.name;
@@ -92,9 +92,29 @@ submitYesDamage.addEventListener('click', (event) => {
   // => DISPLAY FORM PICTURES
     });
   });
+// EVENT: CLICK ON DAMAGE TITLE => VALIDATION CHECK BTN TO BE GREEN
+  const cardToClick = document.querySelectorAll(".info-card-small-damage");
+  cardToClick.forEach((card) => {
+    card.addEventListener('click', (event) => {
+      const currentSelected = document.querySelector(".green-btn");
+      if (currentSelected) {
+        currentSelected.classList.remove('green-btn');
+      }
+      const validationCheck = card.querySelector(".fa-check");
+      validationCheck.classList.add("green-btn");
+      // document.querySelector(".svgClass").getSVGDocument().getElementById("svgInternalID").setAttribute("fill", "red")
+    });
 
-// EVENT : CLICK FOR PICTURES VALIDATION OF DAMAGES
-// => DISPLAY FORM DESCRIPTION
-// EDIT AND UPDATE "Finaliser"
-};
+  });
+    console.log(cardToClick);
+
+// };
+
+// const cardToClick = document.querySelectorAll("info-card-small");
+// function setClass(el, klass, cardToClick) {
+//   document.querySelectorAll(el).forEach((form) => {
+//     form.classList.remove(klass);
+//   })
+//   target.classList.add(klass);
+}
 export {submitDamage};
