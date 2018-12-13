@@ -3,53 +3,8 @@
 
 <!--   <h3>Votre annonce: </h3> -->
   <%= simple_form_for(@car) do |f| %>
-    <div class="form1">
-      <div class="description-edit">
 
-
-          <div class="description-edit-1-1">
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width:22.2%">
-              </div>
-            </div>
-          </div>
-
-          <div class="description-edit-1-1">
-            <% options = ["Je déménage", "J'achète une nouvelle voiture", "Je préfère le co-voiturage"] %>
-            <%= f.input :why_selling, label: "Pour quelle raison vendez-vous votre voiture ?", placeholder:"Achat d'une nouvelle voiture", as: :text %>
-          </div>
-
-          <div class="description-edit-2-1">
-            <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-why-selling" %>
-          </div>
-
-      </div>
-    </div>
-
-    <div class="form2 hidden">
-      <div class="edit-address">
-
-          <div class="edit-address-2-2">
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width:33.3%">
-              </div>
-            </div>
-          </div>
-
-          <div class="edit-address-1">
-            <%= f.input :location, label: "Dans quelle ville se situe votre voiture ?", placeholder:"Lyon", as: :string %>
-          </div>
-
-          <div class="edit-address-2">
-              <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-address"%>
-          </div>
-
-      </div>
-    </div>
-
-    <div class="form3 hidden">
+    <div class="form3">
       <div class="edit-kilometers">
 
         <div class="progress">
@@ -218,6 +173,52 @@
         <div class="edit-technical-control-2">
           <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-technical-control"%>
         </div>
+
+      </div>
+    </div>
+
+    <div class="form1 hidden">
+      <div class="description-edit">
+
+
+          <div class="description-edit-1-1">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width:22.2%">
+              </div>
+            </div>
+          </div>
+
+          <div class="description-edit-1-1">
+            <% options = ["Je déménage", "J'achète une nouvelle voiture", "Je préfère le co-voiturage"] %>
+            <%= f.input :why_selling, label: "Pour quelle raison vendez-vous votre voiture ?", placeholder:"Achat d'une nouvelle voiture", as: :text %>
+          </div>
+
+          <div class="description-edit-2-1">
+            <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-why-selling" %>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="form2 hidden">
+      <div class="edit-address">
+
+          <div class="edit-address-2-2">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width:33.3%">
+              </div>
+            </div>
+          </div>
+
+          <div class="edit-address-1">
+            <%= f.input :location, label: "Dans quelle ville se situe votre voiture ?", placeholder:"Lyon", as: :string %>
+          </div>
+
+          <div class="edit-address-2">
+              <%= f.submit "Etape suivante", class: "btn-hover color-5", id: "submit-address"%>
+          </div>
 
       </div>
     </div>
