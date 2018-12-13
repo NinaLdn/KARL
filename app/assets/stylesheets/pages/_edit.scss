@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   padding: 15px;
   .progress {
     margin-bottom: 40px;
@@ -43,6 +43,14 @@
   }
 }
 
+.form4 {
+  #camera {
+  height: calc(80% - 170px);
+  position: fixed;
+  width: calc(100% - 30px);
+  }
+}
+
 .form5 {
   .form-control {
   border: 0;
@@ -59,7 +67,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 135px);
+  height: calc(100vh - 105px);
   #camera--output {
     position: relative !important;
   }
@@ -68,11 +76,28 @@
   }
 }
 
-.form6-1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.form6 {
   padding: 15px;
+  #camera1 {
+  height: calc(80% - 170px);
+  position: fixed;
+  width: calc(100% - 30px);
+  }
+}
+
+
+.form6-1 {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // height: calc(100vh - 500px);
+}
+
+.form6-2 {
+  #camera--trigger-2 {
+  margin-left: -4px !important;
+  bottom: 60px !important;
+  }
 }
 
 .form7-1 {
@@ -83,12 +108,18 @@
   height: calc(100vh - 50px);
 }
 
+.form7-1-2 {
+  margin-bottom: 46px;
+  margin-left: -15px;
+  margin-right: 5px;
+}
+
 .edit-address {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
   }
@@ -103,7 +134,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
   }
@@ -118,7 +149,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   .btn-hover {
     margin-left: 0px;
     z-index: 1;
@@ -134,11 +165,6 @@
   background-color: red;
 }
 
-
-
-
-
-
 .edit-technical-control {
   display: flex;
   flex-direction: column;
@@ -151,5 +177,5 @@
 }
 
 .edit-technical-control-2 {
-  margin-bottom: 45px;
+  margin-bottom: 17px;
 }
