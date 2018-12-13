@@ -7,7 +7,7 @@ class DamagesController < ApplicationController
   end
 
   def create
-    raise
+
     @car = Car.find(params[:car_id])
     @damage = Damage.new(damage_params)
     @damage.car_id = @car.id

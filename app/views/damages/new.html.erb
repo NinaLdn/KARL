@@ -88,18 +88,10 @@
             <!-- <h13>Le dommage sur la mécanique concerne: </h13> -->
           </div>
 
-          <div class="nature-damages-6">
-            <div class="damages-nature nature-damages-6-1">
-              <% Damage::MECANIQUE.each do |damage| %>
 
-              <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="mecanique">
-                <i class="fas fa-check"></i>
-                <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
 
-              </div>
-            </div>
-            
-             <div class="damage-camera-video hidden">
+
+            <div class="damage-camera-video hidden">
               <div class="edit-pictures">
 
                 <div class="edit-pictures-1">
@@ -125,9 +117,10 @@
                   </div>
 
                 </div>
+              </div>
+            </div>
 
             <div class="damage-camera-capture hidden">
-
               <div class="form5-1">
 
                 <div class="edit-pictures-2">
@@ -137,7 +130,9 @@
                 </div>
               </div>
             </div>
+
         </div>
+
         <div class="edit-pictures-3">
           <%= f.submit "Finaliser", class: "btn-hover color-5"%>
         </div>
@@ -168,14 +163,18 @@
           <h13>Le dommage sur la mécanique concerne: </h13>
         </div>
 
-        <div class="nature-damages-6">
-          <div class="damages-nature nature-damages-6-1">
-            <% Damage::MECANIQUE.each do |damage| %>
-            <div class="info-card-small" data-value="<%= damage %>" data-name="mecanique">
-              <p><%= image_tag "002-tick-1.png"%></p>
-              <h5> <%= damage %> </h5>
+          <div class="nature-damages-6">
+            <div class="damages-nature nature-damages-6-1">
+              <% Damage::MECANIQUE.each do |damage| %>
+
+              <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="mecanique">
+                <i class="fas fa-check"></i>
+                <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
+
+              </div>
+             <% end %>
             </div>
-            <% end %>
+
           </div>
           <%= f.input :title, as: :hidden, input_html: { id: 'true-title-mecanique'}%>
         </div>
@@ -192,4 +191,4 @@
 
     <% end %>
   </div>
-</div>
+
