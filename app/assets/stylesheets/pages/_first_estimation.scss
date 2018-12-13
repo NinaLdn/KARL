@@ -65,6 +65,16 @@
   margin-bottom: -35px;
 }
 
+.container {
+  position: relative;
+}
+
+.saved-price {
+  position: absolute;
+  margin-bottom : -30px;
+  right: 50px;
+}
+
 .chartjs-render-monitor {
   height: 238px !important;
 }
