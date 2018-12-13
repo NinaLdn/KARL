@@ -12,9 +12,9 @@
   <div class="info-price">
     <div class='price-card'>
       <div class='price-card-content'>
-        <p class='price-card-titles'><strong>Prix demandé</strong></p>
+        <p class='price-card-titles'><strong>Prix validé</strong></p>
         <div class='price-card-inner-content' style='color:black'>
-        <h3> <%= @car.estimated_price %> € </h3>
+        <h3> <%= @car.estimated_price-200%> € </h3>
         <div class="card-price-status">
           <button type="button" class="btn-link" data-toggle="modal" data-target="#exampleModalCenter">
           <p >Mettre à jour</p>
@@ -30,7 +30,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <p> <%= @car.estimated_price %> €</p>
+                <p> <%= @car.estimated_price-200%> €</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -44,9 +44,9 @@
     </div>
     <div class='price-card'>
       <div class='price-card-content'>
-        <p class='price-card-titles'> <strong>Recommendation Karl</strong></p>
+        <p class='price-card-titles'> <strong>Prix Karl</strong></p>
         <div class='price-card-inner-content'>
-          <h3> <%= @car.estimated_price %> € </h3>
+          <h3> <%= @car.estimated_price-200%> € </h3>
           <div class="card-price-status">
            <p style='color:#FDD116'>Maintenir</p>
           </div>

@@ -15,9 +15,9 @@
 
     <div class="body-home">
       <div class="comment-form">
-        <div class="comment-form-text">
+<!--         <div class="comment-form-text">
           <p>Karl vous aide à vendre votre voiture au meilleur prix et rapidement. <br/> Commençons par l’estimation:</p>
-        </div>
+        </div> -->
         <div class="first-form">
           <%= simple_form_for @car do |f| %>
           <div class="form-component-1">
@@ -28,7 +28,7 @@
               <div class="form-component-1-2-1">
                 <%= f.input :estimated_kilometers, as: :range, :as => :hidden, input_html: { id: 'trueSlider'}%>
               </div>
-              <label for="ex11">Kilométrage estimé</label>
+              <label for="ex11" style="margin-bottom:20px">Kilométrage estimé</label>
               <input id="ex11" type="text"/>
             </div>
           </div>
@@ -36,6 +36,9 @@
             <%= f.submit "Estimez le prix de votre voiture !", class: "btn-hover color-5" %>
           </div>
           <% end %>
+        <div style="margin-top:20px" class="comment-form-text">
+          <p>Vendez votre voiture au meilleur prix et rapidement</p>
+        </div>
         </div>
       </div>
     </div>

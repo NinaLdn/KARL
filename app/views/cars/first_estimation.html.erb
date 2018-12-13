@@ -12,8 +12,8 @@
 
   <div class="first-estimation-text col-xs-12">
     <h5>Première estimation</h5>
-    <p>Notre algorithme a évalué le marché.</p>
-    <p>Gagnez <strong style="font-size:20px" class="black-matter price-size"><%= ((@car.estimated_price)-(@car.estimated_price / 1.3)).round%>€</strong> grâce à <strong class="black-matter">Karl</strong>,<br/>et générez automatiquement votre annonce.<br/>En moins de 3 minutes.</p>
+    <p>Notre algorithme a évalué le marché pour votre <strong class="black-matter"><%= @car.car_brand %> <%= @car.model_type %></strong>.</p>
+    <p>Gagnez <strong class="black-matter price-size"><%= ((@car.estimated_price)-(@car.estimated_price / 1.3)).round%> euros</strong> grâce à <strong class="black-matter">Karl</strong><!-- ,<br/> et générez automatiquement votre annonce.<br/>En moins de 3 minutes.</p> -->
 
   </div>
 
