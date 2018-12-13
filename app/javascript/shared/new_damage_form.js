@@ -123,12 +123,31 @@ const submitDamage = () => {
   const cardToClick = document.querySelectorAll(".info-card-small-damage");
   cardToClick.forEach((card) => {
     card.addEventListener('click', (event) => {
-      const currentSelected = document.querySelector(".green-btn");
-      if (currentSelected) {
-        currentSelected.classList.remove('green-btn');
+      document.querySelectorAll(".info-card-small-damage").forEach((card) => {
+        if (card.querySelector(".tick-vert") || card.querySelector(".tick-gris") ) {
+          card.querySelector(".tick-vert").classList.add('hidden');
+          card.querySelector(".tick-gris").classList.remove('hidden');
+        }
+      })
+      const grayTick = card.querySelector(".tick-gris");
+      const greenTick = card.querySelector(".tick-vert");
+      // const currentSelected = document.querySelector(".tick-vert");
+      // const validationCheck = card.querySelector(".tick-gris");
+
+      if (greenTick) {
+        grayTick.classList.add("hidden")
+        greenTick.classList.remove("hidden")
       }
-      const validationCheck = card.querySelector(".fa-check");
-      validationCheck.classList.add("green-btn");
+        // greenTick.classList.remove("hidden")
+        // grayTick.classList.add("hidden")
+
+
+      // if (currentSelected) {
+      //   currentSelected.classList.add('hidden');
+      //   validationCheck.classList.remove("hidden");
+      // }
+      // currentSelected.classList.remove("hidden");
+      // validationCheck.classList.add("hidden");
       // document.querySelector(".svgClass").getSVGDocument().getElementById("svgInternalID").setAttribute("fill", "red")
     });
 
@@ -136,6 +155,8 @@ const submitDamage = () => {
     console.log(cardToClick);
 
 // };
+
+// Quand on click sur gris --> ajouter la hidden au gris et enlever la hidden au vert
 
 
 // const cardToClick = document.querySelectorAll("info-card-small");
