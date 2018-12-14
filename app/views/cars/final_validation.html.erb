@@ -20,11 +20,11 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <img src="<%= @car.photo_1%>" alt="">
+            <%= cl_image_tag @car.photo_1, crop: :fill %>
           </div>
 
           <div class="item">
-            <img src="<%= @car.photo_2%>" alt="">
+            <%= cl_image_tag @car.photo_2, crop: :fill %>
           </div>
 
         </div>
