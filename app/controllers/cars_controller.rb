@@ -61,7 +61,7 @@ class CarsController < ApplicationController
     # date_string = @car.registration_date.to_s
     # date_autovisual = Date.parse("#{date_string.last(4)}-#{date_string[2..3]}-#{date_string.first(2)}")
     request["content-type"] = 'application/json'
-    request.body = "{\"key\":\"ATxfo4jsMy6RD4M6YtaoU572gRuSjzdQAqWWG3khcLua\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{@car.registration_date}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
+    request.body = "{\"key\":\"Fv9KbypJXhi66KdjynHxY2DAgEjpoq6kPn1nmiZ7MnLd\",\"txt\":\"#{@car.car_brand} #{@car.model_type} #{@car.body} #{@car.model_variant}\",\"km\":\"#{@car.estimated_kilometers}\",\"dt_entry_service\":\"#{@car.registration_date}\",\"fuel\":\"#{@car.fuel_type}\",\"transmission\":\"#{@car.gearbox}\",\"country_ref\":\"FR\",\"seats\":\"#{@car.seating_place_number}\",\"value\":\"true\",\"transaction\":\"true\",\"market\":\"true\"}"
     autovisual_response = http.request(request).read_body
     market_data = JSON.parse(autovisual_response, {symbolize_names: true})
     @car.update_attributes(
