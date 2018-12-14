@@ -1,5 +1,5 @@
 function cameraDamageStart() {
-  const constraints = { video: true, audio: false };
+  const constraints = { video: true, audio: false, video: { facingMode: { exact: "environment" } } };
 
   const cameraViewdamage = document.querySelector("#camera--view-damage"),
         cameraOutputdamage = document.querySelector("#camera--output-damage"),
