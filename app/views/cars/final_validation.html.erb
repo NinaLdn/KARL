@@ -107,16 +107,13 @@
       <h6><%= damage.title %></h6>
       <p><%= damage.description %></p>
       <div class="container-caroussel">
-
         <% if damage.picture_1.file.nil?%>
-          <div >  <%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: 400%></div>
+          <div><%= image_tag "avantgarde-concept-769583-unsplash.jpg", width: "100%" %></div>
         <% else %>
-
-        <div class="damage-picture-final-validation">
-          <img src="<%= damage.picture_1.url%>" alt="">
-        </div>
-
-         <% end %>
+          <div class="damage-picture-final-validation">
+            <img src="<%= damage.picture_1.url %>" alt="">
+          </div>
+        <% end %>
       <div class="button-damage">
         <%= link_to edit_car_damage_path(@car, damage) do %>
           <button class="btn btn-custom-2">Modifier</button>

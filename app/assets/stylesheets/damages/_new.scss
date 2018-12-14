@@ -43,19 +43,15 @@
 }
 
 .choose-form-damage-nature {
-  padding: 15px;
+  padding: 0;
 }
 
 .choose-form-damage-nature-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 530px);
 }
 
-.choose-form-damage-nature-2 {
-  margin-right: 40px;
-}
 
 .nature-damages {
   flex-direction: column;
@@ -65,12 +61,6 @@
   padding-bottom: 15px;
 }
 
-.nature-damages-2 {
-  margin-right: 10px;
-  ul {
-    margin-right: 19px;
-  }
-}
 
 .nature-damages-3 {
   margin-top: 15px;
@@ -104,11 +94,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 19px;
     box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
     cursor: pointer;
-    width: 150px;
-    height: 150px;
   }
   li:last-child {
     margin-left: 20px;
@@ -140,10 +128,6 @@
   }
 }
 
-.nature-damages-2 {
-  margin-top: 40px;
-}
-
 .nature-damages-6-1 {
   margin-top: 60px;
 }
@@ -158,4 +142,17 @@
 
 .h5-title-damage {
   font-size: 15px;
+}
+
+// mise en forme des cards si probleme
+.form-margin {
+  padding-left: 0;
+}
+
+#damages-type-font {
+  font-size: 19px;
+}
+
+.nature-damages-4 {
+  position: relative;
 }

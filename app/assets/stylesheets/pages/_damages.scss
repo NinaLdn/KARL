@@ -108,13 +108,12 @@
   .btn-hover {
     margin: 0px;
   }
-  margin-top: 20px;
-  margin-bottom: 20px;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   bottom: 10px;
+  left: 10px;
+  right: 10px;
 }
 
-
-
-
+#form-damage {
+  margin-bottom: 60px;
+}

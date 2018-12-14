@@ -2,6 +2,16 @@
     position: fixed;
     width:100%
 }
+
+#camera--sensor-damage {
+  position: absolute;
+  width:100%
+}
+
+#camera--view-damage,
+#camera--output-damage {
+  position: relative;
+}
 // #camera--view, #camera--sensor, #camera--output{
 //     transform: scaleX(-1);
 //     filter: FlipH;
@@ -41,17 +51,16 @@
 
 #camera--trigger-3{
     width: 200px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    border: 1px solid #00a95d;
+    color: #00a95d;
     font-size: 16px;
     border-radius: 30px;
     border: none;
     padding: 15px 20px;
     text-align: center;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-    position: fixed;
-    bottom: 30px;
-    left: calc(50% - 100px);
+    position: relative;
     z-index: 1;
 }
 
@@ -79,3 +88,6 @@
   text-align:center;
 }
 
+.edit-pictures-1 {
+  text-align: center;
+}

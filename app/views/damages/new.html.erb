@@ -35,7 +35,7 @@
         </div>
 
         <div class="choose-form-damage-nature-2">
-          <ul style="margin-top:10px; margin-bottom:100px" class="damages-type">
+          <ul class="damages-type form-margin">
             <li data-name="carrosserie" class="btn" data-target="form-carrosserie">
               <i class="fas fa-car-crash"></i>
               <h4 id="damages-type-font">Carrosserie</h4>
@@ -55,11 +55,6 @@
       <%= simple_form_for [@car, @damage] do |f| %>
         <%= f.input :nature, as: :hidden, input_html: { id: 'true-nature-carrosserie'}%>
         <div class="nature-damages">
-
-          <div class="nature-damages-1">
-            <!-- <h13>Le dommage sur la carrosserie concerne: </h13> -->
-          </div>
-
           <div class="nature-damages-2">
             <div class="damages-nature">
               <% Damage::CARROSSERIE.each do |damage| %>
@@ -102,7 +97,7 @@
 
 
             <div class="damage-camera-video hidden">
-              <div class="edit-pictures">
+              <div class="">
 
                 <div class="edit-pictures-1">
                   <h5>Veuillez documenter les dommages</h5>
@@ -115,15 +110,8 @@
                       <!-- Camera view -->
                       <video id="camera--view-damage" autoplay playsinline>
                       </video>
-                        <div class="picture-content-damage">
-                          <p>Prenez une photo de face</p>
-                          <div>  <%= image_tag "sportive-car-front-view.png"%></div>
-                        </div>
-
-                      <a id="camera--trigger-3" class="btn-hover color-5">Prendre photo</a>
-
                     </main>
-
+                    <a id="camera--trigger-3">Prendre photo</a>
                   </div>
 
                 </div>
@@ -146,7 +134,7 @@
         <div class="edit-pictures-3">
           <%= f.submit "Finaliser", class: "btn-hover color-5"%>
         </div>
-        <% end %>
+      <% end %>
     </div>
 
       <!--   <div class="photo-damages">
@@ -177,22 +165,21 @@
             <div class="damages-nature nature-damages-6-1">
               <% Damage::MECANIQUE.each do |damage| %>
 
-              <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="mecanique">
-                <!-- <i class="fas fa-check"></i> -->
-                <div class="tick-gris">
-                  <%= image_tag "tick-gris.png", alt: "tick" %>
-                </div>
-                <div class="tick-vert hidden">
-                  <%= image_tag "tick-vert.png", alt: "tick" %>
-                </div>
-                <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
+                <div class="info-card-small-damage btn" data-value="<%= damage %>" data-name="mecanique">
+                  <!-- <i class="fas fa-check"></i> -->
+                  <div class="tick-gris">
+                    <%= image_tag "tick-gris.png", alt: "tick" %>
+                  </div>
+                  <div class="tick-vert hidden">
+                    <%= image_tag "tick-vert.png", alt: "tick" %>
+                  </div>
+                  <h5 class="to-be-green h5-title-damage"> <%= damage %> </h5>
 
-              </div>
-             <% end %>
+                </div>
+              <% end %>
             </div>
-
+            <%= f.input :title, as: :hidden, input_html: { id: 'true-title-mecanique'}%>
           </div>
-          <%= f.input :title, as: :hidden, input_html: { id: 'true-title-mecanique'}%>
         </div>
 
         <div class="nature-damages-7">
