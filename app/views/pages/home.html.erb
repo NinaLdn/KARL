@@ -22,7 +22,7 @@
           <%= simple_form_for @car do |f| %>
           <div class="form-component-1">
             <div class="form-component-1-1">
-              <%= f.input :registration_number, as: :string, id:"reg-number", placeholder:"EG258MA", label:"Numéro d'immatriculation"%>
+              <%= f.input :registration_number, as: :string, id:"reg-number", placeholder:"FC685KW", label:"Numéro d'immatriculation", input_html: { autocomplete: "off" } %>
             </div>
             <div class="form-component-1-2">
               <div class="form-component-1-2-1">
