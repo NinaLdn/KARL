@@ -5,7 +5,7 @@
     "@rails/webpacker": "3.5",
     "bootstrap": "3",
     "bootstrap-slider": "^10.3.2",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "flatpickr": "^4.5.2",
     "jquery": "^3.3.1"
   },
